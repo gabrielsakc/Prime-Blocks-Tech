@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanzador | Prime Blocks Tech</title>
+    <style>
+        body {
+            background-color: #0a0b1e;
+            color: #e0e0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(20, 22, 45, 0.7);
+            backdrop-filter: blur(12px);
+            padding: 3rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #25d1f4 0%, #1a8aef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #a0a0c0;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #25d1f4 0%, #1a8aef 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(37, 209, 244, 0.4);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #6a6a8a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Prime Blocks Tech</h1>
+        <p>Calculadora de Costos EPS</p>
+        <a href="http://localhost:5173" class="btn">Abrir Aplicación</a>
+        <div class="footer">
+            Asegúrate de que la terminal esté ejecutando 'npm run dev'
+        </div>
+    </div>
+</body>
+
+</html>
