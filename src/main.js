@@ -145,7 +145,7 @@ function init() {
       <!-- Results -->
       <div class="results-section">
         <div class="result-card">
-          <h3>Full Block Cost (152 ft³)</h3>
+          <h3 id="block-cost-title">Full Block Cost (152 ft³)</h3>
           <div class="value" id="block-cost-value">$0.00</div>
         </div>
         <div class="result-card">
@@ -175,29 +175,41 @@ function init() {
 function calculate() {
   console.log('Calculating with state:', state);
 
-  const yield_blq = DENSITY_YIELDS[state.pieceDensity];
-  const baseCostPerBlock = (state.rawMaterialCost / yield_blq) + FIXED_COST_SUM;
-
-  // Apply waste factor
+  // Waste factor
   const wasteFactor = 1 + (state.wastePercentage / 100);
-  const adjustedCostPerBlock = baseCostPerBlock * wasteFactor;
-  const costPerFt3Adjusted = adjustedCostPerBlock / BLOCK_VOLUME_FT3;
+
+  // 1. Calculate the REFERENCE Block Cost (based on Global Factory Density)
+  const factoryYield = DENSITY_YIELDS[state.blockDensity];
+  const factoryBaseCostPerBlock = (state.rawMaterialCost / factoryYield) + FIXED_COST_SUM;
+  const factoryAdjustedCostPerBlock = factoryBaseCostPerBlock * wasteFactor;
+
+  // 2. Calculate the PIECE Cost (based on Piece Density)
+  const pieceYield = DENSITY_YIELDS[state.pieceDensity];
+  const pieceBaseCostPerBlock = (state.rawMaterialCost / pieceYield) + FIXED_COST_SUM;
+  const pieceAdjustedCostPerBlock = pieceBaseCostPerBlock * wasteFactor;
+  const pieceCostPerFt3 = pieceAdjustedCostPerBlock / BLOCK_VOLUME_FT3;
 
   const pieceVolIn3 = state.pieceH * state.pieceW * state.pieceT;
   const pieceVolFt3 = pieceVolIn3 / 1728;
-  const unitPieceCostWithWaste = pieceVolFt3 * costPerFt3Adjusted;
-  const totalCost = unitPieceCostWithWaste * state.pieceQuantity;
+  const unitPieceCost = pieceVolFt3 * pieceCostPerFt3;
+  const totalCost = unitPieceCost * state.pieceQuantity;
 
   // Update DOM directly
   const capacityEl = document.getElementById('capacity-value');
   const blockCostEl = document.getElementById('block-cost-value');
+  const blockTitleEl = document.getElementById('block-cost-title');
   const unitCostEl = document.getElementById('unit-cost-value');
   const finalCostEl = document.getElementById('final-cost-value');
   const finalCostTitleEl = document.getElementById('final-cost-title');
 
   if (capacityEl) capacityEl.innerText = `${SHIFT_BLOCKS[state.shift]} Blocks`;
-  if (blockCostEl) blockCostEl.innerText = `$${adjustedCostPerBlock.toFixed(2)}`;
-  if (unitCostEl) unitCostEl.innerText = `$${unitPieceCostWithWaste.toFixed(4)}`;
+
+  // Reference Block Cost Card
+  if (blockCostEl) blockCostEl.innerText = `$${factoryAdjustedCostPerBlock.toFixed(2)}`;
+  if (blockTitleEl) blockTitleEl.innerText = `Full Block Cost (${state.blockDensity}kg - 152 ft³)`;
+
+  // Unit and Total Results
+  if (unitCostEl) unitCostEl.innerText = `$${unitPieceCost.toFixed(4)}`;
   if (finalCostEl) finalCostEl.innerText = `$${totalCost.toFixed(2)}`;
   if (finalCostTitleEl) finalCostTitleEl.innerText = `ORDER TOTAL (${state.pieceQuantity} Units @ ${state.wastePercentage}% Waste)`;
 }
@@ -205,6 +217,16 @@ function calculate() {
 function handleInput(e) {
   const { name, value } = e.target;
   state[name] = parseFloat(value) || value;
+
+  // SYNC Logic: If user changes Global Density, default the Piece Density to it as well
+  // but let them change it separately if they want.
+  if (name === 'blockDensity') {
+    state.pieceDensity = value;
+    // We need to update the pieceDensity select value in the DOM
+    const pieceDensitySelect = document.querySelector('select[name="pieceDensity"]');
+    if (pieceDensitySelect) pieceDensitySelect.value = value;
+  }
+
   calculate();
 }
 
