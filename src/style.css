@@ -100,7 +100,8 @@ body {
   margin-bottom: 0.5rem;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-glass);
@@ -109,13 +110,60 @@ input, select {
   color: var(--text-main);
   font-family: inherit;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: var(--accent-neon);
-  box-shadow: 0 0 0 4px var(--accent-neon-glow);
+  box-shadow: 0 0 0 4px var(--accent-neon-glow), 0 0 15px var(--accent-neon-glow);
+  background: rgba(37, 209, 244, 0.05);
+}
+
+/* Input Wrapper for Icons/Prefixes */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  padding-left: 2.5rem;
+}
+
+.input-wrapper .prefix {
+  position: absolute;
+  left: 1rem;
+  color: var(--accent-neon);
+  font-weight: 600;
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+
+.input-wrapper .suffix {
+  position: absolute;
+  right: 1rem;
+  color: var(--text-dim);
+  font-weight: 500;
+  pointer-events: none;
+  font-size: 0.8rem;
+}
+
+.input-wrapper input.has-suffix {
+  padding-right: 3rem;
+}
+
+/* Dimensions Grid Layout */
+.dimensions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  grid-column: 1 / -1;
+}
+
+.dimensions-grid .input-group {
+  margin-bottom: 0;
 }
 
 .assumptions-grid {

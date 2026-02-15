@@ -12,7 +12,7 @@ if (!app) {
 const BLOCK_VOLUME_FT3 = 152;
 const LABOR_COST_PER_BLOCK = 9;
 const ENERGY_COST_PER_BLOCK = 3;
-const INFRA_COST_PER_BLOCK = 2.27;
+const INFRA_COST_PER_BLOCK = 12; // Updated from 2.27
 const FIXED_COST_SUM = LABOR_COST_PER_BLOCK + ENERGY_COST_PER_BLOCK + INFRA_COST_PER_BLOCK;
 
 const DENSITY_YIELDS = {
@@ -53,29 +53,39 @@ function init() {
         
         <div class="input-group">
           <label>Raw Material Cost (USD/Ton)</label>
-          <input type="number" name="rawMaterialCost" value="${state.rawMaterialCost}" step="10">
+          <div class="input-wrapper">
+            <span class="prefix">$</span>
+            <input type="number" name="rawMaterialCost" value="${state.rawMaterialCost}" step="10">
+          </div>
         </div>
         
         <div class="input-group">
           <label>Factory Block Density (Production Yield)</label>
-          <select name="blockDensity">
-            <option value="15" ${state.blockDensity === '15' ? 'selected' : ''}>15 kgrs density</option>
-            <option value="18" ${state.blockDensity === '18' ? 'selected' : ''}>18 kgrs density</option>
-          </select>
+          <div class="input-wrapper">
+             <select name="blockDensity">
+              <option value="15" ${state.blockDensity === '15' ? 'selected' : ''}>15 kgrs density</option>
+              <option value="18" ${state.blockDensity === '18' ? 'selected' : ''}>18 kgrs density</option>
+            </select>
+          </div>
         </div>
         
         <div class="row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="input-group">
             <label>Production Shift</label>
-            <select name="shift">
-              <option value="8" ${state.shift === '8' ? 'selected' : ''}>8 Hours</option>
-              <option value="16" ${state.shift === '16' ? 'selected' : ''}>16 Hours</option>
-              <option value="24" ${state.shift === '24' ? 'selected' : ''}>24 Hours</option>
-            </select>
+            <div class="input-wrapper">
+              <select name="shift">
+                <option value="8" ${state.shift === '8' ? 'selected' : ''}>8 Hours</option>
+                <option value="16" ${state.shift === '16' ? 'selected' : ''}>16 Hours</option>
+                <option value="24" ${state.shift === '24' ? 'selected' : ''}>24 Hours</option>
+              </select>
+            </div>
           </div>
           <div class="input-group">
             <label>Avg. Waste (%)</label>
-            <input type="number" name="wastePercentage" value="${state.wastePercentage}" min="0" max="100">
+            <div class="input-wrapper">
+              <input type="number" name="wastePercentage" value="${state.wastePercentage}" min="0" max="100" class="has-suffix">
+              <span class="suffix">%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -97,8 +107,8 @@ function init() {
             <strong>$3.00</strong>
           </div>
           <div class="assumption-item">
-            <span>Infra/Credit</span>
-            <strong>$2.27</strong>
+            <span>Infra/Credit, General costs and Insurance</span>
+            <strong>$12.00</strong>
           </div>
           <div class="assumption-item" style="grid-column: 1 / -1; margin-top: 1rem; border-top: 1px dashed var(--border-glass); padding-top: 1.5rem;">
             <span>Total Fixed Costs per Block</span>
@@ -113,33 +123,53 @@ function init() {
 
       <!-- Piece Calculator -->
       <div class="glass-card" style="grid-column: 1 / -1;">
-        <h2 class="section-title">Piece Measurements & Quantity (Inches)</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem;">
-          <div class="input-group">
-            <label>Height (H)</label>
-            <input type="number" name="pieceH" value="${state.pieceH}">
+        <h2 class="section-title">Piece Measurements & Quantity</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          
+          <div class="dimensions-grid">
+            <div class="input-group">
+              <label>Height (H)</label>
+              <div class="input-wrapper">
+                <input type="number" name="pieceH" value="${state.pieceH}" class="has-suffix">
+                <span class="suffix">in</span>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Width (W)</label>
+              <div class="input-wrapper">
+                <input type="number" name="pieceW" value="${state.pieceW}" class="has-suffix">
+                <span class="suffix">in</span>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Thickness (T)</label>
+              <div class="input-wrapper">
+                <input type="number" name="pieceT" value="${state.pieceT}" class="has-suffix">
+                <span class="suffix">in</span>
+              </div>
+            </div>
           </div>
-          <div class="input-group">
-            <label>Width (W)</label>
-            <input type="number" name="pieceW" value="${state.pieceW}">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="input-group">
+              <label>Piece Density</label>
+              <div class="input-wrapper">
+                <select name="pieceDensity">
+                  <option value="15" ${state.pieceDensity === '15' ? 'selected' : ''}>15 kgrs</option>
+                  <option value="18" ${state.pieceDensity === '18' ? 'selected' : ''}>18 kgrs</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Quantity</label>
+              <div class="input-wrapper">
+                <input type="number" name="pieceQuantity" value="${state.pieceQuantity}" min="1">
+              </div>
+            </div>
           </div>
-          <div class="input-group">
-            <label>Thickness (T)</label>
-            <input type="number" name="pieceT" value="${state.pieceT}">
-          </div>
-          <div class="input-group">
-            <label>Piece Density</label>
-            <select name="pieceDensity">
-              <option value="15" ${state.pieceDensity === '15' ? 'selected' : ''}>15 kgrs</option>
-              <option value="18" ${state.pieceDensity === '18' ? 'selected' : ''}>18 kgrs</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>Quantity</label>
-            <input type="number" name="pieceQuantity" value="${state.pieceQuantity}" min="1">
-          </div>
+
         </div>
-        <button class="btn-calculate" id="btn-calc">Recalculate Now</button>
+        <button class="btn-calculate" id="btn-calc">Recalculate Piece Cost</button>
       </div>
 
       <!-- Results -->
