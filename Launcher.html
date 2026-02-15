@@ -21,47 +21,67 @@
         .container {
             text-align: center;
             background: rgba(20, 22, 45, 0.7);
-            backdrop-filter: blur(12px);
             padding: 3rem;
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(37, 209, 244, 0.2);
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(135deg, #25d1f4 0%, #1a8aef 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
 
         p {
             color: #a0a0c0;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
         }
 
         .btn {
+            display: inline-block;
             background: linear-gradient(135deg, #25d1f4 0%, #1a8aef 100%);
             color: white;
             text-decoration: none;
             padding: 1rem 2.5rem;
-            border-radius: 1rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-block;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(37, 209, 244, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(37, 209, 244, 0.4);
+            box-shadow: 0 8px 25px rgba(37, 209, 244, 0.5);
         }
 
         .footer {
             margin-top: 2rem;
             font-size: 0.8rem;
-            color: #6a6a8a;
+            color: #505070;
         }
     </style>
 </head>
@@ -69,10 +89,10 @@
 <body>
     <div class="container">
         <h1>Prime Blocks Tech</h1>
-        <p>EPS Cost Calculator</p>
-        <a href="http://localhost:5173" class="btn">Open Application</a>
+        <p>EPS Cost Calculator Suite</p>
+        <button onclick="window.location.href='index.html'" class="btn">Launch Application</button>
         <div class="footer">
-            Ensure that the terminal is running 'npm run dev'
+            Precision Manufacturing estimation tool
         </div>
     </div>
 </body>
