@@ -9,7 +9,7 @@ if (!app) {
 }
 
 // Constants
-const BLOCK_VOLUME_FT3 = 152;
+const BLOCK_VOLUME_FT3 = 153;
 const LABOR_COST_PER_BLOCK = 9;
 const ENERGY_COST_PER_BLOCK = 3;
 const INFRA_COST_PER_BLOCK = 12; // Updated from 2.27
@@ -137,7 +137,7 @@ function init() {
         <div class="assumptions-grid" style="margin-top: 1.5rem; border-top: 1px dashed var(--border-glass); padding-top: 1.5rem;">
           <div class="assumption-item">
             <span>Reference Block Vol.</span>
-            <strong>152 ft³</strong>
+            <strong>153 ft³</strong>
           </div>
           <div class="assumption-item">
             <span>Labor Cost/Block</span>
@@ -341,6 +341,14 @@ function init() {
             <span>Production Volume Required</span>
             <strong id="total-volume-value">0 ft³</strong>
           </div>
+          <div class="summary-card">
+            <span>Total Blocks Required</span>
+            <strong id="total-blocks-value">0.00</strong>
+          </div>
+          <div class="summary-card">
+            <span>Production Days (Est.)</span>
+            <strong id="total-days-value">0.00</strong>
+          </div>
           <div class="summary-card profit">
             <span>Net Profit Projection</span>
             <strong id="total-profit-value">$0.00</strong>
@@ -351,7 +359,7 @@ function init() {
       <!-- Results (Moved to bottom or kept for piece only) -->
       <div class="results-section">
         <div class="result-card">
-          <h3 id="block-cost-title">Full Block Cost (152 ft³)</h3>
+          <h3 id="block-cost-title">Full Block Cost (153 ft³)</h3>
           <div class="value" id="block-cost">$0.00</div>
           <div id="cost-per-ft3" style="font-size: 1.1rem; color: var(--accent-neon); margin-top: 0.5rem; font-weight: 500;">$0.00 / ft³</div>
           <div class="label">Total manufacturing cost per block</div>
@@ -423,12 +431,12 @@ function calculate() {
 
   // Reference Block Cost Card
   if (blockCostEl) blockCostEl.innerText = `$${factoryAdjustedCostPerBlock.toFixed(2)}`;
-  if (blockTitleEl) blockTitleEl.innerText = `Full Block Cost (${state.blockDensity}kg - 152 ft³)`;
+  if (blockTitleEl) blockTitleEl.innerText = `Full Block Cost (${state.blockDensity}kg - 153 ft³)`;
 
   // Display Cost per Cubic Foot (Block Cost / 153)
   const costPerFt3El = document.getElementById('cost-per-ft3');
   if (costPerFt3El) {
-    const costPerFt3Val = factoryAdjustedCostPerBlock / 153; // User specific request for 153 divisor
+    const costPerFt3Val = factoryAdjustedCostPerBlock / 153;
     costPerFt3El.innerText = `$${costPerFt3Val.toFixed(2)} / ft³`;
   }
 
@@ -523,11 +531,17 @@ function calculate() {
   // Global Sales Summary
   const totalRevenueEl = document.getElementById('total-revenue-value');
   const totalVolumeEl = document.getElementById('total-volume-value');
-  const totalProfitEl = document.getElementById('total-profit-value');
+  const totalBlocksEl = document.getElementById('total-blocks-value');
+  const totalDaysEl = document.getElementById('total-days-value');
   const totalProfit = totalRevenue - totalMfgCost;
+  const totalBlocks = totalVolumeFt3 / 153;
+  const blocksPerDay = SHIFT_BLOCKS[state.shift] || 64;
+  const totalDays = totalBlocks / blocksPerDay;
 
   if (totalRevenueEl) totalRevenueEl.innerText = `$${totalRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   if (totalVolumeEl) totalVolumeEl.innerText = `${totalVolumeFt3.toLocaleString()} ft³`;
+  if (totalBlocksEl) totalBlocksEl.innerText = totalBlocks.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  if (totalDaysEl) totalDaysEl.innerText = totalDays.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   if (totalProfitEl) {
     totalProfitEl.innerText = `$${totalProfit.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   }
