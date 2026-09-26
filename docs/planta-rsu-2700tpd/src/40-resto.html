@@ -1,0 +1,273 @@
+<section id="equipos">
+<h2><span class="n">10</span>Listado maestro de maquinaria</h2>
+<p>64 partidas agrupadas por área. Los fabricantes son candidatos a consultar: <b>ningún modelo, capacidad nominal ni precio se ha verificado con documentación del fabricante</b> (<i>Candidate equipment — manufacturer verification required</i>). El mismo listado está en <code>listado-maestro-equipos.csv</code> para abrirlo en Excel.</p>
+{{EQUIPOS}}
+</section>
+
+<section id="secundarios">
+<h2><span class="n">11</span>Equipos secundarios y servicios auxiliares</h2>
+<div class="cols">
+<div>
+<h3>Servicios de proceso</h3>
+<ul>
+<li><b>Aire comprimido:</b> 4 + 1 compresores de tornillo con variador (≈ 200 Nm³/min en servicio), secadores frigoríficos, depósitos y anillo de distribución.</li>
+<li><b>Captación de polvo:</b> 6 filtros de mangas con detección y extinción de chispas en trituradores, trómeles y línea de RDF.</li>
+<li><b>Olores:</b> 7 + 1 ventiladores de 100.000 m³/h, 4 lavadores ácidos, ≈ 7.000 m² de biofiltro, conductos en plástico reforzado.</li>
+<li><b>Agua:</b> depuradora MBR + ósmosis inversa (≈ 600 m³/d), reutilización del permeado en humectación de biofiltros y túneles, balsas de pluviales con separación de primer lavado.</li>
+<li><b>Calor:</b> circuito de agua caliente desde los motores a digestores y secaderos (≈ 11 MWt disponibles, ≈ 3,4 MWt al secado).</li>
+<li><b>Biogás:</b> gasómetros, desulfuración, soplantes, antorchas, analizadores CH₄/H₂S/O₂.</li>
+</ul>
+</div>
+<div>
+<h3>Infraestructura y apoyo</h3>
+<ul>
+<li><b>Electricidad:</b> subestación AT/MT, ≈ 12 transformadores MT/BT, CCM inteligentes, compensación de reactiva con filtros de armónicos, grupo de emergencia y SAI.</li>
+<li><b>Contra incendios:</b> cámaras IR y cañones automáticos en fosos, rociadores en naves de balas y RDF, anillo de hidrantes, depósito de 2.000–3.000 m³, bombas eléctrica y diésel, retención del agua de extinción.</li>
+<li><b>Pesaje y control de accesos:</b> 6 básculas, lectura de matrículas, pórtico de radiación.</li>
+<li><b>Maquinaria móvil:</b> 8 palas cargadoras (6 + 2), 6 carretillas con pinza de balas, manipulador telescópico, barredoras y cisterna.</li>
+<li><b>Mantenimiento:</b> taller con puente grúa de 10 t, equipo de recargue de cuchillas, almacén de repuestos críticos.</li>
+<li><b>Laboratorio:</b> humedad, PCI, cenizas, ST/SV, BMP y análisis de biogás.</li>
+</ul>
+</div>
+</div>
+<h3>Resumen de servicios</h3>
+<div class="tbl"><table>
+<thead><tr><th>Servicio</th><th>Consumo / capacidad</th><th>Procedencia</th></tr></thead>
+<tbody>
+<tr><td>Electricidad (operación)</td><td>≈ 11,0 MW medios · 238 MWh/d · 91,5 kWh/t</td><td><span class="tag">CÁLC</span> lista de cargas</td></tr>
+<tr><td>Electricidad producida (CHP)</td><td>≈ 10,5 MWe · 252 MWh/d</td><td><span class="tag">CÁLC</span></td></tr>
+<tr><td>Calor recuperado</td><td>≈ 11 MWt (digestores + 3,4 MWt a secado)</td><td><span class="tag">CÁLC</span> η térmica 42 % <span class="tag">LIT</span></td></tr>
+<tr><td>Aire comprimido</td><td>≈ 200 Nm³/min</td><td><span class="tag a">SUPUESTO</span> 12 Nm³/min por NIR <span class="tag t">ENSAYO</span></td></tr>
+<tr><td>Agua de aporte</td><td>≈ 0,15 m³/t · ≈ 390 m³/d</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Aguas a depuradora</td><td>≈ 350–550 m³/d (diseño 600)</td><td><span class="tag">CÁLC</span> + lixiviado <span class="tag">LIT</span></td></tr>
+<tr><td>Gasóleo (maquinaria móvil)</td><td>≈ 1,5 L/t · ≈ 3.900 L/d</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Aire de ventilación tratado</td><td>≈ 700.000 m³/h</td><td><span class="tag">CÁLC</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section id="electrica">
+<h2><span class="n">12</span>Energía y electricidad</h2>
+<p>Lista de cargas con 37 grupos de consumidores (<code>calc/electrical_load_list.csv</code>, calculada con <code>scripts/energy_balance.py</code>).</p>
+<div class="kpis" style="--c:4">
+  <div><b>16,3 MW</b><span>carga conectada en servicio (17,7 MW con reservas)</span></div>
+  <div><b>11,0 MW</b><span>carga media de operación</span></div>
+  <div><b>13,5 MW</b><span>punta de demanda</span></div>
+  <div><b>≈ 20 MVA</b><span>potencia de transformación requerida</span></div>
+</div>
+<div class="tbl"><table>
+<thead><tr><th>Mayores consumidores</th><th class="r">MWh/d</th></tr></thead>
+<tbody>
+<tr><td>Ventiladores de túneles (32 × 45 kW, 24 h)</td><td class="r">22,5</td></tr>
+<tr><td>Trituradores secundarios de RDF (3 × 500 kW)</td><td class="r">21,0</td></tr>
+<tr><td>Compresores de aire (4 × 315 kW)</td><td class="r">20,2</td></tr>
+<tr><td>Ventiladores de olores (7 × 132 kW)</td><td class="r">18,9</td></tr>
+<tr><td>Abrebolsas / pretrituradores (4 × 320 kW)</td><td class="r">16,6</td></tr>
+<tr><td>Alimentación y agitación de digestores</td><td class="r">31,3</td></tr>
+<tr><td>Resto (transportadores, clasificación, servicios, edificios)</td><td class="r">107,4</td></tr>
+<tr class="tot"><td>Total</td><td class="r">237,9</td></tr>
+</tbody></table></div>
+<p><b>Balance energético:</b> la cogeneración produce ≈ 252 MWh/d y la planta consume ≈ 238 MWh/d. La planta es prácticamente <b>autosuficiente</b>, con un pequeño excedente. El consumo calculado es conservador (factor de simultaneidad 1,0); en operación optimizada puede bajar a 60–75 kWh/t <span class="tag">ESTIM</span>, lo que liberaría 40–80 MWh/d para exportar. La conexión a red debe cubrir la punta completa (13,5 MW) para operar con motores parados: subestación AT/MT con 2 transformadores de 25 MVA (N+1) y distribución en MT a centros de transformación por área.</p>
+<div class="note"><b>Alternativa a evaluar:</b> convertir el biogás en biometano (≈ 2.600 Nm³/h) para inyectar en red o alimentar la flota de camiones de recogida. Rinde más si hay red de gas cerca o flota a GNC, pero la planta pasaría a comprar toda su electricidad.</div>
+</section>
+
+<section id="automatizacion">
+<h2><span class="n">13</span>Automatización</h2>
+<p>La arquitectura (plano 05) separa campo, control por área, sala de control y red corporativa. Criterios clave:</p>
+<ul>
+<li><b>Grúas de foso en automático</b> con escaneo 3D del nivel: mezclan el residuo para homogeneizar la alimentación, que es lo que más estabiliza los trómeles y la digestión.</li>
+<li><b>Control de carga:</b> el consumo de cada abrebolsas regula la velocidad del alimentador de placas (PID con variador).</li>
+<li><b>Básculas de banda</b> en todos los productos y rechazos: balance de masa y recuperación por producto en tiempo real.</li>
+<li><b>Enclavamientos en cascada:</b> arranque de aguas abajo hacia aguas arriba; parada inversa con vaciado. Permisivos: filtros de polvo y ventilación de olores en marcha antes de arrancar trituradores o abrir puertas.</li>
+<li><b>Seguridad funcional</b> separada: paradas de emergencia, tirones de cable, resguardos, sistema instrumentado del biogás y gestor de quemador de antorchas.</li>
+<li><b>Inteligencia artificial solo donde se mide su valor:</b> robots de control de calidad (pureza y horas de mano de obra por tonelada), analítica de composición sobre banda, mantenimiento predictivo (horas de parada no planificada) y detección temprana de incendios.</li>
+</ul>
+<h3>Plantilla estimada (≈ 180 personas)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Puesto</th><th class="r">Por turno</th><th>Cobertura</th><th class="r">FTE</th></tr></thead>
+<tbody>
+<tr><td>Sala de control (proceso, grúas, biogás)</td><td class="r">3</td><td>24/7 × 4,2</td><td class="r">13</td></tr>
+<tr><td>Supervisor de turno</td><td class="r">1</td><td>24/7 × 4,2</td><td class="r">4</td></tr>
+<tr><td>Control de calidad en cabinas (con robots)</td><td class="r">6</td><td>24/7 × 4,2</td><td class="r">25</td></tr>
+<tr><td>Maquinistas de pala y carretilla</td><td class="r">7</td><td>24/7 × 4,2</td><td class="r">29</td></tr>
+<tr><td>Mantenimiento a turnos</td><td class="r">4</td><td>24/7 × 4,2</td><td class="r">17</td></tr>
+<tr><td>Básculas, accesos, laboratorio</td><td class="r">2</td><td>24/7 × 4,2</td><td class="r">9</td></tr>
+<tr><td>Mantenimiento de día (mecánico, eléctrico, instrumentación)</td><td class="r">—</td><td>jornada</td><td class="r">25</td></tr>
+<tr><td>Dirección, administración, comercial, HSE, logística, limpieza</td><td class="r">—</td><td>jornada</td><td class="r">36</td></tr>
+<tr><td>Absentismo y vacaciones (≈ 15 %)</td><td class="r"></td><td></td><td class="r">22</td></tr>
+<tr class="tot"><td>Total</td><td></td><td></td><td class="r">≈ 180</td></tr>
+</tbody></table></div>
+<p class="muted">Una planta de la misma capacidad con triaje manual suele necesitar bastante más personal en cabinas <span class="tag a">SUPUESTO</span>. Cobertura 4,2 personas por puesto continuo <span class="tag">LIT</span>.</p>
+</section>
+
+<section id="seguridad">
+<h2><span class="n">14</span>Seguridad e incendios: revisión preliminar de riesgos</h2>
+<div class="tbl"><table>
+<thead><tr><th>Área</th><th>Categoría</th><th>Peligro</th><th>Salvaguardas de diseño</th><th class="r">Riesgo residual</th></tr></thead>
+<tbody>
+<tr><td>Foso RSU y RDF</td><td>Incendio</td><td>Autocalentamiento, baterías de litio</td><td>Cámaras IR, cañones automáticos, muros cortafuegos, rotación del foso por grúa</td><td class="r">Medio</td></tr>
+<tr><td>Trituradores</td><td>Explosión</td><td>Bombonas y aerosoles</td><td>Inspección en foso, paneles de alivio, detección de chispas</td><td class="r">Medio</td></tr>
+<tr><td>Líneas de trituración y RDF</td><td>Polvo</td><td>Polvo combustible (papel, plástico)</td><td>Captación en origen, análisis de riesgo de polvo, zonificación ATEX/NFPA donde aplique</td><td class="r">Medio</td></tr>
+<tr><td>Biogás</td><td>Explosión / tóxico</td><td>CH₄ (5–15 % en aire), H₂S</td><td>Clasificación de áreas, detección de gas, antorchas al 100 %, válvulas de presión y vacío, apagallamas</td><td class="r">Medio</td></tr>
+<tr><td>Transportadores y prensas</td><td>Mecánico</td><td>Atrapamiento</td><td>Resguardos, tirones de cable, consignación LOTO, verificación de energía cero</td><td class="r">Bajo</td></tr>
+<tr><td>Digestores, fosos, tanques</td><td>Personal</td><td>Espacios confinados</td><td>Permisos de trabajo, detección portátil, ventilación forzada</td><td class="r">Medio</td></tr>
+<tr><td>Viales</td><td>Personal</td><td>Atropello</td><td>Circulación de sentido único, separación peatonal, accesos independientes</td><td class="r">Bajo</td></tr>
+<tr><td>Cabinas de control de calidad</td><td>Biológico</td><td>Bioaerosoles, objetos punzantes</td><td>Cabinas presurizadas con aire filtrado, EPI, robots en las posiciones más expuestas</td><td class="r">Bajo</td></tr>
+<tr><td>Subestación y CCM</td><td>Eléctrico</td><td>Arco eléctrico</td><td>Estudio de arco, celdas resistentes al arco, termografía</td><td class="r">Bajo</td></tr>
+<tr><td>Almacén de balas</td><td>Incendio</td><td>Alta carga de fuego</td><td>Rociadores, sectorización, límites de altura y pasillos</td><td class="r">Medio</td></tr>
+</tbody></table></div>
+<p>Pasos siguientes: HAZID con este layout, HAZOP cuando existan los P&amp;ID de biogás y agua, FMEA de trituradores, grúas y ventiladores, y análisis LOPA/SIL de las funciones de seguridad del biogás. Normas de referencia a verificar según país: NFPA 1, 13, 68, 69, 70 y 660; ATEX e IEC 60079; ISO 13849. <i>Applicability must be confirmed for project jurisdiction.</i></p>
+</section>
+
+<section id="ambiente">
+<h2><span class="n">15</span>Medio ambiente</h2>
+<div class="tbl"><table>
+<thead><tr><th>Aspecto</th><th>Fuente</th><th>Carga estimada</th><th>Control</th></tr></thead>
+<tbody>
+<tr><td>Olores</td><td>Foso, orgánicos, compostaje</td><td>≈ 700.000 m³/h de aire tratado</td><td>Naves en depresión, lavado ácido y biofiltro, olfatometría</td></tr>
+<tr><td>NH₃ y compuestos orgánicos volátiles</td><td>Túneles y maduración</td><td>Por medir <span class="tag t">ENSAYO</span></td><td>Lavador ácido previo al biofiltro</td></tr>
+<tr><td>Polvo</td><td>Trituración, cribado, RDF</td><td>Salida de filtro ≤ 5–10 mg/Nm³ de diseño <span class="tag">LIT</span></td><td>Filtros de mangas, cerramientos</td></tr>
+<tr><td>Gases de combustión</td><td>Motores y antorchas</td><td>Según datos del fabricante</td><td>Catalizador, chimeneas, permiso de emisiones</td></tr>
+<tr><td>Aguas residuales</td><td>Digestato, lixiviados, limpieza</td><td>350–550 m³/d</td><td>Depuradora MBR + ósmosis, reutilización interna</td></tr>
+<tr><td>Ruido</td><td>Trituradores, ventiladores, camiones</td><td>Por modelizar</td><td>Equipos dentro de naves, silenciadores en ventiladores</td></tr>
+<tr><td>Rechazos</td><td>Afino y separador neumático</td><td>258 t/d (≈ 10 %)</td><td>Vertedero autorizado</td></tr>
+<tr><td>Residuos peligrosos</td><td>Baterías, aceites, filtros, carbón activo</td><td>Por inventariar</td><td>Gestores autorizados</td></tr>
+</tbody></table></div>
+<p><b>Gases de efecto invernadero:</b> el mayor beneficio procede de evitar el metano que la fracción orgánica generaría en vertedero y de sustituir combustibles fósiles con el RDF en cementeras. Cuantificar con una metodología reconocida antes de hablar de créditos de carbono.</p>
+</section>
+
+<section id="economia">
+<h2><span class="n">16</span>CAPEX y OPEX</h2>
+<div class="note"><b>Clase 5 (orden de magnitud).</b> El coste de equipos es una estimación preliminar de confianza baja, sin ofertas de fabricantes. Precisión esperada −30 % / +50 % o peor. No es un precio contractual. Excluye terreno, acometidas fuera de parcela, impuestos y financiación.</div>
+<h3>Coste de equipos por paquete (base) <span class="tag">ESTIM</span></h3>
+<div class="tbl"><table>
+<thead><tr><th>Paquete</th><th class="r">M USD</th></tr></thead>
+<tbody>
+<tr><td>Recepción: básculas, grúas de foso, puertas, cañones</td><td class="r">10</td></tr>
+<tr><td>Pretratamiento, 4 líneas</td><td class="r">14</td></tr>
+<tr><td>Clasificación, 2 líneas: ópticos, robots, prensas, aire</td><td class="r">32</td></tr>
+<tr><td>RDF: trituración, secado, grúas</td><td class="r">19</td></tr>
+<tr><td>Digestión anaerobia y cogeneración</td><td class="r">62</td></tr>
+<tr><td>Túneles, maduración y afino</td><td class="r">20</td></tr>
+<tr><td>Tratamiento de olores</td><td class="r">12</td></tr>
+<tr><td>Depuradora</td><td class="r">8</td></tr>
+<tr><td>Subestación AT/MT</td><td class="r">5</td></tr>
+<tr><td>Sistema contra incendios</td><td class="r">3</td></tr>
+<tr><td>Maquinaria móvil</td><td class="r">6</td></tr>
+<tr><td>SCADA, MES, ciberseguridad</td><td class="r">3</td></tr>
+<tr class="tot"><td>Total equipos (PEC)</td><td class="r">194</td></tr>
+</tbody></table></div>
+<h3>CAPEX factorizado (<code>scripts/capex_model.py</code>)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Partida</th><th class="r">Bajo</th><th class="r">Base</th><th class="r">Alto</th></tr></thead>
+<tbody>
+<tr><td>Equipos (×0,85 / ×1 / ×1,25)</td><td class="r">164,9</td><td class="r">194,0</td><td class="r">242,5</td></tr>
+<tr><td>Montaje mecánico</td><td class="r">24,7</td><td class="r">38,8</td><td class="r">72,8</td></tr>
+<tr><td>Electricidad</td><td class="r">16,5</td><td class="r">23,3</td><td class="r">36,4</td></tr>
+<tr><td>Instrumentación y control</td><td class="r">8,2</td><td class="r">13,6</td><td class="r">24,3</td></tr>
+<tr><td>Tuberías</td><td class="r">4,9</td><td class="r">9,7</td><td class="r">19,4</td></tr>
+<tr><td>Climatización y conductos</td><td class="r">3,3</td><td class="r">5,8</td><td class="r">12,1</td></tr>
+<tr><td>Protección contra incendios (instalación)</td><td class="r">3,3</td><td class="r">5,8</td><td class="r">12,1</td></tr>
+<tr><td>Obra civil y cimentaciones (foso, digestores, túneles)</td><td class="r">24,7</td><td class="r">38,8</td><td class="r">72,8</td></tr>
+<tr><td>Edificios ≈ 78.000 m² × 600 / 800 / 1.000 USD/m²</td><td class="r">47,0</td><td class="r">62,0</td><td class="r">78,0</td></tr>
+<tr><td>Ingeniería y dirección de obra</td><td class="r">17,9</td><td class="r">31,3</td><td class="r">68,4</td></tr>
+<tr><td>Puesta en marcha</td><td class="r">3,3</td><td class="r">5,8</td><td class="r">9,7</td></tr>
+<tr><td>Contingencia (15 / 20 / 30 %)</td><td class="r">47,8</td><td class="r">85,8</td><td class="r">194,5</td></tr>
+<tr class="tot"><td>CAPEX total, M USD</td><td class="r">367</td><td class="r">515</td><td class="r">843</td></tr>
+<tr><td>USD por t/a de capacidad nominal</td><td class="r">386</td><td class="r">542</td><td class="r">888</td></tr>
+</tbody></table></div>
+<p class="muted">Los factores están en <code>calc/capex_factors.json</code> <span class="tag a">SUPUESTO</span>. Deben calibrarse con el índice de costes y el factor de localización del país: en muchos países de América Latina la obra civil y la mano de obra pueden reducir el total de forma significativa.</p>
+<h3>OPEX anual (<code>scripts/opex_model.py</code>)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Partida</th><th>Base de cálculo</th><th class="r">M USD/a</th><th class="r">USD/t</th></tr></thead>
+<tbody>
+<tr><td>Electricidad (valorada a precio de red)</td><td>91,5 kWh/t × 0,10 USD/kWh</td><td class="r">8,68</td><td class="r">9,15</td></tr>
+<tr><td>Gasóleo</td><td>1,5 L/t × 1,10 USD/L</td><td class="r">1,57</td><td class="r">1,65</td></tr>
+<tr><td>Personal</td><td>180 FTE × 30.000 USD</td><td class="r">5,40</td><td class="r">5,69</td></tr>
+<tr><td>Agua</td><td>0,15 m³/t × 1,5 USD/m³</td><td class="r">0,21</td><td class="r">0,23</td></tr>
+<tr><td>Consumibles</td><td>alambre, químicos, material de biofiltro</td><td class="r">2,37</td><td class="r">2,50</td></tr>
+<tr><td>Piezas de desgaste</td><td>cuchillas, chapas de trómel, bandas</td><td class="r">3,80</td><td class="r">4,00</td></tr>
+<tr><td>Mantenimiento</td><td>3 % del coste de equipos</td><td class="r">5,82</td><td class="r">6,13</td></tr>
+<tr><td>Vertido de rechazos</td><td>94.100 t/a × 20 USD/t</td><td class="r">1,88</td><td class="r">1,98</td></tr>
+<tr><td>Vigilancia ambiental</td><td>partida alzada</td><td class="r">0,40</td><td class="r">0,42</td></tr>
+<tr><td>Seguros</td><td>0,6 % del CAPEX</td><td class="r">3,09</td><td class="r">3,25</td></tr>
+<tr><td>Administración y mantenimiento de motores</td><td>partida alzada</td><td class="r">2,50</td><td class="r">2,63</td></tr>
+<tr class="tot"><td>Total</td><td></td><td class="r">35,7</td><td class="r">37,6</td></tr>
+</tbody></table></div>
+<p>OPEX ≈ <b>37,6 USD por tonelada procesada</b> (≈ 188 USD por tonelada de reciclable vendido). Todos los precios unitarios son supuestos a sustituir por datos del país. Como la cogeneración cubre el consumo eléctrico, la partida de electricidad (≈ 9 USD/t) se compensa en gran parte con energía propia.</p>
+<p><b>Coste completo orientativo:</b> añadiendo la recuperación del capital base (515 M USD, 8 %, 20 años: ≈ 52 M USD/a, ≈ 55 USD/t), el coste bruto es ≈ 93 USD/t antes de ingresos. Los ingresos por materiales, energía y la tasa de entrada municipal determinan la viabilidad. Para calcular VAN, TIR y la tasa de entrada de equilibrio necesito los precios locales de los materiales, la tarifa eléctrica y la tasa de vertedero actual.</p>
+</section>
+
+<section id="riesgos">
+<h2><span class="n">17</span>Riesgos técnicos y ensayos requeridos</h2>
+<div class="tbl"><table>
+<thead><tr><th>Riesgo</th><th class="r">P × S</th><th>Mitigación</th></tr></thead>
+<tbody>
+<tr><td>No existe comprador de RDF, o su calidad no cumple</td><td class="r">4 × 5</td><td>Cartas de intención con cementeras antes del FEED; secado del RDF y retirada de PVC por NIR</td></tr>
+<tr><td>El material bioestabilizado no tiene uso autorizado</td><td class="r">4 × 3</td><td>Consulta normativa temprana; destino alternativo en restauración de vertederos</td></tr>
+<tr><td>Composición real distinta (más finos, más humedad)</td><td class="r">3 × 4</td><td>Campaña de caracterización en dos estaciones; diseño en el extremo alto de cada rango</td></tr>
+<tr><td>Rendimiento de biogás inferior al supuesto</td><td class="r">3 × 4</td><td>Ensayos BMP y piloto; garantías del tecnólogo</td></tr>
+<tr><td>Papel y film de baja calidad por suciedad orgánica</td><td class="r">4 × 3</td><td>Ensayos con compradores; opción de enviarlos al RDF</td></tr>
+<tr><td>Incendio en foso o almacenes</td><td class="r">3 × 5</td><td>Concepto contra incendios validado por la aseguradora</td></tr>
+<tr><td>Olores y rechazo social</td><td class="r">3 × 4</td><td>Naves cerradas en depresión, ubicación alejada, participación pública</td></tr>
+<tr><td>Desgaste mayor de lo previsto en trituradores</td><td class="r">3 × 3</td><td>Garantías de coste de desgaste por tonelada; stock de cuchillas</td></tr>
+</tbody></table></div>
+<h3>Ensayos necesarios</h3>
+<ol>
+<li>Caracterización de composición, humedad y granulometría: 7 días seguidos en temporada seca y húmeda.</li>
+<li>Potencial de biogás (BMP) de la fracción &lt; 60 mm, más ST, SV y relación C/N.</li>
+<li>PCI, cenizas, cloro y metales del RDF, preparado a partir de muestras reales.</li>
+<li>Pruebas de cribado y clasificación en centros de ensayo de fabricantes (trómel y NIR) con residuo local.</li>
+<li>Ensayos de explosividad del polvo (Kst, MIE) de las líneas de trituración y RDF.</li>
+<li>Geotecnia y nivel freático de la parcela (el foso tiene 12 m de profundidad).</li>
+<li>Modelización de dispersión de olores y estudio de ruido.</li>
+</ol>
+</section>
+
+<section id="hoja">
+<h2><span class="n">18</span>Hoja de ruta</h2>
+<div class="tbl"><table>
+<thead><tr><th>Fase</th><th>Duración</th><th>Resultado</th></tr></thead>
+<tbody>
+<tr><td>1. Caracterización, mercados de RDF y compost, búsqueda de parcela</td><td>3–6 meses</td><td>Bases de diseño confirmadas</td></tr>
+<tr><td>2. Ingeniería conceptual con ensayos y ofertas indicativas</td><td>4–6 meses</td><td>CAPEX Clase 4, modelo económico</td></tr>
+<tr><td>3. Evaluación de impacto ambiental y permisos</td><td>12–24 meses (en paralelo desde la fase 2)</td><td>Autorizaciones</td></tr>
+<tr><td>4. FEED y licitación EPC o por paquetes</td><td>6–9 meses</td><td>CAPEX Clase 3, contratos</td></tr>
+<tr><td>5. Ingeniería de detalle y construcción</td><td>24–30 meses</td><td>Planta construida</td></tr>
+<tr><td>6. Puesta en marcha escalonada (arranque biológico de 3–6 meses)</td><td>6–12 meses</td><td>Garantías de rendimiento</td></tr>
+</tbody></table></div>
+<p>Plazo total orientativo: <b>4 a 5 años</b> desde el inicio hasta la operación comercial. Una opción es construir primero 2 líneas de pretratamiento y la digestión y añadir capacidad por fases.</p>
+</section>
+
+<section id="supuestos">
+<h2><span class="n">19</span>Supuestos, revisión de diseño y fuentes</h2>
+<h3>Supuestos principales</h3>
+<ol>
+<li>Composición nominal de la sección 3; los repartos film/rígidos y las fracciones menores son supuestos.</li>
+<li>Coeficientes de transferencia de separación: valores típicos de literatura, ajustados a la baja por la suciedad del residuo mezclado.</li>
+<li>Orgánicos con 30 % ST y 85 % SV/ST; rendimiento de 380 Nm³ de biogás por t SV (orgánicos) y 250 (papel); 58 % CH₄.</li>
+<li>Cogeneración con 40 % de rendimiento eléctrico y 42 % térmico.</li>
+<li>20 h/d de proceso mecánico, 24 h/d biológico; disponibilidad mecánica de 0,90 y factor de punta de 1,10.</li>
+<li>Densidades: RSU en foso 400 kg/m³, RDF secado 250 kg/m³, compost 550 kg/m³.</li>
+<li>Precios unitarios de OPEX y costes de equipos: estimaciones sin ofertas.</li>
+<li>Parcela llana, sin restricciones geotécnicas y con red eléctrica de alta tensión cercana.</li>
+</ol>
+<h3>Revisión de diseño interna</h3>
+<div class="tbl"><table>
+<thead><tr><th>Revisión</th><th>Estado</th><th>Observación</th></tr></thead>
+<tbody>
+<tr><td>Balance de masa</td><td>Correcto</td><td>Cierre 100,000 % en planta y en cada equipo</td></tr>
+<tr><td>Energía</td><td>Correcto</td><td>Mismo consumo (91,5 kWh/t) en lista de cargas y OPEX; CHP ≈ consumo</td></tr>
+<tr><td>Capacidad</td><td>Correcto</td><td>Líneas diseñadas a 2.700 t/d en el extremo desfavorable de cada fracción</td></tr>
+<tr><td>Equipos</td><td>Correcto</td><td>Número de equipos coherente entre PFD, lista de cargas y listado maestro</td></tr>
+<tr><td>Logística</td><td>Correcto</td><td>Camiones calculados con las mismas t/d del balance</td></tr>
+<tr><td>Seguridad</td><td>Pendiente</td><td>HAZID y análisis de polvo por realizar</td></tr>
+<tr><td>Mantenimiento</td><td>Correcto</td><td>Redundancia en grúas, compresores, trituradores de RDF, ventiladores y soplantes</td></tr>
+<tr><td>Economía</td><td>Parcial</td><td>Sin ingresos: faltan precios locales</td></tr>
+<tr><td>Medio ambiente</td><td>Parcial</td><td>Emisiones de olor y ruido por modelizar</td></tr>
+</tbody></table></div>
+<h3>Fuentes</h3>
+<p>Este estudio se basa en los datos aportados por el usuario, en los módulos de referencia y cálculos del skill <code>advanced-waste-recycling-engineering</code> y en rangos típicos de literatura técnica marcados como tales. No se han consultado catálogos de fabricantes, ofertas ni normas en su texto original durante esta revisión; los nombres de fabricantes son candidatos a consultar.</p>
+<p class="muted" style="margin-top:32px">Documento conceptual para toma de decisiones preliminares. No apto para construcción, licitación ni compromiso contractual.</p>
+</section>
+</main>
+</div>

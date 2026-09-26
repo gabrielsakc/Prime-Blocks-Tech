@@ -1,0 +1,37 @@
+tag,description,kw,qty,standby_qty,load_factor,diversity_factor,voltage,hours_per_day,starting
+WB-101,Weighbridges + gate systems (5),2,5,0,0.5,1.0,400,24,DOL
+CR-101,Bunker grab cranes automatic (2 duty + 1 standby),250,2,1,0.5,1.0,690,20,VFD
+DR-101,High-speed tipping hall doors,4,14,0,0.15,1.0,400,16,DOL
+CV-201,Apron feed conveyors from crane hoppers (4 lines),30,4,0,0.7,1.0,400,20,VFD
+SH-201,Bag opener / low-speed pre-shredders (4 lines),320,4,0,0.65,1.0,690,20,VFD
+TR-201,Primary trommels 60/250 mm (4 lines),90,4,0,0.75,1.0,400,20,VFD
+MS-202,Overband magnets fines + oversize (8),11,8,0,0.8,1.0,400,20,DOL
+CV-2XX,Conveyors area 200 (misc),11,24,0,0.7,1.0,400,20,VFD
+BS-301,Ballistic separators (2 per dry line),30,4,0,0.8,1.0,400,20,VFD
+OS-3XX,NIR optical sorters incl. acceleration belts (9 per dry line),12,18,0,0.8,1.0,400,20,VFD
+EC-304,Eddy current separators (1 per dry line),15,2,0,0.8,1.0,400,20,VFD
+RB-3XX,AI robotic QC sorters,5,8,0,0.7,1.0,400,20,VFD
+QC-3XX,QC cabins HVAC,30,4,0,0.6,1.0,400,20,VFD
+CV-3XX,Conveyors area 300 (misc),7.5,60,0,0.7,1.0,400,20,VFD
+CP-301,Compressed air for NIR sorters (VSD),315,4,1,0.8,1.0,400,20,VFD
+BL-601,Automatic channel balers,110,2,1,0.6,1.0,400,20,DOL
+AD-401F,Digester feeding systems (12),90,12,0,0.5,1.0,400,24,VFD
+AD-401M,Digester agitators plug-flow (12),75,12,0,0.6,1.0,400,24,VFD
+AD-401P,Digestate extraction pumps + heating circuits (12),37.5,12,0,0.5,1.0,400,24,VFD
+DW-401,Digestate screw presses,30,6,0,0.7,1.0,400,24,VFD
+GB-401,Biogas blowers + desulphurization,60,3,1,0.7,1.0,400,24,VFD
+GE-401,CHP gas-engine auxiliaries (5 engines),60,5,0,0.8,1.0,400,24,VFD
+FN-402,Tunnel aeration fans (32 tunnels),45,32,0,0.65,1.0,400,24,VFD
+FN-403,Maturation hall aeration fans,22,20,0,0.6,1.0,400,24,VFD
+TR-402,Compost refining (trommels destoners windshifters conveyors),300,2,0,0.7,1.0,400,16,VFD
+SH-501,RDF secondary shredders (3 duty + 1 standby),500,3,1,0.7,1.0,690,20,VFD
+WS-501,RDF windshifters,90,2,0,0.8,1.0,400,20,VFD
+DR-501,RDF belt dryers fans (CHP waste heat),250,2,0,0.75,1.0,400,24,VFD
+CR-501,RDF storage cranes,150,2,0,0.4,1.0,690,20,VFD
+CV-5XX,Conveyors area 500 (misc),11,20,0,0.7,1.0,400,20,VFD
+FN-801,Odor extraction fans 100000 m3/h @3000 Pa,132,7,1,0.85,1.0,690,24,VFD
+SCR-801,Acid scrubber + biofilter humidification pumps,30,8,0,0.7,1.0,400,24,VFD
+DC-201,Dust collectors (shredders trommels RDF),90,6,0,0.8,1.0,400,20,VFD
+WWT-901,Leachate / process water treatment (MBR+RO package),500,1,0,0.7,1.0,400,24,VFD
+UT-701,Water pumps + utilities,22,4,1,0.6,1.0,400,24,VFD
+BLD-701,Lighting HVAC buildings offices lab,600,1,0,0.6,1.0,400,24,DOL

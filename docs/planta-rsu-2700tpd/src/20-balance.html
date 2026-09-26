@@ -1,0 +1,136 @@
+<section id="balance">
+<h2><span class="n">06</span>Balance de masa</h2>
+<p>Calculado con coeficientes de transferencia por equipo (<code>scripts/mass_balance.py</code> del skill; modelo en <code>calc/mass_balance_nominal.json</code>). Base: 2.600 t/d nominales. Los coeficientes son valores típicos de literatura para residuo mezclado, ajustados a la baja por la suciedad orgánica <span class="tag">LIT</span> <span class="tag a">SUPUESTO</span>; deben confirmarse con garantías de fabricante y ensayos.</p>
+<div class="ok"><b>CIERRE DEL BALANCE DE MASA: 100,000 %.</b> ENTRADA = PRODUCTOS + SUBPRODUCTOS + RECHAZOS + PÉRDIDAS. Todas las operaciones unitarias cierran al 100,000 %.</div>
+<div class="tbl"><table>
+<thead><tr><th>Categoría</th><th>Corrientes</th><th class="r">t/d</th><th class="r">% entrada</th><th class="r">t/a</th></tr></thead>
+<tbody>
+<tr><td>Entrada RSU</td><td>S01</td><td class="r">2.600,0</td><td class="r">100,0</td><td class="r">949.000</td></tr>
+<tr class="grp"><td colspan="5">Productos (materiales reciclables vendibles)</td></tr>
+<tr><td>Papel y cartón (balas)</td><td>S20</td><td class="r">193,5</td><td class="r">7,4</td><td class="r">70.600</td></tr>
+<tr><td>Film de PE (balas)</td><td>S22</td><td class="r">146,2</td><td class="r">5,6</td><td class="r">53.400</td></tr>
+<tr><td>Plásticos rígidos (PET, HDPE, PP, mezcla)</td><td>S26</td><td class="r">143,4</td><td class="r">5,5</td><td class="r">52.300</td></tr>
+<tr><td>Metales férricos</td><td>S06 + S16</td><td class="r">32,2</td><td class="r">1,2</td><td class="r">11.800</td></tr>
+<tr><td>Aluminio / no férricos</td><td>S24</td><td class="r">6,3</td><td class="r">0,2</td><td class="r">2.300</td></tr>
+<tr class="tot"><td>Subtotal productos</td><td></td><td class="r">521,6</td><td class="r">20,1</td><td class="r">190.400</td></tr>
+<tr class="grp"><td colspan="5">Subproductos (energía, combustible, enmienda)</td></tr>
+<tr><td>RDF/SRF secado</td><td>S31</td><td class="r">669,9</td><td class="r">25,8</td><td class="r">244.500</td></tr>
+<tr><td>Material bioestabilizado / compost (CLO)</td><td>S14</td><td class="r">351,5</td><td class="r">13,5</td><td class="r">128.300</td></tr>
+<tr><td>Biogás (masa; ≈ 109.000 Nm³/d)</td><td>S08</td><td class="r">131,0</td><td class="r">5,0</td><td class="r">47.800</td></tr>
+<tr><td>Voluminosos: madera, textiles, metal</td><td>S02</td><td class="r">20,2</td><td class="r">0,8</td><td class="r">7.400</td></tr>
+<tr class="tot"><td>Subtotal subproductos</td><td></td><td class="r">1.172,5</td><td class="r">45,1</td><td class="r">428.000</td></tr>
+<tr class="grp"><td colspan="5">Rechazos a vertedero</td></tr>
+<tr><td>Rechazo del afino de compost (vidrio, piedras, plásticos)</td><td>S15</td><td class="r">157,8</td><td class="r">6,1</td><td class="r">57.600</td></tr>
+<tr><td>Pesados del separador neumático de RDF (inertes)</td><td>S28</td><td class="r">100,1</td><td class="r">3,8</td><td class="r">36.500</td></tr>
+<tr class="tot"><td>Subtotal rechazos</td><td></td><td class="r">257,9</td><td class="r">9,9</td><td class="r">94.100</td></tr>
+<tr class="grp"><td colspan="5">Pérdidas de proceso (agua y CO<sub>2</sub>)</td></tr>
+<tr><td>Líquido de digestato excedente a depuradora</td><td>S10</td><td class="r">263,7</td><td class="r">10,1</td><td class="r">96.300</td></tr>
+<tr><td>Evaporación y CO<sub>2</sub> en túneles y maduración</td><td>S12</td><td class="r">306,8</td><td class="r">11,8</td><td class="r">112.000</td></tr>
+<tr><td>Vapor de agua del secado de RDF</td><td>S30</td><td class="r">77,5</td><td class="r">3,0</td><td class="r">28.300</td></tr>
+<tr class="tot"><td>Subtotal pérdidas</td><td></td><td class="r">647,9</td><td class="r">24,9</td><td class="r">236.500</td></tr>
+<tr class="tot"><td>Total salidas</td><td></td><td class="r">2.600,0</td><td class="r">100,0</td><td class="r">949.000</td></tr>
+</tbody></table></div>
+<h3>Corrientes principales</h3>
+<div class="tbl"><table>
+<thead><tr><th>Corriente</th><th>Descripción</th><th class="r">t/d nominal</th><th class="r">t/h diseño*</th></tr></thead>
+<tbody>
+<tr><td>S01</td><td>RSU recibido</td><td class="r">2.600,0</td><td class="r">165</td></tr>
+<tr><td>S03</td><td>A pretratamiento (tras retirar voluminosos)</td><td class="r">2.579,9</td><td class="r">164</td></tr>
+<tr><td>S04</td><td>Finos &lt; 60 mm del trómel (orgánicos)</td><td class="r">1.219,6</td><td class="r">89 (al 50 % orgánicos)</td></tr>
+<tr><td>S05</td><td>Fracción 60–250 mm (seca)</td><td class="r">1.360,3</td><td class="r">95 (al 60 % seca)</td></tr>
+<tr><td>S07</td><td>Alimentación a digestión</td><td class="r">1.210,7</td><td class="r">58 (24 h)</td></tr>
+<tr><td>S11</td><td>Digestato sólido deshidratado</td><td class="r">816,1</td><td class="r">39 (24 h)</td></tr>
+<tr><td>S18 / S19</td><td>Fracción 2D (plana) / 3D (rodante)</td><td class="r">845,0 / 491,9</td><td class="r">59 / 35</td></tr>
+<tr><td>S29</td><td>RDF antes del secado</td><td class="r">747,4</td><td class="r">46</td></tr>
+</tbody></table></div>
+<p class="muted">* Diseño = nominal × (2.700/2.600) × factor de composición × 1,10 / 0,90 ÷ 20 h (líneas mecánicas) o ÷ 24 h (líneas biológicas continuas).</p>
+</section>
+
+<section id="subproductos">
+<h2><span class="n">07</span>Subproductos que se pueden producir</h2>
+<div class="tbl"><table>
+<thead><tr><th>Subproducto</th><th class="r">t/d</th><th>Especificación orientativa</th><th>Salida / comprador típico</th><th>Riesgo de mercado</th></tr></thead>
+<tbody>
+<tr><td>Papel y cartón mixto (balas)</td><td class="r">194</td><td>Humedad &lt; 12 %, impropios &lt; 3–5 % <span class="tag a">SUPUESTO</span></td><td>Papeleras de cartón ondulado</td><td>Medio: el papel procedente de residuo mezclado está sucio y se paga con descuento</td></tr>
+<tr><td>Film de PE (balas)</td><td class="r">146</td><td>PE ≥ 90 %, humedad declarada</td><td>Recicladores con lavado de film</td><td>Medio-alto: film sucio y húmedo</td></tr>
+<tr><td>PET (balas)</td><td class="r">≈ 50</td><td>PET ≥ 95 %, PVC controlado</td><td>Lavado de PET, fibra, lámina</td><td>Bajo-medio</td></tr>
+<tr><td>HDPE (balas)</td><td class="r">≈ 36</td><td>HDPE ≥ 95 %</td><td>Recicladores de poliolefinas</td><td>Bajo-medio</td></tr>
+<tr><td>PP (balas)</td><td class="r">≈ 36</td><td>PP ≥ 93 %</td><td>Recicladores de poliolefinas</td><td>Medio</td></tr>
+<tr><td>Plásticos mezcla / PS</td><td class="r">≈ 22</td><td>Según comprador</td><td>Reciclaje de mezcla o combustible</td><td>Alto: puede acabar en RDF</td></tr>
+<tr><td>Chatarra férrica</td><td class="r">34</td><td>Fe ≥ 90–95 %</td><td>Acerías, chatarreros</td><td>Bajo</td></tr>
+<tr><td>Aluminio / no férricos</td><td class="r">6</td><td>Al ≥ 85–90 %</td><td>Fundiciones secundarias</td><td>Bajo, alto valor unitario</td></tr>
+<tr><td>RDF/SRF secado (&lt; 50 mm)</td><td class="r">670</td><td>PCI 14–18 MJ/kg, humedad ≤ 20 %, Cl &lt; 1 % <span class="tag">ESTIM</span> <span class="tag t">ENSAYO</span></td><td>Cementeras (co-procesado), plantas de valorización energética</td><td>Alto: define el éxito de la planta; suele tener precio cero o negativo</td></tr>
+<tr><td>Biogás → electricidad</td><td class="r">≈ 109.000 Nm³/d</td><td>CH<sub>4</sub> ≈ 58 % <span class="tag a">SUPUESTO</span></td><td>10,5 MWe brutos, ≈ 252 MWh/d; ≈ 11 MWt de calor</td><td>Depende de la tarifa de la red</td></tr>
+<tr><td>Alternativa: biometano</td><td class="r">≈ 2.600 Nm³/h</td><td>Calidad de inyección en red</td><td>Red de gas o combustible de flota (camiones de recogida)</td><td>Depende de acceso a red</td></tr>
+<tr><td>Material bioestabilizado / compost</td><td class="r">352</td><td>&lt; 12 mm, impropios y metales pesados según norma local</td><td>Restauración de suelos, cobertura de vertedero, agricultura si cumple</td><td>Alto: el compost de residuo mezclado rara vez es vendible como abono</td></tr>
+<tr><td>Madera voluminosa (astilla)</td><td class="r">≈ 18</td><td>Astilla &lt; 100 mm</td><td>Biomasa, estructurante del compostaje</td><td>Bajo (uso interno)</td></tr>
+<tr><td>Opcional: CO<sub>2</sub> biogénico, estruvita (N-P)</td><td class="r">—</td><td>—</td><td>Solo con upgrading o recuperación de nutrientes</td><td>Fase 2</td></tr>
+</tbody></table></div>
+<p>El vidrio no se recupera como producto: en residuo mezclado llega roto dentro de los finos y termina en el rechazo del afino. Si la ciudad implanta recogida separada de vidrio, esta fracción desaparece de la entrada.</p>
+</section>
+
+<section id="terreno">
+<h2><span class="n">08</span>Terreno, almacenamiento y logística</h2>
+<h3>Superficie por área (plano 01)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Código</th><th>Área</th><th>Dimensiones (m)</th><th class="r">m²</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Acceso, control, 3 básculas de entrada, cola de camiones</td><td>110 × 60</td><td class="r">6.600</td></tr>
+<tr><td>B</td><td>Oficinas, sala de control, laboratorio, vestuarios, aparcamiento</td><td>100 × 60</td><td class="r">6.000</td></tr>
+<tr><td>C</td><td>Taller, almacén de repuestos, garaje de maquinaria móvil</td><td>80 × 60</td><td class="r">4.800</td></tr>
+<tr><td>D</td><td>Subestación AT/MT</td><td>60 × 60</td><td class="r">3.600</td></tr>
+<tr><td>E</td><td>Salida: 3 básculas, aparcamiento de camiones, carga de rechazos</td><td>80 × 60</td><td class="r">4.800</td></tr>
+<tr><td>F</td><td>Explanada de maniobra frente a la nave de descarga</td><td>120 × 40</td><td class="r">4.800</td></tr>
+<tr><td>G</td><td>Nave de descarga (12 puertas)</td><td>120 × 35</td><td class="r">4.200</td></tr>
+<tr><td>H</td><td>Foso de recepción (2,5 días)</td><td>110 × 20</td><td class="r">2.200</td></tr>
+<tr><td>I</td><td>Nave de pretratamiento (4 líneas)</td><td>90 × 80</td><td class="r">7.200</td></tr>
+<tr><td>J</td><td>Nave de clasificación (2 líneas, estructura en altura)</td><td>120 × 80</td><td class="r">9.600</td></tr>
+<tr><td>K</td><td>Prensado y almacén de balas (7 días)</td><td>70 × 80</td><td class="r">5.600</td></tr>
+<tr><td>L</td><td>RDF: trituración, secado, foso y carga</td><td>95 × 60</td><td class="r">5.700</td></tr>
+<tr><td>M</td><td>Digestión anaerobia (12 digestores + nave de alimentación)</td><td>110 × 100</td><td class="r">11.000</td></tr>
+<tr><td>R</td><td>Biogás: gasómetros, tratamiento, cogeneración, antorchas</td><td>60 × 100</td><td class="r">6.000</td></tr>
+<tr><td>N</td><td>Deshidratación de digestato y 32 túneles de compostaje</td><td>130 × 100</td><td class="r">13.000</td></tr>
+<tr><td>O</td><td>Nave de maduración aireada</td><td>140 × 100</td><td class="r">14.000</td></tr>
+<tr><td>P</td><td>Afino y almacén de compost (15 días)</td><td>80 × 80</td><td class="r">6.400</td></tr>
+<tr><td>Q</td><td>Tratamiento de olores: lavadores y biofiltros</td><td>70 × 140</td><td class="r">9.800</td></tr>
+<tr><td>W</td><td>Depuradora de lixiviados</td><td>80 × 50</td><td class="r">4.000</td></tr>
+<tr><td>X</td><td>Balsas de pluviales y depósito contra incendios</td><td>varias</td><td class="r">7.900</td></tr>
+<tr class="tot"><td></td><td>Áreas funcionales</td><td></td><td class="r">137.200</td></tr>
+<tr><td></td><td>Viales internos de sentido único (10–12 m), anillo de bomberos, maniobra</td><td></td><td class="r">≈ 44.100</td></tr>
+<tr><td></td><td>Franja verde perimetral de 15 m</td><td></td><td class="r">≈ 26.700</td></tr>
+<tr class="tot"><td></td><td>Parcela del plano 01 (520 × 400 m)</td><td></td><td class="r">208.000 (20,8 ha)</td></tr>
+<tr><td></td><td>Reserva de ampliación recomendada (10–20 %)</td><td></td><td class="r">+ 20.000–40.000</td></tr>
+<tr class="tot"><td></td><td>Terreno recomendado</td><td></td><td class="r">23–25 ha</td></tr>
+</tbody></table></div>
+<p class="muted">Contraste: ≈ 2,2 ha por cada 100.000 t/a. Las referencias publicadas varían mucho según el tipo de tratamiento biológico; esta cifra es un cálculo por áreas y no un dato verificado de plantas existentes <span class="tag">CÁLC</span>.</p>
+
+<h3>Almacenamiento y amortiguamiento</h3>
+<div class="tbl"><table>
+<thead><tr><th>Almacén</th><th>Autonomía</th><th class="r">Masa (t)</th><th class="r">Volumen (m³)</th><th>Base de cálculo</th></tr></thead>
+<tbody>
+<tr><td>Foso de RSU</td><td>2,5 días</td><td class="r">6.750</td><td class="r">18.750</td><td>400 kg/m³, llenado 90 %; 12 m de profundidad más apilado</td></tr>
+<tr><td>Balas de producto</td><td>7 días</td><td class="r">3.430</td><td class="r">7.600</td><td>≈ 450 kg/m³ medio, 4 alturas de bala</td></tr>
+<tr><td>RDF secado</td><td>4 días</td><td class="r">2.680</td><td class="r">10.700</td><td>250 kg/m³, foso de 12 m con grúa</td></tr>
+<tr><td>Compost</td><td>15 días</td><td class="r">5.280</td><td class="r">9.600</td><td>550 kg/m³, pilas de 4 m</td></tr>
+<tr><td>Maduración (inventario de proceso)</td><td>21–28 días</td><td class="r">≈ 17.000</td><td class="r">≈ 30.000</td><td>Pilas aireadas de 3 m</td></tr>
+<tr><td>Biogás (gasómetros de doble membrana)</td><td>≈ 2 h</td><td class="r">—</td><td class="r">2 × 5.000</td><td>4.550 Nm³/h nominal</td></tr>
+<tr><td>Agua contra incendios</td><td>2–4 h de caudal de diseño</td><td class="r">—</td><td class="r">2.000–3.000</td><td><span class="tag a">SUPUESTO</span>: lo fija el código y la aseguradora</td></tr>
+</tbody></table></div>
+
+<h3>Tráfico de camiones</h3>
+<div class="tbl"><table>
+<thead><tr><th>Flujo</th><th class="r">t/d</th><th class="r">Carga (t/camión)</th><th class="r">Camiones/d</th></tr></thead>
+<tbody>
+<tr><td>Entrada de RSU (compactadores)</td><td class="r">2.700</td><td class="r">10</td><td class="r">270</td></tr>
+<tr><td>Papel-cartón</td><td class="r">194</td><td class="r">22</td><td class="r">9</td></tr>
+<tr><td>Film</td><td class="r">146</td><td class="r">20</td><td class="r">8</td></tr>
+<tr><td>Plásticos rígidos (limitado por volumen)</td><td class="r">143</td><td class="r">14</td><td class="r">11</td></tr>
+<tr><td>Metales</td><td class="r">40</td><td class="r">15–25</td><td class="r">3</td></tr>
+<tr><td>RDF (piso móvil 90 m³)</td><td class="r">670</td><td class="r">25</td><td class="r">27</td></tr>
+<tr><td>Compost</td><td class="r">352</td><td class="r">28</td><td class="r">13</td></tr>
+<tr><td>Rechazos a vertedero</td><td class="r">258</td><td class="r">28</td><td class="r">10</td></tr>
+<tr><td>Madera, consumibles, varios</td><td class="r">—</td><td class="r">—</td><td class="r">≈ 4</td></tr>
+<tr class="tot"><td>Total</td><td></td><td></td><td class="r">≈ 355 camiones/d (≈ 710 movimientos)</td></tr>
+</tbody></table></div>
+<p>Hora punta de entrada: 15 % de los camiones diarios, ≈ 41 camiones/h <span class="tag a">SUPUESTO</span>. Con ≈ 25 pesadas/h por báscula hacen falta 2 básculas de entrada más 1 de reserva, y 8 posiciones de descarga (8 min por camión, margen 1,3); se instalan 12 puertas para operar con holgura y cerrar puertas por mantenimiento. Los camiones de residuo entran por el acceso suroeste y salen por el sureste sin cruzarse con los de producto; el personal y las visitas tienen un acceso propio.</p>
+</section>

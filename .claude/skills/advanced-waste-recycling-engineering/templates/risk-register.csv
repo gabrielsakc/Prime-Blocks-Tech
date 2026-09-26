@@ -1,0 +1,2 @@
+id,area,category,hazard_or_risk,cause,consequence,likelihood_1to5,severity_1to5,risk_score,safeguards,action,owner,status
+R-001,Receiving bunker,Fire,Bunker fire,Li-ion batteries / self-heating,Plant shutdown; injuries; emissions,4,5,20,IR cameras + automatic water cannons; fire walls,Define detection & suppression design basis with insurer,Safety lead,Open

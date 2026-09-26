@@ -1,0 +1,1184 @@
+<title>Planta MBT 2.700 t/d</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F5F2; --paper:#FFFFFF; --ink:#18221E; --ink-2:#44524C; --rule:#CBD3CE; --rule-2:#E3E8E4;
+  --accent:#1F6B57; --accent-soft:#DCEBE5; --warn:#A8651A; --warn-soft:#F6E9D6; --crit:#A23B2A;
+  --z-rec:#E9C98F; --z-mec:#AFC3D6; --z-org:#B9D7A8; --z-ene:#E7A98F; --z-env:#9ED1C6; --z-sup:#D5D8D3; --z-wat:#A9CBE8;
+  --road:#E6E4DC; --green:#CFE3C4;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans","Segoe UI",Arial,sans-serif; --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --ground:#111715; --paper:#18201D; --ink:#E4EAE6; --ink-2:#A9B6B0; --rule:#34423C; --rule-2:#26302C;
+  --accent:#6CC3A6; --accent-soft:#1F3830; --warn:#E0A55A; --warn-soft:#3A2C18; --crit:#E07A66;
+  --z-rec:#6B5630; --z-mec:#3C5064; --z-org:#3F5A34; --z-ene:#6E3F30; --z-env:#2F5F57; --z-sup:#3A403C; --z-wat:#2E4B66;
+  --road:#262B28; --green:#24382A;}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --ground:#111715; --paper:#18201D; --ink:#E4EAE6; --ink-2:#A9B6B0; --rule:#34423C; --rule-2:#26302C;
+  --accent:#6CC3A6; --accent-soft:#1F3830; --warn:#E0A55A; --warn-soft:#3A2C18; --crit:#E07A66;
+  --z-rec:#6B5630; --z-mec:#3C5064; --z-org:#3F5A34; --z-ene:#6E3F30; --z-env:#2F5F57; --z-sup:#3A403C; --z-wat:#2E4B66;
+  --road:#262B28; --green:#24382A;}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.6 var(--body);padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr)} nav.toc{display:none}}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13px;max-height:100vh;overflow:auto}
+nav.toc b{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);display:block;margin-bottom:10px}
+nav.toc a{display:block;color:var(--ink-2);text-decoration:none;padding:3px 0 3px 10px;border-left:2px solid var(--rule-2)}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--accent);border-left-color:var(--accent);outline:none}
+main{min-width:0;padding-top:28px}
+header.cartouche{border:1.5px solid var(--ink);background:var(--paper);display:grid;grid-template-columns:1fr auto}
+header.cartouche .t{padding:22px 24px}
+header.cartouche h1{font:760 clamp(28px,4.2vw,44px)/1.02 var(--display);font-stretch:85%;margin:6px 0 10px;text-wrap:balance;letter-spacing:-.01em}
+header.cartouche .eyebrow{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+header.cartouche p{margin:0;color:var(--ink-2);max-width:62ch}
+header.cartouche dl{margin:0;border-left:1.5px solid var(--ink);display:grid;grid-template-columns:auto auto;font:12px/1.35 var(--mono);min-width:260px}
+header.cartouche dt,header.cartouche dd{margin:0;padding:7px 12px;border-bottom:1px solid var(--rule)}
+header.cartouche dt{color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;border-right:1px solid var(--rule)}
+@media (max-width:700px){header.cartouche{grid-template-columns:1fr} header.cartouche dl{border-left:0;border-top:1.5px solid var(--ink);min-width:0}}
+section{margin-top:56px}
+h2{font:720 26px/1.15 var(--display);font-stretch:90%;margin:0 0 6px;text-wrap:balance;display:flex;gap:12px;align-items:baseline}
+h2 .n{font:500 13px/1 var(--mono);color:var(--accent);min-width:2.2em}
+h3{font:650 17px/1.3 var(--display);font-stretch:95%;margin:28px 0 8px}
+p,li{max-width:74ch}
+.lead{font-size:16.5px;color:var(--ink)}
+.muted{color:var(--ink-2)}
+code,.mono{font-family:var(--mono);font-size:.9em}
+.tag{font:500 10.5px/1 var(--mono);padding:2px 5px;border-radius:3px;background:var(--rule-2);color:var(--ink-2);white-space:nowrap;vertical-align:1px}
+.tag.u{background:var(--accent-soft);color:var(--accent)}
+.tag.a{background:var(--warn-soft);color:var(--warn)}
+.tag.t{background:transparent;border:1px solid var(--warn);color:var(--warn)}
+.kpis{display:grid;grid-template-columns:repeat(var(--c,3),minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0}
+.kpis div{background:var(--paper);padding:14px 16px}
+@media (max-width:640px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpis b{display:block;font:700 26px/1.1 var(--display);font-stretch:85%;font-variant-numeric:tabular-nums}
+.kpis span{font-size:12.5px;color:var(--ink-2)}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--rule);background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{padding:7px 10px;border-bottom:1px solid var(--rule-2);text-align:left;vertical-align:top}
+th{font:600 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);background:var(--ground);position:sticky;top:0}
+td.r,th.r{text-align:right}
+tr.tot td{font-weight:600;border-top:1.5px solid var(--ink)}
+tr.grp td{background:var(--accent-soft);color:var(--accent);font:600 11.5px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;margin:16px 0;font-size:14px}
+.note b{color:var(--warn)}
+.ok{border-left:3px solid var(--accent);background:var(--accent-soft);padding:10px 14px;margin:16px 0;font-size:14px}
+figure.dwg{margin:18px 0 8px;border:1.5px solid var(--ink);background:var(--paper)}
+figure.dwg .sheet{overflow-x:auto}
+figure.dwg svg{display:block;min-width:880px;width:100%;height:auto}
+figure.dwg figcaption{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;border-top:1.5px solid var(--ink);font:12px/1.4 var(--mono);padding:8px 12px;color:var(--ink-2)}
+figure.dwg figcaption b{color:var(--ink)}
+svg text{font-family:var(--mono);fill:var(--ink)}
+svg .t-sm{font-size:9px} svg .t-md{font-size:11px} svg .t-lg{font-size:13px;font-weight:600} svg .t-mu{fill:var(--ink-2)}
+svg .ln{stroke:var(--ink);fill:none;stroke-width:1.2} svg .ln-thin{stroke:var(--ink-2);fill:none;stroke-width:.7}
+svg .flow{stroke:var(--accent);fill:none;stroke-width:2} svg .flow-t{stroke:var(--crit);fill:none;stroke-width:1.6;stroke-dasharray:6 4}
+svg .flow-p{stroke:var(--ink-2);fill:none;stroke-width:1.3;stroke-dasharray:2 3}
+svg .flow-g{stroke:var(--warn);fill:none;stroke-width:1.8}
+svg .z-rec{fill:var(--z-rec)} svg .z-mec{fill:var(--z-mec)} svg .z-org{fill:var(--z-org)} svg .z-ene{fill:var(--z-ene)}
+svg .z-env{fill:var(--z-env)} svg .z-sup{fill:var(--z-sup)} svg .z-wat{fill:var(--z-wat)} svg .road{fill:var(--road)} svg .grn{fill:var(--green)}
+svg .paper{fill:var(--paper)} svg .box{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+svg .ah{fill:var(--accent)} svg .ah-t{fill:var(--crit)} svg .ah-g{fill:var(--warn)} svg .ah-p{fill:var(--ink-2)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font:12px/1.3 var(--mono);color:var(--ink-2);margin:6px 0 0}
+.legend i{display:inline-block;width:14px;height:10px;border:1px solid var(--ink);margin-right:6px;vertical-align:-1px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+ol.steps li{margin-bottom:6px}
+a{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+<nav class="toc" aria-label="Índice">
+  <b>Índice</b>
+  <a href="#resumen">1 · Resumen ejecutivo</a>
+  <a href="#bases">2 · Bases de diseño</a>
+  <a href="#caracterizacion">3 · Caracterización</a>
+  <a href="#tecnologia">4 · Selección tecnológica</a>
+  <a href="#proceso">5 · Descripción del proceso</a>
+  <a href="#balance">6 · Balance de masa</a>
+  <a href="#subproductos">7 · Subproductos</a>
+  <a href="#terreno">8 · Terreno y logística</a>
+  <a href="#planos">9 · Planos</a>
+  <a href="#equipos">10 · Listado de maquinaria</a>
+  <a href="#secundarios">11 · Equipos secundarios</a>
+  <a href="#electrica">12 · Energía y electricidad</a>
+  <a href="#automatizacion">13 · Automatización</a>
+  <a href="#seguridad">14 · Seguridad e incendios</a>
+  <a href="#ambiente">15 · Medio ambiente</a>
+  <a href="#economia">16 · CAPEX y OPEX</a>
+  <a href="#riesgos">17 · Riesgos y ensayos</a>
+  <a href="#hoja">18 · Hoja de ruta</a>
+  <a href="#supuestos">19 · Supuestos y revisión</a>
+</nav>
+<main>
+<header class="cartouche">
+  <div class="t">
+    <div class="eyebrow">Estudio de ingeniería conceptual · Rev. A</div>
+    <h1>Planta de tratamiento mecánico-biológico de RSU para 2.500–2.700 t/d</h1>
+    <p>Terreno necesario, proceso, subproductos, maquinaria, equipos secundarios, planos y órdenes de magnitud de inversión para una planta automatizada de residuos sólidos urbanos mezclados con 40–50 % de materia orgánica.</p>
+  </div>
+  <dl>
+    <dt>Nivel</dt><dd>L1–L2 prefactibilidad / conceptual</dd>
+    <dt>Estimación</dt><dd>AACE Clase 5 (−30 % / +50 % o más)</dd>
+    <dt>Capacidad</dt><dd>2.700 t/d diseño · 2.600 t/d nominal</dd>
+    <dt>Anual</dt><dd>≈ 949.000 t/a nominal</dd>
+    <dt>Unidades</dt><dd>SI · t = tonelada métrica</dd>
+    <dt>Estado</dt><dd>Conceptual, no apto para construcción</dd>
+    <dt>Fecha</dt><dd>26-09-2026</dd>
+  </dl>
+</header>
+
+<p class="muted" style="margin-top:14px;font-size:13px">Cada dato relevante lleva su procedencia:
+<span class="tag u">USUARIO</span> dato aportado ·
+<span class="tag">LIT</span> rango típico de literatura ·
+<span class="tag a">SUPUESTO</span> supuesto de ingeniería ·
+<span class="tag">CÁLC</span> calculado en este estudio ·
+<span class="tag">ESTIM</span> estimación preliminar ·
+<span class="tag t">ENSAYO</span> requiere validación por ensayo.
+Los fabricantes citados son candidatos a consultar; no se indican modelos ni precios de catálogo porque no se han verificado con documentación del fabricante.</p>
+
+<section id="resumen">
+<h2><span class="n">01</span>Resumen ejecutivo</h2>
+<p class="lead">Para 2.500–2.700 t/d de RSU mezclado con 40–50 % de orgánicos, la solución técnicamente probada es una <b>planta MBT</b> (tratamiento mecánico-biológico) con cuatro líneas de pretratamiento, dos líneas de clasificación automática de la fracción seca, una línea de producción de combustible sólido recuperado (RDF/SRF secado), <b>digestión anaerobia seca</b> de la fracción orgánica con cogeneración, y compostaje en túneles del digestato.</p>
+
+<div class="kpis">
+  <div><b>≈ 21 ha</b><span>parcela de implantación (520 × 400 m) <span class="tag">CÁLC</span></span></div>
+  <div><b>23–25 ha</b><span>recomendado con reserva de ampliación</span></div>
+  <div><b>20 %</b><span>reciclables recuperados (≈ 522 t/d)</span></div>
+  <div><b>≈ 10 %</b><span>rechazo a vertedero (≈ 258 t/d), si el RDF tiene salida</span></div>
+  <div><b>10,5 MWe</b><span>cogeneración con biogás; la planta es ≈ autosuficiente</span></div>
+  <div><b>≈ 180</b><span>empleos directos (FTE) con alta automatización</span></div>
+</div>
+
+<h3>Respuestas directas</h3>
+<ul>
+  <li><b>Terreno:</b> la implantación dimensionada ocupa <b>20,8 ha</b> (13,7 ha de áreas funcionales, ≈ 4,4 ha de viales y maniobra, 2,7 ha de franja verde perimetral de 15 m). Recomiendo adquirir <b>23–25 ha</b> para ampliación futura. El mínimo absoluto, apilando edificios y reduciendo retiros, es ≈ 17–18 ha. Si el compostaje se hiciera en pilas abiertas en lugar de túneles cerrados, harían falta ≈ 5 ha más y el riesgo de olores sería muy superior.</li>
+  <li><b>Amortiguamiento:</b> foso de recepción para 2,5 días (≈ 6.750 t), almacén de balas para 7 días, RDF para 4 días, compost para 15 días, gasómetros para ≈ 2 h de biogás y franja perimetral ajardinada de 15 m. La distancia a viviendas la fija la normativa local; como orden de magnitud conviene buscar parcelas a más de 500 m de zonas residenciales <span class="tag a">SUPUESTO</span>.</li>
+  <li><b>Subproductos (nominal 2.600 t/d):</b> papel-cartón 194 t/d, film de PE 146 t/d, plásticos rígidos (PET, HDPE, PP, mezcla) 143 t/d, metales férricos 34 t/d, aluminio 6 t/d, RDF/SRF secado 670 t/d, biogás ≈ 109.000 Nm³/d, material bioestabilizado tipo compost 352 t/d y madera voluminosa 20 t/d.</li>
+  <li><b>Automatización:</b> grúas de foso automáticas, clasificadores ópticos NIR, robots de control de calidad con visión artificial, básculas de banda para balance de masa en línea, SCADA con historiador y mantenimiento predictivo. La automatización reduce la plantilla, pero no la elimina: siguen siendo necesarios operadores de sala de control, maquinistas de pala, mantenimiento y laboratorio.</li>
+  <li><b>Inversión (orden de magnitud):</b> CAPEX Clase 5 ≈ <b>515 M USD</b> (rango 367–843 M USD); OPEX ≈ <b>38 USD/t</b> sin amortización ni financiación. Ambos dependen mucho del país. No son precios contractuales.</li>
+</ul>
+<div class="note"><b>Decisión crítica antes de seguir:</b> el diseño supone que existe un comprador de RDF/SRF (cementeras u otra valorización energética) y una salida para el material bioestabilizado. Sin salida para el RDF, el rechazo a vertedero sube del 10 % al ≈ 36 %. Confirmar ambos mercados es el primer paso.</div>
+</section>
+
+<section id="bases">
+<h2><span class="n">02</span>Bases de diseño</h2>
+<div class="tbl"><table>
+<thead><tr><th>Parámetro</th><th>Valor</th><th>Procedencia</th></tr></thead>
+<tbody>
+<tr><td>Residuo recibido</td><td>2.500–2.700 t/d de RSU mezclado (sin separación en origen)</td><td><span class="tag u">USUARIO</span></td></tr>
+<tr><td>Punto de diseño / nominal</td><td>2.700 t/d / 2.600 t/d</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Recepción</td><td>365 d/año, 16 h/d de entrada de camiones</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Proceso mecánico</td><td>3 turnos, 20 h/d efectivas, 7 d/semana; 4 h/d de ventana de mantenimiento</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Proceso biológico, olores, energía</td><td>24 h/d, 365 d/año</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Caudal medio / de diseño mecánico</td><td>135 t/h / 165 t/h (factor de punta 1,10; disponibilidad 0,90)</td><td><span class="tag">CÁLC</span></td></tr>
+<tr><td>Configuración</td><td>4 líneas de pretratamiento × 42 t/h; 2 líneas de clasificación seca × 48 t/h; 1 línea RDF; 12 digestores</td><td><span class="tag">CÁLC</span></td></tr>
+<tr><td>Dimensionado por línea</td><td>Línea orgánica al 50 % de orgánicos; línea seca al 60 % de fracción seca</td><td><span class="tag">CÁLC</span></td></tr>
+<tr><td>Jurisdicción</td><td>No indicada: la normativa debe confirmarse para el país del proyecto</td><td>—</td></tr>
+</tbody></table></div>
+<p class="muted">La planta no se diseña con el promedio: cada línea se dimensiona en el extremo de la horquilla que le es desfavorable (orgánicos 50 % para la línea biológica, fracción seca 60 % para la línea de clasificación) y el foso absorbe las puntas diarias.</p>
+</section>
+
+<section id="caracterizacion">
+<h2><span class="n">03</span>Caracterización del residuo</h2>
+<p>Composición aportada: orgánicos 40–50 %, plásticos ≈ 25 %, papel y cartón ≈ 25 %, y otros menores (madera y otros). Como la suma supera el 100 % en el extremo alto, se ha construido una composición nominal coherente dentro de la horquilla. <b>Debe confirmarse con una campaña de caracterización.</b></p>
+<div class="tbl"><table>
+<thead><tr><th>Fracción</th><th class="r">Nominal % (húmedo)</th><th class="r">t/d a 2.600</th><th>Rango de diseño</th><th>Procedencia</th></tr></thead>
+<tbody>
+<tr><td>Orgánicos (restos de comida y poda)</td><td class="r">45,0</td><td class="r">1.170</td><td>40–50 %</td><td><span class="tag u">USUARIO</span></td></tr>
+<tr><td>Papel y cartón</td><td class="r">22,0</td><td class="r">572</td><td>20–25 %</td><td><span class="tag u">USUARIO</span> ajustado</td></tr>
+<tr><td>Plástico film (PE)</td><td class="r">12,0</td><td class="r">312</td><td rowspan="2">20–25 % plásticos</td><td><span class="tag a">SUPUESTO</span> reparto</td></tr>
+<tr><td>Plásticos rígidos (PET, HDPE, PP, PS…)</td><td class="r">10,0</td><td class="r">260</td><td><span class="tag a">SUPUESTO</span> reparto</td></tr>
+<tr><td>Madera</td><td class="r">4,0</td><td class="r">104</td><td>2–6 %</td><td><span class="tag u">USUARIO</span> "menores"</td></tr>
+<tr><td>Metales férricos</td><td class="r">1,5</td><td class="r">39</td><td>1–3 %</td><td><span class="tag">LIT</span></td></tr>
+<tr><td>Aluminio y no férricos</td><td class="r">0,5</td><td class="r">13</td><td>0,3–1 %</td><td><span class="tag">LIT</span></td></tr>
+<tr><td>Vidrio, inertes y finos minerales</td><td class="r">3,0</td><td class="r">78</td><td>2–8 %</td><td><span class="tag">LIT</span></td></tr>
+<tr><td>Textiles y otros</td><td class="r">2,0</td><td class="r">52</td><td>1–4 %</td><td><span class="tag">LIT</span></td></tr>
+<tr class="tot"><td>Total</td><td class="r">100,0</td><td class="r">2.600</td><td></td><td></td></tr>
+</tbody></table></div>
+<div class="cols">
+<div><h3>Propiedades supuestas</h3>
+<ul>
+<li>Humedad global del RSU: 45–55 % <span class="tag">LIT</span>; de los orgánicos ≈ 70 % <span class="tag a">SUPUESTO</span>.</li>
+<li>Densidad en foso: 350–450 kg/m³ (diseño 400) <span class="tag">LIT</span>.</li>
+<li>Orgánicos: ST 30 %, SV/ST 85 % <span class="tag a">SUPUESTO</span> <span class="tag t">ENSAYO</span>.</li>
+<li>PCI del RSU tal cual: 6–9 MJ/kg <span class="tag">LIT</span>.</li>
+</ul></div>
+<div><h3>Datos que faltan (campaña de caracterización)</h3>
+<ul>
+<li>Composición en ≥ 15 categorías, 7 días seguidos, en temporada seca y húmeda (método tipo ASTM D5231).</li>
+<li>Granulometría: % &lt; 60 mm y % &gt; 250 mm.</li>
+<li>Humedad, PCI, cenizas, cloro (PVC) y metales pesados del futuro RDF.</li>
+<li>Potencial de biogás (ensayo BMP) de la fracción &lt; 60 mm.</li>
+<li>Variación horaria y estacional de las entradas (básculas municipales).</li>
+</ul></div>
+</div>
+</section>
+
+<section id="tecnologia">
+<h2><span class="n">04</span>Selección tecnológica</h2>
+<p>Con residuo mezclado y alta carga orgánica, lo que decide el diseño es el tratamiento de la fracción orgánica. Se compararon cinco alternativas (1 = peor, 5 = mejor).</p>
+<div class="tbl"><table>
+<thead><tr><th>Criterio</th><th>A · Compostaje en túnel</th><th>B · Digestión seca + túnel</th><th>C · Digestión húmeda</th><th>D · Pilas abiertas</th><th>E · Biosecado a SRF</th></tr></thead>
+<tbody>
+<tr><td>Madurez (TRL / referencias)</td><td>5</td><td>5</td><td>4</td><td>5</td><td>4</td></tr>
+<tr><td>Tolerancia a impurezas del RSU mezclado</td><td>5</td><td>4</td><td>2</td><td>5</td><td>5</td></tr>
+<tr><td>Recuperación de energía</td><td>1</td><td>5</td><td>5</td><td>1</td><td>3 (vía SRF)</td></tr>
+<tr><td>Control de olores</td><td>4</td><td>5</td><td>4</td><td>1</td><td>4</td></tr>
+<tr><td>Superficie</td><td>3</td><td>4</td><td>4</td><td>1</td><td>4</td></tr>
+<tr><td>CAPEX (5 = menor)</td><td>4</td><td>2</td><td>2</td><td>5</td><td>3</td></tr>
+<tr><td>OPEX neto (con venta de energía)</td><td>2</td><td>4</td><td>3</td><td>4</td><td>3</td></tr>
+<tr><td>Complejidad / mantenimiento</td><td>4</td><td>3</td><td>2</td><td>5</td><td>4</td></tr>
+<tr><td>Dependencia de mercados externos</td><td>compost</td><td>electricidad + compost</td><td>electricidad + digestato</td><td>compost</td><td>SRF (todo el caudal)</td></tr>
+<tr class="tot"><td>Valoración</td><td>Viable, sin energía</td><td><b>Seleccionada</b></td><td>Riesgo por impurezas</td><td>Descartada: olores y superficie</td><td>Viable si hay cementeras cercanas</td></tr>
+</tbody></table></div>
+<p><b>Técnicamente posible frente a comercialmente viable.</b> La pirólisis de plásticos, la gasificación de RDF o el reciclaje químico son técnicamente posibles, pero no se proponen como caso base: su madurez comercial con RSU mezclado es limitada y exigen una due diligence específica. La incineración con recuperación de energía sí es madura, pero es un proyecto distinto; el RDF de esta planta puede alimentarla en el futuro.</p>
+</section>
+
+<section id="proceso">
+<h2><span class="n">05</span>Descripción del proceso</h2>
+<ol class="steps">
+<li><b>Área 100, recepción.</b> Control de acceso, 3 básculas de entrada, nave de descarga con 12 puertas rápidas y foso de 110 × 20 m (≈ 7.000 t, 2,5 días). Tres grúas puente automáticas con pulpo (2 en servicio + 1 de reserva) mezclan el residuo, retiran voluminosos y alimentan las tolvas. Detección de incendios por cámaras térmicas y cañones de agua automáticos.</li>
+<li><b>Área 200, pretratamiento (4 líneas × 42 t/h).</b> Tolva y alimentador de placas → abrebolsas/pretriturador lento de dos ejes → trómel primario Ø 3,6 m con cortes a 60 y 250 mm → imanes overband en ambas corrientes. La fracción &lt; 60 mm (rica en orgánicos) va a la línea biológica; la fracción 60–250 mm va a clasificación; la &gt; 250 mm vuelve al pretriturador o pasa al RDF.</li>
+<li><b>Área 300, clasificación de la fracción seca (2 líneas × 48 t/h).</b> Separadores balísticos (2D planos / 3D rodantes). En la corriente 2D: NIR de papel-cartón y NIR de film. En la corriente 3D: separador de corrientes de Foucault (aluminio) y cascada NIR de PET, HDPE, PP, plásticos mezcla y un repaso. Robots con visión artificial en el control de calidad de PET y HDPE. Silos de producto y 3 prensas automáticas (2 + 1).</li>
+<li><b>Área 400, línea biológica.</b> 12 digestores secos de flujo pistón (≈ 3.600 m³ útiles cada uno, termófilos) → biogás a desulfuración, gasómetros, 5 motores de cogeneración (clase 2,0–2,7 MWe) y 2 antorchas. El digestato se deshidrata con prensas de tornillo; el líquido se recircula al digestor y el excedente va a la depuradora. El sólido se composta en 32 túneles aireados (10 días) y madura 3–4 semanas en nave cubierta y aireada. Afino a 12 mm con separador de piedras y separador neumático.</li>
+<li><b>Área 500, RDF/SRF.</b> Los rechazos de clasificación pasan por separadores neumáticos (retirada de inertes pesados) → 4 trituradores secundarios (3 + 1) a &lt; 50 mm → 2 secaderos de banda con calor residual de la cogeneración (≈ 3,4 MWt) → foso de RDF con 2 grúas y carga automática de camiones de piso móvil.</li>
+<li><b>Áreas 700–900, servicios.</b> Aire comprimido, agua de proceso, depuradora de lixiviados (biorreactor de membrana + ósmosis inversa), balsas pluviales y reserva contra incendios, subestación, tratamiento de olores (lavadores ácidos + biofiltros).</li>
+</ol>
+</section>
+
+<section id="balance">
+<h2><span class="n">06</span>Balance de masa</h2>
+<p>Calculado con coeficientes de transferencia por equipo (<code>scripts/mass_balance.py</code> del skill; modelo en <code>calc/mass_balance_nominal.json</code>). Base: 2.600 t/d nominales. Los coeficientes son valores típicos de literatura para residuo mezclado, ajustados a la baja por la suciedad orgánica <span class="tag">LIT</span> <span class="tag a">SUPUESTO</span>; deben confirmarse con garantías de fabricante y ensayos.</p>
+<div class="ok"><b>CIERRE DEL BALANCE DE MASA: 100,000 %.</b> ENTRADA = PRODUCTOS + SUBPRODUCTOS + RECHAZOS + PÉRDIDAS. Todas las operaciones unitarias cierran al 100,000 %.</div>
+<div class="tbl"><table>
+<thead><tr><th>Categoría</th><th>Corrientes</th><th class="r">t/d</th><th class="r">% entrada</th><th class="r">t/a</th></tr></thead>
+<tbody>
+<tr><td>Entrada RSU</td><td>S01</td><td class="r">2.600,0</td><td class="r">100,0</td><td class="r">949.000</td></tr>
+<tr class="grp"><td colspan="5">Productos (materiales reciclables vendibles)</td></tr>
+<tr><td>Papel y cartón (balas)</td><td>S20</td><td class="r">193,5</td><td class="r">7,4</td><td class="r">70.600</td></tr>
+<tr><td>Film de PE (balas)</td><td>S22</td><td class="r">146,2</td><td class="r">5,6</td><td class="r">53.400</td></tr>
+<tr><td>Plásticos rígidos (PET, HDPE, PP, mezcla)</td><td>S26</td><td class="r">143,4</td><td class="r">5,5</td><td class="r">52.300</td></tr>
+<tr><td>Metales férricos</td><td>S06 + S16</td><td class="r">32,2</td><td class="r">1,2</td><td class="r">11.800</td></tr>
+<tr><td>Aluminio / no férricos</td><td>S24</td><td class="r">6,3</td><td class="r">0,2</td><td class="r">2.300</td></tr>
+<tr class="tot"><td>Subtotal productos</td><td></td><td class="r">521,6</td><td class="r">20,1</td><td class="r">190.400</td></tr>
+<tr class="grp"><td colspan="5">Subproductos (energía, combustible, enmienda)</td></tr>
+<tr><td>RDF/SRF secado</td><td>S31</td><td class="r">669,9</td><td class="r">25,8</td><td class="r">244.500</td></tr>
+<tr><td>Material bioestabilizado / compost (CLO)</td><td>S14</td><td class="r">351,5</td><td class="r">13,5</td><td class="r">128.300</td></tr>
+<tr><td>Biogás (masa; ≈ 109.000 Nm³/d)</td><td>S08</td><td class="r">131,0</td><td class="r">5,0</td><td class="r">47.800</td></tr>
+<tr><td>Voluminosos: madera, textiles, metal</td><td>S02</td><td class="r">20,2</td><td class="r">0,8</td><td class="r">7.400</td></tr>
+<tr class="tot"><td>Subtotal subproductos</td><td></td><td class="r">1.172,5</td><td class="r">45,1</td><td class="r">428.000</td></tr>
+<tr class="grp"><td colspan="5">Rechazos a vertedero</td></tr>
+<tr><td>Rechazo del afino de compost (vidrio, piedras, plásticos)</td><td>S15</td><td class="r">157,8</td><td class="r">6,1</td><td class="r">57.600</td></tr>
+<tr><td>Pesados del separador neumático de RDF (inertes)</td><td>S28</td><td class="r">100,1</td><td class="r">3,8</td><td class="r">36.500</td></tr>
+<tr class="tot"><td>Subtotal rechazos</td><td></td><td class="r">257,9</td><td class="r">9,9</td><td class="r">94.100</td></tr>
+<tr class="grp"><td colspan="5">Pérdidas de proceso (agua y CO<sub>2</sub>)</td></tr>
+<tr><td>Líquido de digestato excedente a depuradora</td><td>S10</td><td class="r">263,7</td><td class="r">10,1</td><td class="r">96.300</td></tr>
+<tr><td>Evaporación y CO<sub>2</sub> en túneles y maduración</td><td>S12</td><td class="r">306,8</td><td class="r">11,8</td><td class="r">112.000</td></tr>
+<tr><td>Vapor de agua del secado de RDF</td><td>S30</td><td class="r">77,5</td><td class="r">3,0</td><td class="r">28.300</td></tr>
+<tr class="tot"><td>Subtotal pérdidas</td><td></td><td class="r">647,9</td><td class="r">24,9</td><td class="r">236.500</td></tr>
+<tr class="tot"><td>Total salidas</td><td></td><td class="r">2.600,0</td><td class="r">100,0</td><td class="r">949.000</td></tr>
+</tbody></table></div>
+<h3>Corrientes principales</h3>
+<div class="tbl"><table>
+<thead><tr><th>Corriente</th><th>Descripción</th><th class="r">t/d nominal</th><th class="r">t/h diseño*</th></tr></thead>
+<tbody>
+<tr><td>S01</td><td>RSU recibido</td><td class="r">2.600,0</td><td class="r">165</td></tr>
+<tr><td>S03</td><td>A pretratamiento (tras retirar voluminosos)</td><td class="r">2.579,9</td><td class="r">164</td></tr>
+<tr><td>S04</td><td>Finos &lt; 60 mm del trómel (orgánicos)</td><td class="r">1.219,6</td><td class="r">89 (al 50 % orgánicos)</td></tr>
+<tr><td>S05</td><td>Fracción 60–250 mm (seca)</td><td class="r">1.360,3</td><td class="r">95 (al 60 % seca)</td></tr>
+<tr><td>S07</td><td>Alimentación a digestión</td><td class="r">1.210,7</td><td class="r">58 (24 h)</td></tr>
+<tr><td>S11</td><td>Digestato sólido deshidratado</td><td class="r">816,1</td><td class="r">39 (24 h)</td></tr>
+<tr><td>S18 / S19</td><td>Fracción 2D (plana) / 3D (rodante)</td><td class="r">845,0 / 491,9</td><td class="r">59 / 35</td></tr>
+<tr><td>S29</td><td>RDF antes del secado</td><td class="r">747,4</td><td class="r">46</td></tr>
+</tbody></table></div>
+<p class="muted">* Diseño = nominal × (2.700/2.600) × factor de composición × 1,10 / 0,90 ÷ 20 h (líneas mecánicas) o ÷ 24 h (líneas biológicas continuas).</p>
+</section>
+
+<section id="subproductos">
+<h2><span class="n">07</span>Subproductos que se pueden producir</h2>
+<div class="tbl"><table>
+<thead><tr><th>Subproducto</th><th class="r">t/d</th><th>Especificación orientativa</th><th>Salida / comprador típico</th><th>Riesgo de mercado</th></tr></thead>
+<tbody>
+<tr><td>Papel y cartón mixto (balas)</td><td class="r">194</td><td>Humedad &lt; 12 %, impropios &lt; 3–5 % <span class="tag a">SUPUESTO</span></td><td>Papeleras de cartón ondulado</td><td>Medio: el papel procedente de residuo mezclado está sucio y se paga con descuento</td></tr>
+<tr><td>Film de PE (balas)</td><td class="r">146</td><td>PE ≥ 90 %, humedad declarada</td><td>Recicladores con lavado de film</td><td>Medio-alto: film sucio y húmedo</td></tr>
+<tr><td>PET (balas)</td><td class="r">≈ 50</td><td>PET ≥ 95 %, PVC controlado</td><td>Lavado de PET, fibra, lámina</td><td>Bajo-medio</td></tr>
+<tr><td>HDPE (balas)</td><td class="r">≈ 36</td><td>HDPE ≥ 95 %</td><td>Recicladores de poliolefinas</td><td>Bajo-medio</td></tr>
+<tr><td>PP (balas)</td><td class="r">≈ 36</td><td>PP ≥ 93 %</td><td>Recicladores de poliolefinas</td><td>Medio</td></tr>
+<tr><td>Plásticos mezcla / PS</td><td class="r">≈ 22</td><td>Según comprador</td><td>Reciclaje de mezcla o combustible</td><td>Alto: puede acabar en RDF</td></tr>
+<tr><td>Chatarra férrica</td><td class="r">34</td><td>Fe ≥ 90–95 %</td><td>Acerías, chatarreros</td><td>Bajo</td></tr>
+<tr><td>Aluminio / no férricos</td><td class="r">6</td><td>Al ≥ 85–90 %</td><td>Fundiciones secundarias</td><td>Bajo, alto valor unitario</td></tr>
+<tr><td>RDF/SRF secado (&lt; 50 mm)</td><td class="r">670</td><td>PCI 14–18 MJ/kg, humedad ≤ 20 %, Cl &lt; 1 % <span class="tag">ESTIM</span> <span class="tag t">ENSAYO</span></td><td>Cementeras (co-procesado), plantas de valorización energética</td><td>Alto: define el éxito de la planta; suele tener precio cero o negativo</td></tr>
+<tr><td>Biogás → electricidad</td><td class="r">≈ 109.000 Nm³/d</td><td>CH<sub>4</sub> ≈ 58 % <span class="tag a">SUPUESTO</span></td><td>10,5 MWe brutos, ≈ 252 MWh/d; ≈ 11 MWt de calor</td><td>Depende de la tarifa de la red</td></tr>
+<tr><td>Alternativa: biometano</td><td class="r">≈ 2.600 Nm³/h</td><td>Calidad de inyección en red</td><td>Red de gas o combustible de flota (camiones de recogida)</td><td>Depende de acceso a red</td></tr>
+<tr><td>Material bioestabilizado / compost</td><td class="r">352</td><td>&lt; 12 mm, impropios y metales pesados según norma local</td><td>Restauración de suelos, cobertura de vertedero, agricultura si cumple</td><td>Alto: el compost de residuo mezclado rara vez es vendible como abono</td></tr>
+<tr><td>Madera voluminosa (astilla)</td><td class="r">≈ 18</td><td>Astilla &lt; 100 mm</td><td>Biomasa, estructurante del compostaje</td><td>Bajo (uso interno)</td></tr>
+<tr><td>Opcional: CO<sub>2</sub> biogénico, estruvita (N-P)</td><td class="r">—</td><td>—</td><td>Solo con upgrading o recuperación de nutrientes</td><td>Fase 2</td></tr>
+</tbody></table></div>
+<p>El vidrio no se recupera como producto: en residuo mezclado llega roto dentro de los finos y termina en el rechazo del afino. Si la ciudad implanta recogida separada de vidrio, esta fracción desaparece de la entrada.</p>
+</section>
+
+<section id="terreno">
+<h2><span class="n">08</span>Terreno, almacenamiento y logística</h2>
+<h3>Superficie por área (plano 01)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Código</th><th>Área</th><th>Dimensiones (m)</th><th class="r">m²</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Acceso, control, 3 básculas de entrada, cola de camiones</td><td>110 × 60</td><td class="r">6.600</td></tr>
+<tr><td>B</td><td>Oficinas, sala de control, laboratorio, vestuarios, aparcamiento</td><td>100 × 60</td><td class="r">6.000</td></tr>
+<tr><td>C</td><td>Taller, almacén de repuestos, garaje de maquinaria móvil</td><td>80 × 60</td><td class="r">4.800</td></tr>
+<tr><td>D</td><td>Subestación AT/MT</td><td>60 × 60</td><td class="r">3.600</td></tr>
+<tr><td>E</td><td>Salida: 3 básculas, aparcamiento de camiones, carga de rechazos</td><td>80 × 60</td><td class="r">4.800</td></tr>
+<tr><td>F</td><td>Explanada de maniobra frente a la nave de descarga</td><td>120 × 40</td><td class="r">4.800</td></tr>
+<tr><td>G</td><td>Nave de descarga (12 puertas)</td><td>120 × 35</td><td class="r">4.200</td></tr>
+<tr><td>H</td><td>Foso de recepción (2,5 días)</td><td>110 × 20</td><td class="r">2.200</td></tr>
+<tr><td>I</td><td>Nave de pretratamiento (4 líneas)</td><td>90 × 80</td><td class="r">7.200</td></tr>
+<tr><td>J</td><td>Nave de clasificación (2 líneas, estructura en altura)</td><td>120 × 80</td><td class="r">9.600</td></tr>
+<tr><td>K</td><td>Prensado y almacén de balas (7 días)</td><td>70 × 80</td><td class="r">5.600</td></tr>
+<tr><td>L</td><td>RDF: trituración, secado, foso y carga</td><td>95 × 60</td><td class="r">5.700</td></tr>
+<tr><td>M</td><td>Digestión anaerobia (12 digestores + nave de alimentación)</td><td>110 × 100</td><td class="r">11.000</td></tr>
+<tr><td>R</td><td>Biogás: gasómetros, tratamiento, cogeneración, antorchas</td><td>60 × 100</td><td class="r">6.000</td></tr>
+<tr><td>N</td><td>Deshidratación de digestato y 32 túneles de compostaje</td><td>130 × 100</td><td class="r">13.000</td></tr>
+<tr><td>O</td><td>Nave de maduración aireada</td><td>140 × 100</td><td class="r">14.000</td></tr>
+<tr><td>P</td><td>Afino y almacén de compost (15 días)</td><td>80 × 80</td><td class="r">6.400</td></tr>
+<tr><td>Q</td><td>Tratamiento de olores: lavadores y biofiltros</td><td>70 × 140</td><td class="r">9.800</td></tr>
+<tr><td>W</td><td>Depuradora de lixiviados</td><td>80 × 50</td><td class="r">4.000</td></tr>
+<tr><td>X</td><td>Balsas de pluviales y depósito contra incendios</td><td>varias</td><td class="r">7.900</td></tr>
+<tr class="tot"><td></td><td>Áreas funcionales</td><td></td><td class="r">137.200</td></tr>
+<tr><td></td><td>Viales internos de sentido único (10–12 m), anillo de bomberos, maniobra</td><td></td><td class="r">≈ 44.100</td></tr>
+<tr><td></td><td>Franja verde perimetral de 15 m</td><td></td><td class="r">≈ 26.700</td></tr>
+<tr class="tot"><td></td><td>Parcela del plano 01 (520 × 400 m)</td><td></td><td class="r">208.000 (20,8 ha)</td></tr>
+<tr><td></td><td>Reserva de ampliación recomendada (10–20 %)</td><td></td><td class="r">+ 20.000–40.000</td></tr>
+<tr class="tot"><td></td><td>Terreno recomendado</td><td></td><td class="r">23–25 ha</td></tr>
+</tbody></table></div>
+<p class="muted">Contraste: ≈ 2,2 ha por cada 100.000 t/a. Las referencias publicadas varían mucho según el tipo de tratamiento biológico; esta cifra es un cálculo por áreas y no un dato verificado de plantas existentes <span class="tag">CÁLC</span>.</p>
+
+<h3>Almacenamiento y amortiguamiento</h3>
+<div class="tbl"><table>
+<thead><tr><th>Almacén</th><th>Autonomía</th><th class="r">Masa (t)</th><th class="r">Volumen (m³)</th><th>Base de cálculo</th></tr></thead>
+<tbody>
+<tr><td>Foso de RSU</td><td>2,5 días</td><td class="r">6.750</td><td class="r">18.750</td><td>400 kg/m³, llenado 90 %; 12 m de profundidad más apilado</td></tr>
+<tr><td>Balas de producto</td><td>7 días</td><td class="r">3.430</td><td class="r">7.600</td><td>≈ 450 kg/m³ medio, 4 alturas de bala</td></tr>
+<tr><td>RDF secado</td><td>4 días</td><td class="r">2.680</td><td class="r">10.700</td><td>250 kg/m³, foso de 12 m con grúa</td></tr>
+<tr><td>Compost</td><td>15 días</td><td class="r">5.280</td><td class="r">9.600</td><td>550 kg/m³, pilas de 4 m</td></tr>
+<tr><td>Maduración (inventario de proceso)</td><td>21–28 días</td><td class="r">≈ 17.000</td><td class="r">≈ 30.000</td><td>Pilas aireadas de 3 m</td></tr>
+<tr><td>Biogás (gasómetros de doble membrana)</td><td>≈ 2 h</td><td class="r">—</td><td class="r">2 × 5.000</td><td>4.550 Nm³/h nominal</td></tr>
+<tr><td>Agua contra incendios</td><td>2–4 h de caudal de diseño</td><td class="r">—</td><td class="r">2.000–3.000</td><td><span class="tag a">SUPUESTO</span>: lo fija el código y la aseguradora</td></tr>
+</tbody></table></div>
+
+<h3>Tráfico de camiones</h3>
+<div class="tbl"><table>
+<thead><tr><th>Flujo</th><th class="r">t/d</th><th class="r">Carga (t/camión)</th><th class="r">Camiones/d</th></tr></thead>
+<tbody>
+<tr><td>Entrada de RSU (compactadores)</td><td class="r">2.700</td><td class="r">10</td><td class="r">270</td></tr>
+<tr><td>Papel-cartón</td><td class="r">194</td><td class="r">22</td><td class="r">9</td></tr>
+<tr><td>Film</td><td class="r">146</td><td class="r">20</td><td class="r">8</td></tr>
+<tr><td>Plásticos rígidos (limitado por volumen)</td><td class="r">143</td><td class="r">14</td><td class="r">11</td></tr>
+<tr><td>Metales</td><td class="r">40</td><td class="r">15–25</td><td class="r">3</td></tr>
+<tr><td>RDF (piso móvil 90 m³)</td><td class="r">670</td><td class="r">25</td><td class="r">27</td></tr>
+<tr><td>Compost</td><td class="r">352</td><td class="r">28</td><td class="r">13</td></tr>
+<tr><td>Rechazos a vertedero</td><td class="r">258</td><td class="r">28</td><td class="r">10</td></tr>
+<tr><td>Madera, consumibles, varios</td><td class="r">—</td><td class="r">—</td><td class="r">≈ 4</td></tr>
+<tr class="tot"><td>Total</td><td></td><td></td><td class="r">≈ 355 camiones/d (≈ 710 movimientos)</td></tr>
+</tbody></table></div>
+<p>Hora punta de entrada: 15 % de los camiones diarios, ≈ 41 camiones/h <span class="tag a">SUPUESTO</span>. Con ≈ 25 pesadas/h por báscula hacen falta 2 básculas de entrada más 1 de reserva, y 8 posiciones de descarga (8 min por camión, margen 1,3); se instalan 12 puertas para operar con holgura y cerrar puertas por mantenimiento. Los camiones de residuo entran por el acceso suroeste y salen por el sureste sin cruzarse con los de producto; el personal y las visitas tienen un acceso propio.</p>
+</section>
+
+<section id="planos">
+<h2><span class="n">09</span>Planos</h2>
+<p>Planos conceptuales a escala aproximada. Sirven para validar superficies, flujos y separaciones; no sustituyen a un levantamiento topográfico ni a la ingeniería de detalle. En pantallas estrechas, desplace cada plano horizontalmente.</p>
+
+<figure class="dwg" id="plano-01">
+<div class="sheet">
+<svg viewBox="0 0 1120 880" role="img" aria-labelledby="p01t">
+<title id="p01t">Plano 01: implantación general de la planta sobre parcela de 520 por 400 metros</title>
+<style>
+#plano-01 .pl{font-family:var(--mono)} #plano-01 .ps{font-size:4.2px} #plano-01 .pm{font-size:5.4px;font-weight:600} #plano-01 .pc{font-size:9px;font-weight:700}
+#plano-01 .edge{stroke:var(--ink);stroke-width:.6;fill-opacity:1}
+</style>
+<rect class="paper" x="0" y="0" width="1120" height="880"/>
+<g transform="translate(-10,-10) scale(2)">
+  <!-- parcela y franja verde -->
+  <rect class="grn" x="20" y="20" width="520" height="400" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="6 3"/>
+  <rect class="road" x="35" y="35" width="490" height="370" stroke="var(--ink-2)" stroke-width=".4"/>
+  <!-- banda norte -->
+  <rect class="z-org edge" x="45" y="45" width="110" height="100"/>
+  <g fill="none" stroke="var(--ink)" stroke-width=".45">
+    <rect x="52" y="52" width="44" height="10"/><rect x="52" y="66" width="44" height="10"/><rect x="52" y="80" width="44" height="10"/>
+    <rect x="52" y="94" width="44" height="10"/><rect x="52" y="108" width="44" height="10"/><rect x="52" y="122" width="44" height="10"/>
+    <rect x="104" y="52" width="44" height="10"/><rect x="104" y="66" width="44" height="10"/><rect x="104" y="80" width="44" height="10"/>
+    <rect x="104" y="94" width="44" height="10"/><rect x="104" y="108" width="44" height="10"/><rect x="104" y="122" width="44" height="10"/>
+  </g>
+  <rect class="z-ene edge" x="165" y="45" width="60" height="100"/>
+  <circle cx="182" cy="66" r="12" fill="none" stroke="var(--ink)" stroke-width=".6"/><circle cx="208" cy="66" r="12" fill="none" stroke="var(--ink)" stroke-width=".6"/>
+  <rect x="172" y="100" width="46" height="18" fill="none" stroke="var(--ink)" stroke-width=".5"/>
+  <circle cx="178" cy="132" r="3" fill="none" stroke="var(--ink)" stroke-width=".5"/><circle cx="192" cy="132" r="3" fill="none" stroke="var(--ink)" stroke-width=".5"/>
+  <rect class="z-org edge" x="235" y="45" width="130" height="100"/>
+  <g stroke="var(--ink)" stroke-width=".35">
+    <line x1="235" y1="75" x2="365" y2="75"/>
+    <line x1="243.1" y1="75" x2="243.1" y2="145"/><line x1="251.2" y1="75" x2="251.2" y2="145"/><line x1="259.4" y1="75" x2="259.4" y2="145"/><line x1="267.5" y1="75" x2="267.5" y2="145"/>
+    <line x1="275.6" y1="75" x2="275.6" y2="145"/><line x1="283.8" y1="75" x2="283.8" y2="145"/><line x1="291.9" y1="75" x2="291.9" y2="145"/><line x1="300" y1="75" x2="300" y2="145"/>
+    <line x1="308.1" y1="75" x2="308.1" y2="145"/><line x1="316.2" y1="75" x2="316.2" y2="145"/><line x1="324.4" y1="75" x2="324.4" y2="145"/><line x1="332.5" y1="75" x2="332.5" y2="145"/>
+    <line x1="340.6" y1="75" x2="340.6" y2="145"/><line x1="348.8" y1="75" x2="348.8" y2="145"/><line x1="356.9" y1="75" x2="356.9" y2="145"/>
+  </g>
+  <rect class="z-org edge" x="375" y="45" width="140" height="100"/>
+  <g stroke="var(--ink)" stroke-width=".35" stroke-dasharray="3 2"><line x1="385" y1="60" x2="505" y2="60"/><line x1="385" y1="80" x2="505" y2="80"/><line x1="385" y1="100" x2="505" y2="100"/><line x1="385" y1="120" x2="505" y2="120"/></g>
+  <!-- banda media -->
+  <rect class="z-mec edge" x="45" y="160" width="90" height="80"/>
+  <g stroke="var(--ink)" stroke-width=".5" fill="none"><rect x="52" y="168" width="14" height="64" rx="7"/><rect x="72" y="168" width="14" height="64" rx="7"/><rect x="92" y="168" width="14" height="64" rx="7"/><rect x="112" y="168" width="14" height="64" rx="7"/></g>
+  <rect class="z-mec edge" x="145" y="160" width="120" height="80"/>
+  <g stroke="var(--ink)" stroke-width=".45"><line x1="152" y1="180" x2="258" y2="180"/><line x1="152" y1="220" x2="258" y2="220"/></g>
+  <rect class="z-mec edge" x="275" y="160" width="70" height="80"/>
+  <g fill="none" stroke="var(--ink)" stroke-width=".35"><rect x="282" y="168" width="10" height="14"/><rect x="296" y="168" width="10" height="14"/><rect x="310" y="168" width="10" height="14"/></g>
+  <rect class="z-org edge" x="355" y="160" width="80" height="80"/>
+  <rect class="z-env edge" x="445" y="160" width="70" height="140"/>
+  <g stroke="var(--ink)" stroke-width=".35" fill="none"><rect x="452" y="168" width="56" height="28"/><rect x="452" y="202" width="56" height="28"/><rect x="452" y="236" width="56" height="28"/><rect x="452" y="270" width="56" height="22"/></g>
+  <!-- recepción -->
+  <rect class="z-rec edge" x="45" y="240" width="110" height="20"/>
+  <rect class="z-rec edge" x="45" y="260" width="120" height="35"/>
+  <g stroke="var(--ink)" stroke-width=".6"><line x1="50" y1="295" x2="58" y2="295"/><line x1="60" y1="295" x2="68" y2="295"/><line x1="70" y1="295" x2="78" y2="295"/><line x1="80" y1="295" x2="88" y2="295"/><line x1="90" y1="295" x2="98" y2="295"/><line x1="100" y1="295" x2="108" y2="295"/><line x1="110" y1="295" x2="118" y2="295"/><line x1="120" y1="295" x2="128" y2="295"/><line x1="130" y1="295" x2="138" y2="295"/><line x1="140" y1="295" x2="148" y2="295"/><line x1="150" y1="295" x2="158" y2="295"/></g>
+  <rect class="road edge" x="45" y="295" width="120" height="40" stroke-dasharray="2 2"/>
+  <rect class="z-mec edge" x="175" y="250" width="95" height="60"/>
+  <rect class="z-wat edge" x="280" y="250" width="65" height="85"/>
+  <rect class="z-wat edge" x="355" y="250" width="80" height="50"/>
+  <rect class="z-wat edge" x="355" y="305" width="80" height="30"/>
+  <!-- banda sur -->
+  <rect class="z-sup edge" x="45" y="345" width="110" height="60"/>
+  <g fill="none" stroke="var(--ink)" stroke-width=".5"><rect x="62" y="372" width="6" height="20"/><rect x="74" y="372" width="6" height="20"/><rect x="86" y="372" width="6" height="20"/></g>
+  <rect class="z-sup edge" x="165" y="345" width="100" height="60"/>
+  <rect class="z-sup edge" x="275" y="345" width="80" height="60"/>
+  <rect class="z-ene edge" x="365" y="345" width="60" height="60"/>
+  <rect class="z-sup edge" x="435" y="345" width="80" height="60"/>
+  <g fill="none" stroke="var(--ink)" stroke-width=".5"><rect x="486" y="372" width="6" height="20"/><rect x="498" y="372" width="6" height="20"/><rect x="474" y="372" width="6" height="20"/></g>
+
+  <!-- rótulos de áreas -->
+  <g class="pl">
+    <text class="pm" x="100" y="141" text-anchor="middle">M · Digestión 12 × 3.600 m³</text>
+    <text class="pc" x="195" y="92" text-anchor="middle">R</text><text class="ps" x="195" y="126" text-anchor="middle">CHP 5 motores</text><text class="ps" x="195" y="141" text-anchor="middle">antorchas</text>
+    <text class="pc" x="300" y="62" text-anchor="middle">N</text><text class="pm" x="300" y="70" text-anchor="middle">32 túneles + prensas</text>
+    <text class="pc" x="445" y="94" text-anchor="middle">O</text><text class="pm" x="445" y="112" text-anchor="middle">Maduración aireada</text><text class="ps" x="445" y="136" text-anchor="middle">14.000 m²</text>
+    <text class="pm" x="90" y="238" text-anchor="middle" style="font-size:4.6px">I · Pretratamiento 4 líneas</text>
+    <text class="pc" x="205" y="203" text-anchor="middle">J</text><text class="pm" x="205" y="212" text-anchor="middle">Clasificación 2 líneas</text>
+    <text class="pc" x="310" y="210" text-anchor="middle">K</text><text class="pm" x="310" y="220" text-anchor="middle">Balas 7 días</text>
+    <text class="pc" x="395" y="200" text-anchor="middle">P</text><text class="pm" x="395" y="210" text-anchor="middle">Afino + compost</text>
+    <text class="pc" x="480" y="298" text-anchor="middle" style="font-size:6px">Q</text>
+    <text class="pm" x="480" y="185" text-anchor="middle" style="font-size:4.4px">Biofiltros</text>
+    <text class="pm" x="100" y="253" text-anchor="middle">H · Foso 2,5 d (6.750 t)</text>
+    <text class="pm" x="105" y="280" text-anchor="middle">G · Nave de descarga · 12 puertas</text>
+    <text class="ps" x="105" y="318" text-anchor="middle">F · Explanada de maniobra</text>
+    <text class="pc" x="222" y="280" text-anchor="middle">L</text><text class="pm" x="222" y="290" text-anchor="middle">RDF: trituración,</text><text class="pm" x="222" y="297" text-anchor="middle">secado y foso</text>
+    <text class="pm" x="312" y="290" text-anchor="middle">X · Balsas</text><text class="ps" x="312" y="297" text-anchor="middle">pluviales + incendios</text>
+    <text class="pm" x="395" y="278" text-anchor="middle">W · Depuradora</text>
+    <text class="ps" x="395" y="322" text-anchor="middle">X · Balsa pluvial</text>
+    <text class="pm" x="100" y="360" text-anchor="middle">A · Acceso RSU</text><text class="ps" x="118" y="385">3 básculas</text>
+    <text class="pm" x="215" y="372" text-anchor="middle">B · Oficinas, control,</text><text class="pm" x="215" y="380" text-anchor="middle">laboratorio, aparcamiento</text>
+    <text class="pm" x="315" y="376" text-anchor="middle">C · Taller y almacén</text>
+    <text class="pm" x="395" y="372" text-anchor="middle">D · Subestación</text><text class="ps" x="395" y="380" text-anchor="middle">AT/MT</text>
+    <text class="pm" x="440" y="357">E · Salida y</text><text class="pm" x="440" y="364">expedición</text><text class="ps" x="440" y="400">3 básculas</text>
+    <text class="ps" x="400" y="158.6" text-anchor="middle" fill="var(--ink-2)">vial norte 12 m</text>
+    <text class="ps" x="280" y="30" text-anchor="middle" fill="var(--ink-2)">franja verde perimetral 15 m · límite de parcela 520 × 400 m = 20,8 ha</text>
+  </g>
+
+  <!-- flujos de proceso internos -->
+  <g class="pl">
+    <path d="M100 240 V232" stroke="var(--accent)" stroke-width="1.4" fill="none"/>
+    <path d="M135 200 H145" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ma)"/>
+    <path d="M265 200 H275" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ma)"/>
+    <path d="M100 160 V146" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ma)"/>
+    <path d="M155 95 H165" stroke="var(--warn)" stroke-width="1.4" marker-end="url(#mg)"/>
+    <path d="M225 110 H235" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ma)"/>
+    <path d="M365 110 H375" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ma)"/>
+    <path d="M445 145 V160" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ma)"/>
+    <path d="M222 240 V250" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#ma)"/>
+    <path d="M195 145 V151 H270 V248" stroke="var(--warn)" stroke-width="1" stroke-dasharray="3 2" fill="none" marker-end="url(#mg)"/>
+    <text class="ps" x="272.5" y="232" fill="var(--warn)" transform="rotate(-90 272.5 232)">calor CHP → secado</text>
+  </g>
+  <!-- rutas de camiones -->
+  <path d="M83 426 V335 H100 V300" stroke="var(--crit)" stroke-width="1.6" stroke-dasharray="5 3" fill="none" marker-end="url(#mt)"/>
+  <path d="M150 315 H168 V340 H495 V426" stroke="var(--crit)" stroke-width="1.6" stroke-dasharray="5 3" fill="none" marker-end="url(#mt)"/>
+  <path d="M510 426 V412 H520 V152 H300" stroke="var(--ink-2)" stroke-width="1.1" stroke-dasharray="1.5 2" fill="none" marker-end="url(#mp)"/>
+  <path d="M520 338 H222 V312" stroke="var(--ink-2)" stroke-width="1.1" stroke-dasharray="1.5 2" fill="none" marker-end="url(#mp)"/>
+  <path d="M215 426 V406" stroke="var(--accent)" stroke-width="1" fill="none" marker-end="url(#ma)"/>
+  <g class="pl">
+    <text class="pm" x="83" y="432" text-anchor="middle" fill="var(--crit)">ENTRADA RSU</text>
+    <text class="pm" x="215" y="432" text-anchor="middle" fill="var(--accent)">PERSONAL</text>
+    <text class="pm" x="500" y="432" text-anchor="middle" fill="var(--crit)">SALIDA / PRODUCTOS</text>
+  </g>
+  <!-- norte y escala -->
+  <g transform="translate(528 380)"><path d="M0 -14 L4 0 L0 -3 L-4 0 Z" fill="var(--ink)"/><text class="pl pm" x="0" y="-16" text-anchor="middle">N</text></g>
+</g>
+<defs>
+  <marker id="ma" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah"/></marker>
+  <marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-g"/></marker>
+  <marker id="mt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-t"/></marker>
+  <marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-p"/></marker>
+</defs>
+<g transform="translate(40 866)"><rect x="0" y="-8" width="100" height="5" fill="var(--ink)"/><rect x="100" y="-8" width="100" height="5" class="paper" stroke="var(--ink)"/><text class="t-sm" x="0" y="8">0</text><text class="t-sm" x="96" y="8">50 m</text><text class="t-sm" x="192" y="8">100 m</text></g>
+</svg>
+</div>
+<figcaption><span><b>Plano 01</b> · Implantación general</span><span>Parcela 520 × 400 m · 20,8 ha · escala gráfica</span><span>Rev. A · conceptual</span></figcaption>
+</figure>
+<div class="legend">
+  <span><i style="background:var(--z-rec)"></i>Recepción</span>
+  <span><i style="background:var(--z-mec)"></i>Proceso mecánico y RDF</span>
+  <span><i style="background:var(--z-org)"></i>Proceso biológico</span>
+  <span><i style="background:var(--z-ene)"></i>Energía</span>
+  <span><i style="background:var(--z-env)"></i>Olores</span>
+  <span><i style="background:var(--z-wat)"></i>Agua</span>
+  <span><i style="background:var(--z-sup)"></i>Apoyo</span>
+  <span><i style="background:var(--green)"></i>Franja verde</span>
+  <span style="color:var(--crit)">- - - camiones de residuo</span>
+  <span>· · · camiones de producto</span>
+  <span style="color:var(--accent)">── flujo de material</span>
+</div>
+
+<figure class="dwg" id="plano-02">
+<div class="sheet">
+<svg viewBox="0 0 1200 600" role="img" aria-labelledby="p02t">
+<title id="p02t">Plano 02: diagrama de bloques con balance de masa nominal en toneladas por día</title>
+<defs>
+  <marker id="b-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah"/></marker>
+  <marker id="b-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-g"/></marker>
+  <marker id="b-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-t"/></marker>
+  <marker id="b-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-p"/></marker>
+</defs>
+<rect class="paper" width="1200" height="600"/>
+<!-- alimentación y recepción -->
+<text class="t-lg" x="14" y="176">RSU</text><text class="t-md" x="14" y="192">2.600 t/d</text>
+<path class="flow" d="M14 200 H148" marker-end="url(#b-a)"/>
+<rect class="box" x="150" y="160" width="120" height="60"/><text class="t-md" x="210" y="184" text-anchor="middle">Recepción y foso</text><text class="t-sm t-mu" x="210" y="200" text-anchor="middle">2,5 d · 3 grúas CR-101</text>
+<path class="flow-p" d="M210 220 V252" marker-end="url(#b-p)"/><text class="t-sm" x="210" y="266" text-anchor="middle">Voluminosos 20,2</text>
+<path class="flow" d="M270 190 H298" marker-end="url(#b-a)"/>
+<rect class="box" x="300" y="40" width="120" height="290"/>
+<text class="t-lg" x="360" y="160" text-anchor="middle">Pretratamiento</text><text class="t-sm" x="360" y="178" text-anchor="middle">4 × 42 t/h</text><text class="t-sm t-mu" x="360" y="196" text-anchor="middle">abrebolsas SH-201</text><text class="t-sm t-mu" x="360" y="210" text-anchor="middle">trómel TR-201</text><text class="t-sm t-mu" x="360" y="224" text-anchor="middle">cortes 60 / 250 mm</text><text class="t-sm" x="360" y="248" text-anchor="middle">entrada 2.579,9 t/d</text>
+<!-- línea orgánica -->
+<path class="flow" d="M420 70 H458" marker-end="url(#b-a)"/><text class="t-sm" x="424" y="106">S04 1.219,6</text>
+<rect class="box" x="460" y="47" width="100" height="46"/><text class="t-md" x="510" y="74" text-anchor="middle">Imán MS-202</text>
+<path class="flow-p" d="M510 93 V116" marker-end="url(#b-p)"/><text class="t-sm" x="510" y="128" text-anchor="middle">Fe 8,9</text>
+<path class="flow" d="M560 70 H588" marker-end="url(#b-a)"/><text class="t-sm" x="562" y="40">S07 1.210,7</text>
+<rect class="box" x="590" y="47" width="130" height="46"/><text class="t-md" x="655" y="67" text-anchor="middle">Digestión AD-401</text><text class="t-sm t-mu" x="655" y="82" text-anchor="middle">seca · 12 × 3.600 m³</text>
+<path class="flow-g" d="M655 93 V138" marker-end="url(#b-g)"/><text class="t-sm" x="662" y="118">Biogás 131,0 t/d</text><text class="t-sm t-mu" x="662" y="130">≈ 4.550 Nm³/h</text>
+<rect class="box" x="590" y="140" width="130" height="46"/><text class="t-md" x="655" y="160" text-anchor="middle">Cogeneración GE-401</text><text class="t-sm t-mu" x="655" y="175" text-anchor="middle">10,5 MWe · 11 MWt</text>
+<path class="flow-g" d="M720 163 H768" marker-end="url(#b-g)"/><text class="t-sm" x="774" y="160">Electricidad</text><text class="t-sm t-mu" x="774" y="172">autoconsumo + red</text>
+<path class="flow" d="M720 70 H748" marker-end="url(#b-a)"/><text class="t-sm" x="706" y="40">S09 1.079,7</text>
+<rect class="box" x="750" y="47" width="130" height="46"/><text class="t-md" x="815" y="67" text-anchor="middle">Deshidrat. DW-401</text><text class="t-sm t-mu" x="815" y="82" text-anchor="middle">+ túneles + maduración</text>
+<path class="flow-p" d="M815 47 V24" marker-end="url(#b-p)"/><text class="t-sm" x="826" y="22">Líquido 263,7 a EDAR · agua y CO₂ 306,8</text>
+<path class="flow" d="M880 70 H908" marker-end="url(#b-a)"/><text class="t-sm" x="872" y="108">S13 509,3</text>
+<rect class="box" x="910" y="47" width="110" height="46"/><text class="t-md" x="965" y="67" text-anchor="middle">Afino TR-402</text><text class="t-sm t-mu" x="965" y="82" text-anchor="middle">12 mm · despedregado</text>
+<path class="flow" d="M1020 70 H1052" marker-end="url(#b-a)"/>
+<rect x="1055" y="52" width="136" height="36" rx="18" class="z-org" stroke="var(--ink)"/><text class="t-md" x="1123" y="68" text-anchor="middle">Compost / CLO</text><text class="t-sm" x="1123" y="81" text-anchor="middle">351,5 t/d</text>
+<path class="flow-t" d="M965 93 V126" marker-end="url(#b-t)"/><text class="t-sm" x="972" y="122">Rechazo 157,8 → vertedero</text>
+<!-- línea seca -->
+<path class="flow" d="M420 300 H458" marker-end="url(#b-a)"/><text class="t-sm" x="424" y="336">S05 1.360,3</text>
+<rect class="box" x="460" y="277" width="100" height="46"/><text class="t-md" x="510" y="304" text-anchor="middle">Imán MS-203</text>
+<path class="flow-p" d="M510 323 V346" marker-end="url(#b-p)"/><text class="t-sm" x="510" y="358" text-anchor="middle">Fe 23,3</text>
+<path class="flow" d="M560 300 H588" marker-end="url(#b-a)"/><text class="t-sm" x="548" y="270">S17 1.336,9</text>
+<rect class="box" x="590" y="277" width="130" height="46"/><text class="t-md" x="655" y="298" text-anchor="middle">Balístico BS-301</text><text class="t-sm t-mu" x="655" y="313" text-anchor="middle">2D / 3D</text>
+<path class="flow" d="M720 290 H735 V230 H748" marker-end="url(#b-a)"/><text class="t-sm" x="690" y="224">2D 845,0</text>
+<path class="flow" d="M720 310 H735 V380 H748" marker-end="url(#b-a)"/><text class="t-sm" x="690" y="396">3D 491,9</text>
+<rect class="box" x="750" y="207" width="110" height="46"/><text class="t-md" x="805" y="228" text-anchor="middle">NIR papel</text><text class="t-sm t-mu" x="805" y="242" text-anchor="middle">OS-302</text>
+<path class="flow" d="M805 207 V194" marker-end="url(#b-a)"/><text class="t-sm" x="805" y="188" text-anchor="middle" style="font-weight:600">Papel-cartón 193,5</text>
+<path class="flow" d="M860 230 H888" marker-end="url(#b-a)"/>
+<rect class="box" x="890" y="207" width="110" height="46"/><text class="t-md" x="945" y="228" text-anchor="middle">NIR film</text><text class="t-sm t-mu" x="945" y="242" text-anchor="middle">OS-303</text>
+<path class="flow" d="M945 207 V194" marker-end="url(#b-a)"/><text class="t-sm" x="945" y="188" text-anchor="middle" style="font-weight:600">Film PE 146,2</text>
+<rect class="box" x="750" y="357" width="110" height="46"/><text class="t-md" x="805" y="378" text-anchor="middle">Foucault</text><text class="t-sm t-mu" x="805" y="392" text-anchor="middle">EC-304</text>
+<path class="flow" d="M805 403 V418" marker-end="url(#b-a)"/><text class="t-sm" x="805" y="432" text-anchor="middle" style="font-weight:600">Aluminio 6,3</text>
+<path class="flow" d="M860 380 H888" marker-end="url(#b-a)"/>
+<rect class="box" x="890" y="357" width="110" height="46"/><text class="t-md" x="945" y="378" text-anchor="middle">NIR rígidos</text><text class="t-sm t-mu" x="945" y="392" text-anchor="middle">OS-305…309 + robots</text>
+<path class="flow" d="M945 403 V418" marker-end="url(#b-a)"/><text class="t-sm" x="945" y="432" text-anchor="middle" style="font-weight:600">Rígidos 143,4</text>
+<text class="t-sm t-mu" x="945" y="445" text-anchor="middle">PET · HDPE · PP · mezcla</text>
+<!-- colector a RDF -->
+<path class="flow" d="M1000 230 H1040 V498 H1034" marker-end="url(#b-a)"/><text class="t-sm" x="1046" y="236">resto 505,3</text>
+<path class="flow" d="M1000 380 H1040"/><text class="t-sm" x="1046" y="386">resto 342,2</text>
+<rect class="box" x="920" y="477" width="110" height="46"/><text class="t-md" x="975" y="498" text-anchor="middle">Sep. neumático</text><text class="t-sm t-mu" x="975" y="512" text-anchor="middle">WS-501</text>
+<path class="flow-t" d="M975 523 V552" marker-end="url(#b-t)"/><text class="t-sm" x="982" y="562">Pesados 100,1 → vertedero</text>
+<path class="flow" d="M920 500 H882" marker-end="url(#b-a)"/><text class="t-sm" x="872" y="470">S29 747,4</text>
+<rect class="box" x="770" y="477" width="110" height="46"/><text class="t-md" x="825" y="498" text-anchor="middle">Trituración</text><text class="t-sm t-mu" x="825" y="512" text-anchor="middle">SH-501 · &lt; 50 mm</text>
+<path class="flow" d="M770 500 H722" marker-end="url(#b-a)"/>
+<rect class="box" x="590" y="477" width="130" height="46"/><text class="t-md" x="655" y="498" text-anchor="middle">Secado DR-501</text><text class="t-sm t-mu" x="655" y="512" text-anchor="middle">≈ 3,4 MWt de la CHP</text>
+<path class="flow-p" d="M655 523 V552" marker-end="url(#b-p)"/><text class="t-sm" x="662" y="562">Vapor 77,5</text>
+<path class="flow-g" d="M590 175 H575 V490 H588" marker-end="url(#b-g)" stroke-dasharray="6 4"/><text class="t-sm" x="568" y="440" text-anchor="end" style="fill:var(--warn)">calor</text>
+<path class="flow" d="M590 500 H542" marker-end="url(#b-a)"/>
+<rect class="box" x="430" y="477" width="110" height="46"/><text class="t-md" x="485" y="498" text-anchor="middle">Foso RDF</text><text class="t-sm t-mu" x="485" y="512" text-anchor="middle">4 días · CR-501</text>
+<path class="flow" d="M430 500 H392" marker-end="url(#b-a)"/>
+<rect x="250" y="482" width="140" height="36" rx="18" class="z-mec" stroke="var(--ink)"/><text class="t-md" x="320" y="498" text-anchor="middle">RDF / SRF</text><text class="t-sm" x="320" y="511" text-anchor="middle">669,9 t/d</text>
+<!-- resumen -->
+<rect x="20" y="360" width="210" height="150" class="box"/>
+<text class="t-md" x="32" y="382" style="font-weight:600">Balance nominal (t/d)</text>
+<text class="t-sm" x="32" y="402">Entrada</text><text class="t-sm" x="218" y="402" text-anchor="end">2.600,0</text>
+<text class="t-sm" x="32" y="420">Productos reciclables</text><text class="t-sm" x="218" y="420" text-anchor="end">521,6</text>
+<text class="t-sm" x="32" y="438">Subproductos</text><text class="t-sm" x="218" y="438" text-anchor="end">1.172,5</text>
+<text class="t-sm" x="32" y="456">Rechazos</text><text class="t-sm" x="218" y="456" text-anchor="end">257,9</text>
+<text class="t-sm" x="32" y="474">Pérdidas (agua, CO₂)</text><text class="t-sm" x="218" y="474" text-anchor="end">647,9</text>
+<line x1="32" y1="482" x2="218" y2="482" class="ln-thin"/>
+<text class="t-sm" x="32" y="498" style="font-weight:600">Cierre del balance</text><text class="t-sm" x="218" y="498" text-anchor="end" style="font-weight:600">100,000 %</text>
+</svg>
+</div>
+<figcaption><span><b>Plano 02</b> · Diagrama de bloques y balance de masa</span><span>Valores en t/d, caso nominal 2.600 t/d</span><span>Rev. A</span></figcaption>
+</figure>
+
+<figure class="dwg" id="plano-03">
+<div class="sheet">
+<svg viewBox="0 0 1200 600" role="img" aria-labelledby="p03t">
+<title id="p03t">Plano 03: diagrama de flujo de proceso de la línea mecánica, pretratamiento, clasificación y RDF</title>
+<defs>
+  <marker id="c-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah"/></marker>
+  <marker id="c-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-p"/></marker>
+  <marker id="c-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-t"/></marker>
+  <g id="wt"><circle r="9" class="box"/><text class="t-sm" y="3" text-anchor="middle" style="font-size:7px">WT</text></g>
+  <g id="nir"><rect x="-34" y="-20" width="68" height="40" class="box"/><path d="M-22 -20 L-14 -30 H14 L22 -20" class="ln"/><circle cx="0" cy="-25" r="2.5" class="ln"/></g>
+</defs>
+<rect class="paper" width="1200" height="600"/>
+<text class="t-lg" x="16" y="24">ÁREA 100–200 · RECEPCIÓN Y PRETRATAMIENTO (1 de 4 líneas)</text>
+<!-- foso y grúa -->
+<path d="M30 70 H150 L140 150 H40 Z" class="box"/><path d="M40 118 Q70 104 95 116 T140 112" class="ln-thin"/>
+<text class="t-md" x="90" y="168" text-anchor="middle">BK-101 foso</text><text class="t-sm t-mu" x="90" y="181" text-anchor="middle">18.750 m³ · 2,5 d</text>
+<line x1="20" y1="44" x2="250" y2="44" class="ln"/><rect x="92" y="40" width="26" height="10" class="box"/><line x1="105" y1="50" x2="105" y2="80" class="ln-thin"/><path d="M97 80 L105 92 L113 80" class="ln"/>
+<text class="t-sm" x="124" y="40">CR-101 A/B/C · grúa automática 12 m³</text>
+<path class="flow" d="M112 86 Q160 60 196 78" marker-end="url(#c-a)"/>
+<!-- tolva y alimentador -->
+<path d="M196 72 H246 L230 104 H212 Z" class="box"/><text class="t-sm" x="221" y="66" text-anchor="middle">H-201</text>
+<line x1="206" y1="120" x2="290" y2="100" class="ln" stroke-width="3"/><text class="t-sm" x="206" y="140">CV-201</text>
+<!-- trituradora -->
+<rect x="292" y="80" width="70" height="56" class="box"/><circle cx="315" cy="108" r="12" class="ln"/><circle cx="340" cy="108" r="12" class="ln"/>
+<text class="t-md" x="327" y="152" text-anchor="middle">SH-201</text><text class="t-sm t-mu" x="327" y="165" text-anchor="middle">abrebolsas 2 ejes · 320 kW</text>
+<path class="flow" d="M362 120 H392" marker-end="url(#c-a)"/><text class="t-sm" x="366" y="114">S03</text>
+<!-- trómel -->
+<g transform="rotate(4 480 115)"><rect x="395" y="92" width="190" height="44" rx="22" class="box"/>
+<g fill="var(--ink-2)"><circle cx="420" cy="104" r="2"/><circle cx="432" cy="104" r="2"/><circle cx="444" cy="104" r="2"/><circle cx="456" cy="104" r="2"/><circle cx="468" cy="104" r="2"/><circle cx="420" cy="124" r="2"/><circle cx="432" cy="124" r="2"/><circle cx="444" cy="124" r="2"/><circle cx="456" cy="124" r="2"/><circle cx="468" cy="124" r="2"/></g>
+<g fill="none" stroke="var(--ink-2)"><circle cx="510" cy="104" r="4"/><circle cx="528" cy="104" r="4"/><circle cx="546" cy="104" r="4"/><circle cx="510" cy="124" r="4"/><circle cx="528" cy="124" r="4"/><circle cx="546" cy="124" r="4"/></g></g>
+<text class="t-md" x="490" y="84" text-anchor="middle">TR-201 trómel Ø 3,6 × 10,6 m</text><text class="t-sm t-mu" x="444" y="160" text-anchor="middle">&lt; 60 mm</text><text class="t-sm t-mu" x="530" y="164" text-anchor="middle">60–250 mm</text>
+<path class="flow-p" d="M590 124 H620 V60 H327 V78" marker-end="url(#c-p)"/><text class="t-sm" x="600" y="54" text-anchor="middle">&gt; 250 mm recircula / a RDF</text>
+<!-- finos -->
+<path class="flow" d="M444 144 V200 H600" marker-end="url(#c-a)"/><text class="t-sm" x="452" y="194">S04 finos</text>
+<rect x="602" y="186" width="60" height="28" class="box"/><text class="t-sm" x="632" y="204" text-anchor="middle">MS-202</text>
+<path class="flow-p" d="M632 186 V172 H660" marker-end="url(#c-p)"/><text class="t-sm" x="664" y="175">Fe</text>
+<path class="flow" d="M662 200 H748" marker-end="url(#c-a)"/><use href="#wt" x="700" y="200"/>
+<rect x="750" y="182" width="250" height="36" rx="4" class="z-org" stroke="var(--ink)"/><text class="t-md" x="875" y="205" text-anchor="middle">S07 → línea biológica (plano 04)</text>
+<!-- rebose -->
+<path class="flow" d="M530 150 V250 H600" marker-end="url(#c-a)"/><text class="t-sm" x="538" y="244">S05</text>
+<rect x="602" y="236" width="60" height="28" class="box"/><text class="t-sm" x="632" y="254" text-anchor="middle">MS-203</text>
+<path class="flow-p" d="M632 264 V278 H660" marker-end="url(#c-p)"/><text class="t-sm" x="664" y="281">Fe → SI-605</text>
+<path class="flow" d="M662 250 H1060 V305 H80 V340 H96" marker-end="url(#c-a)"/><text class="t-sm" x="760" y="244">S17 · CV-301 a nave de clasificación</text>
+
+<line x1="16" y1="312" x2="1184" y2="312" class="ln-thin" stroke-dasharray="4 4"/>
+<text class="t-lg" x="16" y="296">ÁREA 300 · CLASIFICACIÓN (1 de 2 líneas)</text>
+<!-- balístico -->
+<g transform="translate(100 318)"><path d="M0 50 L90 18 L96 34 L6 66 Z" class="box"/><line x1="18" y1="44" x2="72" y2="25" class="ln-thin"/><line x1="22" y1="54" x2="80" y2="34" class="ln-thin"/></g>
+<text class="t-md" x="150" y="410" text-anchor="middle">BS-301 balístico</text>
+<!-- 2D -->
+<path class="flow" d="M196 345 H250" marker-end="url(#c-a)"/><text class="t-sm" x="204" y="338">S18 2D</text>
+<use href="#nir" x="290" y="352"/><text class="t-sm" x="290" y="350" text-anchor="middle">OS-302</text><text class="t-sm t-mu" x="290" y="364" text-anchor="middle">NIR papel</text><path class="flow" d="M290 372 V386" marker-end="url(#c-a)"/><text class="t-sm" x="290" y="398" text-anchor="middle">S20 papel → SI-601</text>
+<path class="flow" d="M324 352 H400" marker-end="url(#c-a)"/>
+<use href="#nir" x="440" y="352"/><text class="t-sm" x="440" y="350" text-anchor="middle">OS-303</text><text class="t-sm t-mu" x="440" y="364" text-anchor="middle">NIR film</text><path class="flow" d="M440 372 V386" marker-end="url(#c-a)"/><text class="t-sm" x="440" y="398" text-anchor="middle">S22 film → SI-602</text>
+<path class="flow" d="M474 352 H520 V500 H585 V506" marker-end="url(#c-a)"/><text class="t-sm" x="526" y="424">S23 resto 2D</text>
+<!-- 3D -->
+<path class="flow" d="M196 372 V450 H250" marker-end="url(#c-a)"/><text class="t-sm" x="204" y="444">S19 3D</text>
+<rect x="252" y="432" width="64" height="36" class="box"/><circle cx="300" cy="450" r="10" class="ln"/><text class="t-sm" x="270" y="454" text-anchor="middle">EC</text>
+<text class="t-sm" x="284" y="482" text-anchor="middle">EC-304 Al → SI-606</text>
+<path class="flow" d="M316 450 H590" marker-end="url(#c-a)"/>
+<use href="#nir" x="630" y="450"/><text class="t-sm" x="630" y="454" text-anchor="middle">OS-305</text><text class="t-sm t-mu" x="630" y="484" text-anchor="middle">PET</text>
+<path class="flow" d="M664 450 H700" marker-end="url(#c-a)"/>
+<use href="#nir" x="740" y="450"/><text class="t-sm" x="740" y="454" text-anchor="middle">OS-306</text><text class="t-sm t-mu" x="740" y="484" text-anchor="middle">HDPE</text>
+<path class="flow" d="M774 450 H810" marker-end="url(#c-a)"/>
+<use href="#nir" x="850" y="450"/><text class="t-sm" x="850" y="454" text-anchor="middle">OS-307</text><text class="t-sm t-mu" x="850" y="484" text-anchor="middle">PP</text>
+<path class="flow" d="M884 450 H920" marker-end="url(#c-a)"/>
+<use href="#nir" x="960" y="450"/><text class="t-sm" x="960" y="454" text-anchor="middle">OS-308/309</text><text class="t-sm t-mu" x="960" y="484" text-anchor="middle">mezcla + repaso</text>
+<path class="flow-p" d="M630 430 V404 M740 430 V404 M850 430 V404 M960 430 V404"/>
+<rect x="600" y="390" width="400" height="16" rx="3" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="800" y="401" text-anchor="middle">RB-301/302 robots IA de control de calidad → silos SI-601…604</text>
+<path class="flow" d="M994 450 H1030 V528 H632" marker-end="url(#c-a)"/><text class="t-sm" x="1036" y="500">S27 resto 3D</text>
+<!-- silos y prensas -->
+<g transform="translate(1080 350)"><rect x="0" y="0" width="80" height="60" class="box"/><rect x="10" y="60" width="60" height="14" class="box"/><text class="t-sm" x="40" y="26" text-anchor="middle">SI-601…606</text><text class="t-sm" x="40" y="40" text-anchor="middle">silos producto</text><text class="t-sm" x="40" y="71" text-anchor="middle">BL-601</text></g>
+<text class="t-sm" x="1120" y="440" text-anchor="middle">prensas 2 + 1</text>
+<!-- CP -->
+<rect x="1066" y="462" width="118" height="28" class="box"/><text class="t-sm" x="1125" y="480" text-anchor="middle">CP-301 aire → NIR</text>
+
+<text class="t-lg" x="700" y="560">ÁREA 500 · RDF</text>
+<rect x="540" y="508" width="90" height="40" class="box"/><text class="t-sm" x="585" y="532" text-anchor="middle">WS-501</text>
+<path class="flow-t" d="M585 548 V580" marker-end="url(#c-t)"/><text class="t-sm" x="592" y="578">S28 pesados → vertedero</text>
+<path class="flow" d="M540 528 H472" marker-end="url(#c-a)"/>
+<g transform="translate(250 500)"><rect x="130" y="8" width="90" height="40" class="box"/><circle cx="160" cy="28" r="10" class="ln"/><circle cx="190" cy="28" r="10" class="ln"/><text class="t-sm" x="175" y="62" text-anchor="middle">SH-501 A–D</text></g>
+<path class="flow" d="M380 528 H300" marker-end="url(#c-a)"/>
+<rect x="210" y="510" width="90" height="36" class="box"/><path d="M216 540 H294" class="ln-thin" stroke-dasharray="5 3"/><text class="t-sm" x="255" y="530" text-anchor="middle">DR-501 secado</text>
+<path class="flow" d="M210 528 H176" marker-end="url(#c-a)"/>
+<path d="M92 510 H172 L166 560 H98 Z" class="box"/><text class="t-sm" x="132" y="534" text-anchor="middle">BK-501</text><text class="t-sm" x="132" y="548" text-anchor="middle">foso RDF</text>
+<path class="flow" d="M92 530 H30" marker-end="url(#c-a)"/><text class="t-sm" x="20" y="520">S31 RDF</text><text class="t-sm t-mu" x="92" y="578">CR-501 → camión de piso móvil</text>
+</svg>
+</div>
+<figcaption><span><b>Plano 03</b> · PFD línea mecánica</span><span>Tags según convención del skill · WT = báscula de banda</span><span>Rev. A</span></figcaption>
+</figure>
+
+<figure class="dwg" id="plano-04">
+<div class="sheet">
+<svg viewBox="0 0 1200 500" role="img" aria-labelledby="p04t">
+<title id="p04t">Plano 04: diagrama de flujo de la línea biológica, biogás y tratamiento de olores</title>
+<defs>
+  <marker id="d-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah"/></marker>
+  <marker id="d-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-g"/></marker>
+  <marker id="d-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ah-p"/></marker>
+  <g id="inst"><circle r="11" class="box"/></g>
+</defs>
+<rect class="paper" width="1200" height="500"/>
+<text class="t-lg" x="16" y="24">ÁREA 400 · DIGESTIÓN, COMPOSTAJE Y BIOGÁS · ÁREA 800 · OLORES</text>
+<!-- entrada -->
+<rect x="16" y="190" width="96" height="34" rx="4" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="64" y="211" text-anchor="middle">S07 de MS-202</text>
+<path class="flow" d="M112 207 H140" marker-end="url(#d-a)"/>
+<path d="M142 180 H222 L214 240 H150 Z" class="box"/><text class="t-sm" x="182" y="204" text-anchor="middle">BK-401</text><text class="t-sm t-mu" x="182" y="218" text-anchor="middle">pulmón 1 d</text>
+<use href="#inst" x="182" y="164"/><text class="t-sm" x="182" y="167" text-anchor="middle" style="font-size:7px">LT</text>
+<path class="flow" d="M214 225 H250" marker-end="url(#d-a)"/>
+<rect x="252" y="206" width="70" height="38" class="box"/><path d="M258 225 q6 -8 12 0 t12 0 t12 0 t12 0 t12 0" class="ln-thin"/><text class="t-sm" x="287" y="258" text-anchor="middle">MX-401 mezcla</text>
+<path class="flow" d="M322 225 H352" marker-end="url(#d-a)"/>
+<!-- digestor -->
+<rect x="354" y="190" width="220" height="70" rx="30" class="z-org" stroke="var(--ink)"/>
+<line x1="370" y1="225" x2="558" y2="225" class="ln"/><g class="ln"><line x1="400" y1="210" x2="400" y2="240"/><line x1="440" y1="210" x2="440" y2="240"/><line x1="480" y1="210" x2="480" y2="240"/><line x1="520" y1="210" x2="520" y2="240"/></g>
+<text class="t-md" x="464" y="278" text-anchor="middle">DG-401 A…L · 12 digestores</text><text class="t-sm t-mu" x="464" y="292" text-anchor="middle">flujo pistón 3.600 m³ · 52–55 °C · TRH ≈ 30 d</text>
+<use href="#inst" x="400" y="176"/><text class="t-sm" x="400" y="179" text-anchor="middle" style="font-size:7px">TT</text>
+<use href="#inst" x="430" y="176"/><text class="t-sm" x="430" y="179" text-anchor="middle" style="font-size:7px">PT</text>
+<!-- biogás -->
+<path class="flow-g" d="M520 190 V110 H600" marker-end="url(#d-g)"/><text class="t-sm" x="512" y="150" text-anchor="end">biogás ≈ 4.550 Nm³/h</text>
+<path d="M602 120 A40 34 0 0 1 682 120 Z" class="box"/><line x1="602" y1="120" x2="682" y2="120" class="ln"/><text class="t-sm" x="642" y="136" text-anchor="middle">GH-401 A/B</text><text class="t-sm t-mu" x="642" y="148" text-anchor="middle">2 × 5.000 m³</text>
+<path class="flow-g" d="M682 110 H712" marker-end="url(#d-g)"/>
+<rect x="714" y="92" width="70" height="36" class="box"/><text class="t-sm" x="749" y="108" text-anchor="middle">DS-401</text><text class="t-sm t-mu" x="749" y="120" text-anchor="middle">desulfuración</text>
+<use href="#inst" x="749" y="74"/><text class="t-sm" x="749" y="77" text-anchor="middle" style="font-size:7px">AT</text><text class="t-sm t-mu" x="764" y="66">CH₄ H₂S O₂</text>
+<path class="flow-g" d="M784 110 H814" marker-end="url(#d-g)"/>
+<circle cx="830" cy="110" r="14" class="box"/><path d="M822 104 L840 110 L822 116" class="ln"/><text class="t-sm" x="830" y="140" text-anchor="middle">GB-401</text>
+<path class="flow-g" d="M844 110 H900" marker-end="url(#d-g)"/>
+<use href="#inst" x="872" y="88"/><text class="t-sm" x="872" y="91" text-anchor="middle" style="font-size:7px">FT</text>
+<rect x="902" y="84" width="110" height="52" class="z-ene" stroke="var(--ink)"/><text class="t-md" x="957" y="106" text-anchor="middle">GE-401 A…E</text><text class="t-sm" x="957" y="122" text-anchor="middle">CHP 5 × 2,0–2,7 MWe</text>
+<path class="flow-g" d="M1012 100 H1060" marker-end="url(#d-g)"/><text class="t-sm" x="1064" y="104">electricidad 10,5 MWe</text>
+<path class="flow-g" d="M1012 124 H1060" marker-end="url(#d-g)" stroke-dasharray="6 4"/><text class="t-sm" x="1064" y="128">calor ≈ 11 MWt</text>
+<text class="t-sm t-mu" x="1064" y="142">→ digestores + DR-501</text>
+<path class="flow-g" d="M872 124 V168 H900" marker-end="url(#d-g)"/>
+<path d="M902 150 H930 L924 190 H908 Z" class="box"/><text class="t-sm" x="940" y="176">FL-401 A/B antorchas 100 %</text>
+<!-- digestato -->
+<path class="flow" d="M574 225 H610" marker-end="url(#d-a)"/>
+<circle cx="626" cy="225" r="14" class="box"/><path d="M620 218 L634 225 L620 232" class="ln"/><text class="t-sm" x="626" y="254" text-anchor="middle">P-401</text>
+<path class="flow" d="M640 225 H676" marker-end="url(#d-a)"/><text class="t-sm" x="644" y="218">S09</text>
+<rect x="678" y="208" width="92" height="34" class="box"/><path d="M684 225 l8 -6 l8 12 l8 -12 l8 12 l8 -12 l8 12 l8 -12 l8 12 l8 -6" class="ln-thin"/><text class="t-sm" x="724" y="256" text-anchor="middle">DW-401 prensas</text>
+<path class="flow-p" d="M724 242 V300 H340 V244" marker-end="url(#d-p)"/><text class="t-sm" x="420" y="314">líquido: recirculación a MX-401 · excedente S10 → WWT-901</text>
+<path class="flow" d="M770 225 H830" marker-end="url(#d-a)"/><text class="t-sm" x="778" y="218">S11 sólido</text>
+<!-- túneles -->
+<rect x="832" y="200" width="120" height="50" class="z-org" stroke="var(--ink)"/><g class="ln-thin"><line x1="846" y1="250" x2="846" y2="238"/><line x1="866" y1="250" x2="866" y2="238"/><line x1="886" y1="250" x2="886" y2="238"/><line x1="906" y1="250" x2="906" y2="238"/><line x1="926" y1="250" x2="926" y2="238"/></g>
+<text class="t-sm" x="892" y="222" text-anchor="middle">CT-401 · 32 túneles</text><text class="t-sm t-mu" x="892" y="234" text-anchor="middle">10 d · FN-402</text>
+<path class="flow" d="M952 225 H986" marker-end="url(#d-a)"/>
+<rect x="988" y="200" width="100" height="50" class="z-org" stroke="var(--ink)"/><text class="t-sm" x="1038" y="222" text-anchor="middle">Maduración</text><text class="t-sm t-mu" x="1038" y="234" text-anchor="middle">21–28 d · FN-403</text>
+<path class="flow" d="M1038 250 V280" marker-end="url(#d-a)"/>
+<rect x="988" y="282" width="100" height="36" class="box"/><text class="t-sm" x="1038" y="304" text-anchor="middle">TR-402 afino</text>
+<path class="flow" d="M1088 300 H1120" marker-end="url(#d-a)"/><text class="t-sm" x="1124" y="296">S14</text><text class="t-sm" x="1124" y="310">compost</text>
+<path class="flow-p" d="M1038 318 V340" marker-end="url(#d-p)"/><text class="t-sm" x="1046" y="338">S15 rechazo</text>
+<path class="flow-p" d="M1038 200 V184" marker-end="url(#d-p)"/><text class="t-sm t-mu" x="1092" y="196">vapor + CO₂ (S12)</text>
+<!-- olores -->
+<line x1="16" y1="362" x2="1184" y2="362" class="ln-thin" stroke-dasharray="4 4"/>
+<rect x="30" y="392" width="230" height="60" class="box"/><text class="t-sm" x="145" y="412" text-anchor="middle">Aire de descarga, foso y pretratamiento,</text><text class="t-sm" x="145" y="426" text-anchor="middle">alimentación AD, túneles y maduración</text><text class="t-sm t-mu" x="145" y="440" text-anchor="middle">en cascada · naves en depresión</text>
+<path class="flow-p" d="M260 422 H310" marker-end="url(#d-p)"/><text class="t-sm" x="262" y="396">≈ 700.000 m³/h</text>
+<circle cx="330" cy="422" r="18" class="box"/><path d="M320 414 L342 422 L320 430" class="ln"/><text class="t-sm" x="330" y="456" text-anchor="middle">FN-801 A…H (7 + 1)</text>
+<path class="flow-p" d="M348 422 H400" marker-end="url(#d-p)"/>
+<rect x="402" y="394" width="46" height="60" class="box"/><path d="M410 404 H440 M410 414 H440 M410 424 H440" class="ln-thin"/><text class="t-sm" x="425" y="470" text-anchor="middle">SCR-801 ácido (NH₃)</text>
+<path class="flow-p" d="M448 422 H500" marker-end="url(#d-p)"/>
+<rect x="502" y="402" width="260" height="40" class="z-env" stroke="var(--ink)"/><path d="M510 412 H754" class="ln-thin" stroke-dasharray="2 3"/><text class="t-sm" x="632" y="428" text-anchor="middle">BF-801 biofiltros ≈ 7.000 m² · lecho 1,5–2 m</text>
+<path class="flow-p" d="M632 402 V378" marker-end="url(#d-p)"/><text class="t-sm" x="640" y="384">a atmósfera · olfatometría EN 13725</text>
+<rect x="800" y="396" width="190" height="52" class="box"/><text class="t-sm" x="895" y="416" text-anchor="middle">WWT-901 depuradora</text><text class="t-sm t-mu" x="895" y="430" text-anchor="middle">MBR + ósmosis inversa</text><text class="t-sm t-mu" x="895" y="442" text-anchor="middle">lixiviado + líquido de digestato</text>
+<path class="flow-p" d="M990 422 H1010" marker-end="url(#d-p)"/><text class="t-sm" x="1014" y="418">agua de proceso reutilizada /</text><text class="t-sm" x="1014" y="432">vertido autorizado</text>
+</svg>
+</div>
+<figcaption><span><b>Plano 04</b> · PFD línea biológica, biogás y olores</span><span>AT/FT/PT/TT/LT: instrumentación ISA-5.1</span><span>Rev. A</span></figcaption>
+</figure>
+
+<figure class="dwg" id="plano-05">
+<div class="sheet">
+<svg viewBox="0 0 1200 420" role="img" aria-labelledby="p05t">
+<title id="p05t">Plano 05: arquitectura de automatización, desde campo hasta analítica</title>
+<rect class="paper" width="1200" height="420"/>
+<g class="t-sm">
+<text class="t-lg" x="16" y="26">ARQUITECTURA DE CONTROL · red OT segmentada según IEC 62443</text>
+<!-- nivel 4 -->
+<rect x="820" y="44" width="360" height="44" class="box"/><text class="t-md" x="1000" y="64" text-anchor="middle">ERP · contabilidad de básculas · facturación</text><text class="t-sm t-mu" x="1000" y="78" text-anchor="middle">red corporativa IT</text>
+<rect x="690" y="52" width="110" height="28" class="z-ene" stroke="var(--ink)"/><text class="t-sm" x="745" y="70" text-anchor="middle">Firewall + DMZ</text>
+<path d="M800 66 H820" class="ln"/>
+<!-- nivel 3 -->
+<rect x="40" y="110" width="1140" height="64" class="box"/>
+<text class="t-md" x="56" y="132">Nivel 3 · Sala de control</text>
+<rect x="56" y="140" width="170" height="26" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="141" y="157" text-anchor="middle">SCADA servidores redundantes</text>
+<rect x="236" y="140" width="130" height="26" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="301" y="157" text-anchor="middle">Historiador</text>
+<rect x="376" y="140" width="190" height="26" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="471" y="157" text-anchor="middle">MES: balance en línea, calidad</text>
+<rect x="576" y="140" width="170" height="26" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="661" y="157" text-anchor="middle">CMMS + mant. predictivo</text>
+<rect x="756" y="140" width="190" height="26" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="851" y="157" text-anchor="middle">Gemelo digital (fase 2)</text>
+<rect x="956" y="140" width="210" height="26" class="z-mec" stroke="var(--ink)"/><text class="t-sm" x="1061" y="157" text-anchor="middle">Pantallas CCTV + cámaras IR</text>
+<path d="M745 80 V110" class="ln"/>
+<!-- anillo -->
+<rect x="40" y="194" width="1140" height="18" rx="9" class="z-env" stroke="var(--ink)"/><text class="t-sm" x="610" y="207" text-anchor="middle">Anillo Ethernet industrial redundante (fibra óptica) · Profinet / EtherNet-IP</text>
+<path d="M600 174 V194" class="ln"/>
+<!-- PLC por área -->
+<g>
+<rect x="40" y="232" width="130" height="58" class="box"/><text class="t-sm" x="105" y="252" text-anchor="middle">PLC-100</text><text class="t-sm t-mu" x="105" y="266" text-anchor="middle">recepción, grúas,</text><text class="t-sm t-mu" x="105" y="279" text-anchor="middle">báscula, puertas</text>
+<rect x="182" y="232" width="130" height="58" class="box"/><text class="t-sm" x="247" y="252" text-anchor="middle">PLC-200 A–D</text><text class="t-sm t-mu" x="247" y="266" text-anchor="middle">1 por línea de</text><text class="t-sm t-mu" x="247" y="279" text-anchor="middle">pretratamiento</text>
+<rect x="324" y="232" width="130" height="58" class="box"/><text class="t-sm" x="389" y="252" text-anchor="middle">PLC-300 A/B</text><text class="t-sm t-mu" x="389" y="266" text-anchor="middle">clasificación +</text><text class="t-sm t-mu" x="389" y="279" text-anchor="middle">sorters, robots</text>
+<rect x="466" y="232" width="130" height="58" class="box"/><text class="t-sm" x="531" y="252" text-anchor="middle">PLC-400 (redund.)</text><text class="t-sm t-mu" x="531" y="266" text-anchor="middle">digestión, biogás,</text><text class="t-sm t-mu" x="531" y="279" text-anchor="middle">túneles</text>
+<rect x="608" y="232" width="130" height="58" class="box"/><text class="t-sm" x="673" y="252" text-anchor="middle">PLC-500</text><text class="t-sm t-mu" x="673" y="266" text-anchor="middle">RDF, secado,</text><text class="t-sm t-mu" x="673" y="279" text-anchor="middle">grúas RDF</text>
+<rect x="750" y="232" width="130" height="58" class="box"/><text class="t-sm" x="815" y="252" text-anchor="middle">PLC-800/900</text><text class="t-sm t-mu" x="815" y="266" text-anchor="middle">olores, agua,</text><text class="t-sm t-mu" x="815" y="279" text-anchor="middle">servicios</text>
+<rect x="892" y="232" width="130" height="58" class="z-ene" stroke="var(--ink)"/><text class="t-sm" x="957" y="252" text-anchor="middle">PLC de seguridad</text><text class="t-sm" x="957" y="266" text-anchor="middle">paradas emergencia,</text><text class="t-sm" x="957" y="279" text-anchor="middle">SIS biogás, BMS antorcha</text>
+<rect x="1034" y="232" width="146" height="58" class="z-ene" stroke="var(--ink)"/><text class="t-sm" x="1107" y="252" text-anchor="middle">Central de incendios</text><text class="t-sm" x="1107" y="266" text-anchor="middle">cañones, rociadores,</text><text class="t-sm" x="1107" y="279" text-anchor="middle">detección chispas</text>
+<path d="M105 212 V232 M247 212 V232 M389 212 V232 M531 212 V232 M673 212 V232 M815 212 V232 M957 212 V232 M1107 212 V232" class="ln"/>
+</g>
+<!-- campo -->
+<rect x="40" y="310" width="1140" height="92" class="box"/>
+<text class="t-md" x="56" y="332">Nivel 0–1 · Campo: E/S remotas IP65/67 y CCM inteligentes</text>
+<text class="t-sm" x="56" y="352">VFD en transportadores, ventiladores y bombas · básculas de banda WT en cada producto y rechazo · sensores de velocidad cero, desvío de banda, atasco (radar)</text>
+<text class="t-sm" x="56" y="368">Grúas automáticas con escaneo 3D del foso · clasificadores NIR y robots con visión artificial · analizadores CH₄/H₂S/O₂/NH₃ · caudalímetros de biogás</text>
+<text class="t-sm" x="56" y="384">Vibración y temperatura de rodamientos en trituradoras, trómeles y ventiladores (predictivo) · cámaras térmicas IR en foso, RDF y balas</text>
+</g>
+</svg>
+</div>
+<figcaption><span><b>Plano 05</b> · Arquitectura de automatización</span><span>Plataforma PLC a elegir según soporte local: Siemens, Rockwell, Schneider o Beckhoff</span><span>Rev. A</span></figcaption>
+</figure>
+</section>
+
+<section id="equipos">
+<h2><span class="n">10</span>Listado maestro de maquinaria</h2>
+<p>64 partidas agrupadas por área. Los fabricantes son candidatos a consultar: <b>ningún modelo, capacidad nominal ni precio se ha verificado con documentación del fabricante</b> (<i>Candidate equipment — manufacturer verification required</i>). El mismo listado está en <code>listado-maestro-equipos.csv</code> para abrirlo en Excel.</p>
+<div class="tbl"><table><thead><tr><th>Tag</th><th>Equipo</th><th>Función</th><th class="r">Serv.</th><th class="r">Res.</th><th>Capacidad de diseño</th><th class="r">kW/ud</th><th>Crit.</th><th>Fabricantes candidatos</th></tr></thead><tbody>
+<tr class="grp"><td colspan="9">Área 100 · Recepción</td></tr>
+<tr><td class="mono">WB-101…106</td><td>Básculas puente 18 m, 60 t</td><td>Pesaje de entrada (3) y salida (3)</td><td class="r">6</td><td class="r">0</td><td>≈ 25 pesadas/h cada una</td><td class="r">2</td><td>A</td><td>Mettler-Toledo, Avery Weigh-Tronix, Bizerba</td></tr>
+<tr><td class="mono">GT-101</td><td>Control de acceso con lectura de matrículas y RFID</td><td>Registro automático de camiones</td><td class="r">2</td><td class="r">0</td><td>—</td><td class="r">1</td><td>B</td><td>Integrador local</td></tr>
+<tr><td class="mono">RD-101</td><td>Pórtico detector de radiación</td><td>Detección de fuentes radiactivas en camiones</td><td class="r">1</td><td class="r">0</td><td>—</td><td class="r">0,5</td><td>B</td><td>Por definir</td></tr>
+<tr><td class="mono">DR-101</td><td>Puertas rápidas de nave de descarga 5 × 7 m</td><td>Cierre de nave en depresión</td><td class="r">12</td><td class="r">0</td><td>—</td><td class="r">4</td><td>B</td><td>Por definir</td></tr>
+<tr><td class="mono">BK-101</td><td>Foso de recepción 110 × 20 m, 12 m de profundidad</td><td>Almacenamiento pulmón 2,5 días</td><td class="r">1</td><td class="r">0</td><td>6.750 t / 18.750 m³</td><td class="r">—</td><td>A</td><td>Obra civil</td></tr>
+<tr><td class="mono">CR-101 A/B/C</td><td>Grúa puente automática con pulpo hidráulico 12 m³</td><td>Mezcla, retirada de voluminosos y alimentación de tolvas</td><td class="r">2</td><td class="r">1</td><td>≈ 115 t/h por grúa</td><td class="r">250</td><td>A</td><td>Konecranes, GH Cranes &amp; Components, Demag</td></tr>
+<tr><td class="mono">FC-101</td><td>Cañones de agua automáticos con cámaras IR</td><td>Detección y extinción de incendios en foso</td><td class="r">4</td><td class="r">0</td><td>—</td><td class="r">15</td><td>A</td><td>Por definir (especialistas en protección de fosos)</td></tr>
+<tr><td class="mono">SH-101</td><td>Triturador lento de voluminosos</td><td>Voluminosos y madera</td><td class="r">1</td><td class="r">0</td><td>≈ 15 t/h</td><td class="r">250</td><td>C</td><td>Vecoplan, Lindner, UNTHA, Komptech, Doppstadt</td></tr>
+<tr class="grp"><td colspan="9">Área 200 · Pretratamiento</td></tr>
+<tr><td class="mono">H-201 A–D</td><td>Tolva de alimentación 60 m³</td><td>Recepción de la grúa</td><td class="r">4</td><td class="r">0</td><td>60 m³</td><td class="r">—</td><td>A</td><td>Integrador de la línea</td></tr>
+<tr><td class="mono">CV-201 A–D</td><td>Alimentador de placas 2,0 m con VFD</td><td>Dosificación al abrebolsas</td><td class="r">4</td><td class="r">0</td><td>50 t/h</td><td class="r">30</td><td>A</td><td>Integrador de la línea</td></tr>
+<tr><td class="mono">SH-201 A–D</td><td>Abrebolsas / pretriturador lento de dos ejes</td><td>Apertura de bolsas y tamaño &lt; 300 mm</td><td class="r">4</td><td class="r">0</td><td>42 t/h</td><td class="r">320</td><td>A</td><td>Vecoplan, Lindner, Komptech, Doppstadt, UNTHA, SSI Shredding</td></tr>
+<tr><td class="mono">TR-201 A–D</td><td>Trómel Ø 3,6 × 10,6 m con mallas 60 y 250 mm</td><td>Separación de finos orgánicos y fracción seca</td><td class="r">4</td><td class="r">0</td><td>42 t/h</td><td class="r">90</td><td>A</td><td>Komptech, Stadler, CP Group, Sutco, Doppstadt, Machinex</td></tr>
+<tr><td class="mono">MS-202 A–D</td><td>Separador magnético overband (finos)</td><td>Recuperación de férricos</td><td class="r">4</td><td class="r">0</td><td>≈ 25 t/h</td><td class="r">11</td><td>B</td><td>Eriez, Steinert, Goudsmit, IMRO, Master Magnets</td></tr>
+<tr><td class="mono">MS-203 A–D</td><td>Separador magnético overband (rebose)</td><td>Recuperación de férricos</td><td class="r">4</td><td class="r">0</td><td>≈ 25 t/h</td><td class="r">11</td><td>B</td><td>Eriez, Steinert, Goudsmit, IMRO, Master Magnets</td></tr>
+<tr><td class="mono">CV-2XX</td><td>Transportadores de banda área 200 (≈ 24) de 1,2–2,0 m</td><td>Transporte entre equipos</td><td class="r">24</td><td class="r">0</td><td>según tramo</td><td class="r">11</td><td>B</td><td>Integrador de la línea</td></tr>
+<tr><td class="mono">WT-2XX</td><td>Básculas de banda</td><td>Balance de masa en línea</td><td class="r">8</td><td class="r">0</td><td>—</td><td class="r">0,2</td><td>B</td><td>Siemens Milltronics, Schenck Process, Thermo Fisher Ramsey</td></tr>
+<tr><td class="mono">DC-201 A–D</td><td>Colectores de polvo de mangas con detección de chispas</td><td>Captación en trituradores y trómeles</td><td class="r">4</td><td class="r">0</td><td>≈ 40.000 m³/h cada uno</td><td class="r">90</td><td>A</td><td>Donaldson, Camfil, Nederman</td></tr>
+<tr class="grp"><td colspan="9">Área 300 · Clasificación</td></tr>
+<tr><td class="mono">BS-301 A1/A2/B1/B2</td><td>Separador balístico</td><td>Separación 2D / 3D</td><td class="r">4</td><td class="r">0</td><td>≈ 24 t/h cada uno (verificar capacidad volumétrica)</td><td class="r">30</td><td>B</td><td>Stadler, Sutco, CP Group, Bollegraaf, BHS/Nihot</td></tr>
+<tr><td class="mono">OS-302 A1/A2/B1/B2</td><td>Clasificador óptico NIR 2,8 m (papel-cartón)</td><td>Recuperación de papel y cartón</td><td class="r">4</td><td class="r">0</td><td>según OEM (t/h por m de ancho)</td><td class="r">12</td><td>B</td><td>TOMRA, Pellenc ST, Steinert, Redwave, MSS</td></tr>
+<tr><td class="mono">OS-303 A1/A2/B1/B2</td><td>Clasificador óptico NIR 2,8 m (film)</td><td>Recuperación de film de PE</td><td class="r">4</td><td class="r">0</td><td>según OEM</td><td class="r">12</td><td>B</td><td>TOMRA, Pellenc ST, Steinert, Redwave, MSS</td></tr>
+<tr><td class="mono">EC-304 A/B</td><td>Separador de corrientes de Foucault, polo excéntrico 1,5 m</td><td>Recuperación de aluminio</td><td class="r">2</td><td class="r">0</td><td>≈ 20 t/h</td><td class="r">15</td><td>B</td><td>Eriez, Steinert, Goudsmit, IMRO</td></tr>
+<tr><td class="mono">OS-305…309 A/B</td><td>Clasificadores ópticos NIR 2,0 m (PET, HDPE, PP, mezcla, repaso)</td><td>Recuperación de plásticos rígidos</td><td class="r">10</td><td class="r">0</td><td>según OEM</td><td class="r">12</td><td>B</td><td>TOMRA, Pellenc ST, Steinert, Redwave, MSS</td></tr>
+<tr><td class="mono">RB-301…308</td><td>Robots de clasificación con visión artificial</td><td>Control de calidad de PET y HDPE</td><td class="r">8</td><td class="r">0</td><td>según OEM (picks/min)</td><td class="r">5</td><td>B</td><td>AMP Robotics, ZenRobotics (Terex), Machinex SamurAI, Bollegraaf</td></tr>
+<tr><td class="mono">QC-301…304</td><td>Cabinas de control de calidad climatizadas</td><td>Inspección y triaje residual</td><td class="r">4</td><td class="r">0</td><td>—</td><td class="r">30</td><td>C</td><td>Integrador de la línea</td></tr>
+<tr><td class="mono">CP-301 A–E</td><td>Compresores de tornillo con VSD 315 kW + secadores y depósitos</td><td>Aire para clasificadores ópticos</td><td class="r">4</td><td class="r">1</td><td>≈ 50 Nm³/min cada uno (verificar consumo real de los NIR)</td><td class="r">315</td><td>A</td><td>Atlas Copco, Kaeser, Ingersoll Rand</td></tr>
+<tr><td class="mono">CV-3XX</td><td>Transportadores área 300 (≈ 60) incluidas bandas de aceleración</td><td>Transporte y alimentación en monocapa</td><td class="r">60</td><td class="r">0</td><td>según tramo</td><td class="r">7,5</td><td>B</td><td>Integrador de la línea</td></tr>
+<tr><td class="mono">WT-3XX</td><td>Básculas de banda de producto</td><td>Balance y control de calidad</td><td class="r">12</td><td class="r">0</td><td>—</td><td class="r">0,2</td><td>B</td><td>Siemens Milltronics, Schenck Process, Thermo Fisher Ramsey</td></tr>
+<tr class="grp"><td colspan="9">Área 600 · Productos y prensado</td></tr>
+<tr><td class="mono">SI-601…612</td><td>Búnkeres de producto con descarga automática</td><td>Acumulación antes de prensado</td><td class="r">12</td><td class="r">0</td><td>≈ 80 m³ cada uno</td><td class="r">7,5</td><td>B</td><td>Integrador de la línea</td></tr>
+<tr><td class="mono">BL-601 A/B/C</td><td>Prensas automáticas de canal con atado automático</td><td>Balas de papel, film, plásticos y aluminio</td><td class="r">2</td><td class="r">1</td><td>≈ 15–30 t/h según material</td><td class="r">110</td><td>A</td><td>Harris, Bollegraaf, Macpresse, Riverside</td></tr>
+<tr class="grp"><td colspan="9">Área 400 · Digestión, compostaje y biogás</td></tr>
+<tr><td class="mono">BK-401</td><td>Búnker pulmón de alimentación a digestión (1 día) con suelo móvil</td><td>Regular alimentación 24 h</td><td class="r">1</td><td class="r">0</td><td>≈ 1.400 t</td><td class="r">60</td><td>A</td><td>Obra civil + integrador AD</td></tr>
+<tr><td class="mono">MX-401 A–L</td><td>Sistemas de alimentación y mezcla con inóculo</td><td>Alimentación de digestores</td><td class="r">12</td><td class="r">0</td><td>≈ 115 t/d cada uno</td><td class="r">90</td><td>A</td><td>Proveedor tecnológico de AD</td></tr>
+<tr><td class="mono">DG-401 A–L</td><td>Digestor seco de flujo pistón termófilo 3.600 m³ útiles con agitador</td><td>Digestión anaerobia</td><td class="r">12</td><td class="r">0</td><td>≈ 115 t/d cada uno, OLR ≈ 8 kg SV/(m³·d)</td><td class="r">75</td><td>A</td><td>Hitachi Zosen Inova (Kompogas), Strabag Umwelttechnik, Thöni</td></tr>
+<tr><td class="mono">P-401 A–L</td><td>Bombas de extracción de digestato</td><td>Descarga de digestores</td><td class="r">12</td><td class="r">0</td><td>—</td><td class="r">37,5</td><td>A</td><td>Proveedor tecnológico de AD</td></tr>
+<tr><td class="mono">DW-401 A–F</td><td>Prensas de tornillo de deshidratación</td><td>Separación sólido-líquido del digestato</td><td class="r">6</td><td class="r">0</td><td>≈ 10 t/h cada una</td><td class="r">30</td><td>A</td><td>Proveedor tecnológico de AD</td></tr>
+<tr><td class="mono">TK-401</td><td>Tanque de líquido de digestato 2.000 m³</td><td>Recirculación y regulación a depuradora</td><td class="r">1</td><td class="r">0</td><td>2.000 m³</td><td class="r">15</td><td>B</td><td>Obra civil</td></tr>
+<tr><td class="mono">GH-401 A/B</td><td>Gasómetro de doble membrana 5.000 m³</td><td>Almacenamiento de biogás (≈ 2 h)</td><td class="r">2</td><td class="r">0</td><td>5.000 m³</td><td class="r">5,5</td><td>A</td><td>Proveedor tecnológico de AD</td></tr>
+<tr><td class="mono">DS-401 A/B</td><td>Desulfuración biológica + filtro de carbón activo</td><td>Eliminación de H2S</td><td class="r">2</td><td class="r">0</td><td>≈ 5.500 Nm³/h</td><td class="r">30</td><td>A</td><td>Proveedor tecnológico de AD</td></tr>
+<tr><td class="mono">GB-401 A/B/C</td><td>Soplantes de biogás</td><td>Presión de alimentación a motores</td><td class="r">2</td><td class="r">1</td><td>≈ 3.000 Nm³/h cada una</td><td class="r">60</td><td>A</td><td>Proveedor tecnológico de AD</td></tr>
+<tr><td class="mono">GE-401 A–E</td><td>Motores de cogeneración a biogás, clase 2,0–2,7 MWe</td><td>Electricidad y calor</td><td class="r">5</td><td class="r">0</td><td>10,5 MWe total nominal</td><td class="r">60 (auxiliares)</td><td>A</td><td>INNIO Jenbacher, MWM (Caterpillar), MAN Energy Solutions</td></tr>
+<tr><td class="mono">FL-401 A/B</td><td>Antorchas cerradas</td><td>Quema segura del biogás (100 %)</td><td class="r">2</td><td class="r">0</td><td>≈ 3.000 Nm³/h cada una</td><td class="r">3</td><td>A</td><td>Proveedor tecnológico de AD</td></tr>
+<tr><td class="mono">HX-401</td><td>Recuperación de calor de motores y circuito de agua caliente</td><td>Calefacción de digestores y secado de RDF</td><td class="r">1</td><td class="r">0</td><td>≈ 11 MWt</td><td class="r">45</td><td>A</td><td>Proveedor de CHP</td></tr>
+<tr><td class="mono">CT-401 01…32</td><td>Túneles de compostaje 30 × 6 m con aireación por suelo</td><td>Compostaje intensivo del digestato (10 d)</td><td class="r">32</td><td class="r">0</td><td>≈ 300 t por túnel</td><td class="r">45 (FN-402)</td><td>A</td><td>Eggersmann, Thöni, Strabag Umwelttechnik, Komptech</td></tr>
+<tr><td class="mono">FN-403</td><td>Ventiladores de aireación de la nave de maduración</td><td>Maduración aireada 21–28 d</td><td class="r">20</td><td class="r">0</td><td>—</td><td class="r">22</td><td>B</td><td>Integrador</td></tr>
+<tr><td class="mono">TR-402 A/B</td><td>Trómel de afino 12 mm + despedregador + separador neumático</td><td>Afino de compost</td><td class="r">2</td><td class="r">0</td><td>≈ 30 t/h</td><td class="r">300 (conjunto)</td><td>B</td><td>Komptech, Doppstadt, Backhus</td></tr>
+<tr class="grp"><td colspan="9">Área 500 · RDF/SRF</td></tr>
+<tr><td class="mono">WS-501 A/B</td><td>Separador neumático</td><td>Retirada de inertes pesados del RDF</td><td class="r">2</td><td class="r">0</td><td>≈ 30 t/h</td><td class="r">90</td><td>B</td><td>Stadler, BHS/Nihot, Komptech</td></tr>
+<tr><td class="mono">MS-501 A/B</td><td>Separador magnético overband RDF</td><td>Protección de trituradores</td><td class="r">2</td><td class="r">0</td><td>—</td><td class="r">11</td><td>B</td><td>Eriez, Steinert, Goudsmit</td></tr>
+<tr><td class="mono">SH-501 A–D</td><td>Triturador secundario de un eje a &lt; 50 mm</td><td>Producción de RDF</td><td class="r">3</td><td class="r">1</td><td>≈ 18 t/h cada uno</td><td class="r">500</td><td>A</td><td>Vecoplan, Lindner, UNTHA, Komptech, Metso M&amp;J</td></tr>
+<tr><td class="mono">DR-501 A/B</td><td>Secadero de banda con agua caliente de la CHP</td><td>Secado del RDF a ≤ 20 % de humedad</td><td class="r">2</td><td class="r">0</td><td>≈ 1,9 t/h de agua evaporada cada uno</td><td class="r">250 (ventiladores)</td><td>A</td><td>Stela Laxhuber, Andritz, Sülzle Klein</td></tr>
+<tr><td class="mono">BK-501</td><td>Foso de RDF (4 días)</td><td>Almacenamiento y carga automática</td><td class="r">1</td><td class="r">0</td><td>2.680 t / 10.700 m³</td><td class="r">—</td><td>A</td><td>Obra civil</td></tr>
+<tr><td class="mono">CR-501 A/B</td><td>Grúa puente de RDF con pulpo</td><td>Carga de camiones de piso móvil</td><td class="r">2</td><td class="r">0</td><td>—</td><td class="r">150</td><td>A</td><td>Konecranes, GH Cranes &amp; Components, Demag</td></tr>
+<tr><td class="mono">DC-501 A/B</td><td>Colectores de polvo con detección y extinción de chispas</td><td>Trituración y secado de RDF</td><td class="r">2</td><td class="r">0</td><td>≈ 50.000 m³/h</td><td class="r">90</td><td>A</td><td>Donaldson, Camfil, Nederman</td></tr>
+<tr class="grp"><td colspan="9">Área 700 · Electricidad y servicios</td></tr>
+<tr><td class="mono">TR-701</td><td>Subestación AT/MT 2 × 25 MVA + transformadores MT/BT 2.500 kVA (≈ 12)</td><td>Suministro eléctrico y evacuación de la CHP</td><td class="r">2 + 12</td><td class="r">0</td><td>≈ 20 MVA requeridos</td><td class="r">—</td><td>A</td><td>Siemens Energy, ABB (Hitachi Energy), Schneider Electric</td></tr>
+<tr><td class="mono">MCC-XXX</td><td>Centros de control de motores inteligentes</td><td>Protección y control de motores</td><td class="r">≈ 14</td><td class="r">0</td><td>—</td><td class="r">—</td><td>A</td><td>Siemens, Rockwell, Schneider, ABB</td></tr>
+<tr><td class="mono">EG-701</td><td>Grupo electrógeno de emergencia ≈ 1.500 kVA + UPS 60 min</td><td>Cargas esenciales y parada segura</td><td class="r">1</td><td class="r">0</td><td>1.500 kVA</td><td class="r">—</td><td>A</td><td>Caterpillar, Cummins, MTU (Rolls-Royce)</td></tr>
+<tr><td class="mono">FP-701 A/B</td><td>Bombas contra incendios (eléctrica + diésel)</td><td>Red de hidrantes y rociadores</td><td class="r">1</td><td class="r">1</td><td>según código</td><td class="r">250</td><td>A</td><td>Proveedores certificados según código local</td></tr>
+<tr><td class="mono">TK-701</td><td>Depósito de agua contra incendios 2.000–3.000 m³</td><td>Reserva de extinción</td><td class="r">1</td><td class="r">0</td><td>2.000–3.000 m³</td><td class="r">—</td><td>A</td><td>Obra civil</td></tr>
+<tr><td class="mono">LAB-701</td><td>Laboratorio (humedad, PCI, cenizas, ST/SV, CH4)</td><td>Control de calidad de productos</td><td class="r">1</td><td class="r">0</td><td>—</td><td class="r">20</td><td>B</td><td>Varios</td></tr>
+<tr class="grp"><td colspan="9">Área 800 · Olores</td></tr>
+<tr><td class="mono">FN-801 A–H</td><td>Ventiladores de extracción 100.000 m³/h a 3.000 Pa</td><td>Depresión de naves y tratamiento de olores</td><td class="r">7</td><td class="r">1</td><td>100.000 m³/h cada uno</td><td class="r">132</td><td>A</td><td>Por definir</td></tr>
+<tr><td class="mono">SCR-801 A–D</td><td>Lavadores ácidos (H2SO4)</td><td>Eliminación de NH3 antes del biofiltro</td><td class="r">4</td><td class="r">0</td><td>≈ 175.000 m³/h cada uno</td><td class="r">30</td><td>A</td><td>Por definir</td></tr>
+<tr><td class="mono">BF-801</td><td>Biofiltros ≈ 7.000 m², lecho 1,5–2 m</td><td>Reducción de olores</td><td class="r">1</td><td class="r">0</td><td>≈ 700.000 m³/h</td><td class="r">—</td><td>A</td><td>Por definir</td></tr>
+<tr class="grp"><td colspan="9">Área 900 · Agua</td></tr>
+<tr><td class="mono">WWT-901</td><td>Depuradora de lixiviados MBR + ósmosis inversa</td><td>Tratamiento de líquido de digestato y lixiviados</td><td class="r">1</td><td class="r">0</td><td>≈ 600 m³/d</td><td class="r">500 (conjunto)</td><td>A</td><td>Veolia, Suez (Veolia), WEHRLE</td></tr>
+<tr class="grp"><td colspan="9">Maquinaria móvil</td></tr>
+<tr><td class="mono">MOV-01</td><td>Palas cargadoras 5 m³</td><td>Llenado de túneles, maduración, compost</td><td class="r">6</td><td class="r">2</td><td>—</td><td class="r">diésel</td><td>A</td><td>Caterpillar, Volvo CE, Liebherr, Komatsu</td></tr>
+<tr><td class="mono">MOV-02</td><td>Carretillas elevadoras con pinza de balas</td><td>Movimiento y carga de balas</td><td class="r">5</td><td class="r">1</td><td>—</td><td class="r">diésel/eléctrica</td><td>B</td><td>Linde, Toyota, Hyster</td></tr>
+<tr><td class="mono">MOV-03</td><td>Manipulador telescópico, barredoras, cisterna</td><td>Limpieza y apoyo</td><td class="r">4</td><td class="r">0</td><td>—</td><td class="r">diésel</td><td>C</td><td>Varios</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="secundarios">
+<h2><span class="n">11</span>Equipos secundarios y servicios auxiliares</h2>
+<div class="cols">
+<div>
+<h3>Servicios de proceso</h3>
+<ul>
+<li><b>Aire comprimido:</b> 4 + 1 compresores de tornillo con variador (≈ 200 Nm³/min en servicio), secadores frigoríficos, depósitos y anillo de distribución.</li>
+<li><b>Captación de polvo:</b> 6 filtros de mangas con detección y extinción de chispas en trituradores, trómeles y línea de RDF.</li>
+<li><b>Olores:</b> 7 + 1 ventiladores de 100.000 m³/h, 4 lavadores ácidos, ≈ 7.000 m² de biofiltro, conductos en plástico reforzado.</li>
+<li><b>Agua:</b> depuradora MBR + ósmosis inversa (≈ 600 m³/d), reutilización del permeado en humectación de biofiltros y túneles, balsas de pluviales con separación de primer lavado.</li>
+<li><b>Calor:</b> circuito de agua caliente desde los motores a digestores y secaderos (≈ 11 MWt disponibles, ≈ 3,4 MWt al secado).</li>
+<li><b>Biogás:</b> gasómetros, desulfuración, soplantes, antorchas, analizadores CH₄/H₂S/O₂.</li>
+</ul>
+</div>
+<div>
+<h3>Infraestructura y apoyo</h3>
+<ul>
+<li><b>Electricidad:</b> subestación AT/MT, ≈ 12 transformadores MT/BT, CCM inteligentes, compensación de reactiva con filtros de armónicos, grupo de emergencia y SAI.</li>
+<li><b>Contra incendios:</b> cámaras IR y cañones automáticos en fosos, rociadores en naves de balas y RDF, anillo de hidrantes, depósito de 2.000–3.000 m³, bombas eléctrica y diésel, retención del agua de extinción.</li>
+<li><b>Pesaje y control de accesos:</b> 6 básculas, lectura de matrículas, pórtico de radiación.</li>
+<li><b>Maquinaria móvil:</b> 8 palas cargadoras (6 + 2), 6 carretillas con pinza de balas, manipulador telescópico, barredoras y cisterna.</li>
+<li><b>Mantenimiento:</b> taller con puente grúa de 10 t, equipo de recargue de cuchillas, almacén de repuestos críticos.</li>
+<li><b>Laboratorio:</b> humedad, PCI, cenizas, ST/SV, BMP y análisis de biogás.</li>
+</ul>
+</div>
+</div>
+<h3>Resumen de servicios</h3>
+<div class="tbl"><table>
+<thead><tr><th>Servicio</th><th>Consumo / capacidad</th><th>Procedencia</th></tr></thead>
+<tbody>
+<tr><td>Electricidad (operación)</td><td>≈ 11,0 MW medios · 238 MWh/d · 91,5 kWh/t</td><td><span class="tag">CÁLC</span> lista de cargas</td></tr>
+<tr><td>Electricidad producida (CHP)</td><td>≈ 10,5 MWe · 252 MWh/d</td><td><span class="tag">CÁLC</span></td></tr>
+<tr><td>Calor recuperado</td><td>≈ 11 MWt (digestores + 3,4 MWt a secado)</td><td><span class="tag">CÁLC</span> η térmica 42 % <span class="tag">LIT</span></td></tr>
+<tr><td>Aire comprimido</td><td>≈ 200 Nm³/min</td><td><span class="tag a">SUPUESTO</span> 12 Nm³/min por NIR <span class="tag t">ENSAYO</span></td></tr>
+<tr><td>Agua de aporte</td><td>≈ 0,15 m³/t · ≈ 390 m³/d</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Aguas a depuradora</td><td>≈ 350–550 m³/d (diseño 600)</td><td><span class="tag">CÁLC</span> + lixiviado <span class="tag">LIT</span></td></tr>
+<tr><td>Gasóleo (maquinaria móvil)</td><td>≈ 1,5 L/t · ≈ 3.900 L/d</td><td><span class="tag a">SUPUESTO</span></td></tr>
+<tr><td>Aire de ventilación tratado</td><td>≈ 700.000 m³/h</td><td><span class="tag">CÁLC</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section id="electrica">
+<h2><span class="n">12</span>Energía y electricidad</h2>
+<p>Lista de cargas con 37 grupos de consumidores (<code>calc/electrical_load_list.csv</code>, calculada con <code>scripts/energy_balance.py</code>).</p>
+<div class="kpis" style="--c:4">
+  <div><b>16,3 MW</b><span>carga conectada en servicio (17,7 MW con reservas)</span></div>
+  <div><b>11,0 MW</b><span>carga media de operación</span></div>
+  <div><b>13,5 MW</b><span>punta de demanda</span></div>
+  <div><b>≈ 20 MVA</b><span>potencia de transformación requerida</span></div>
+</div>
+<div class="tbl"><table>
+<thead><tr><th>Mayores consumidores</th><th class="r">MWh/d</th></tr></thead>
+<tbody>
+<tr><td>Ventiladores de túneles (32 × 45 kW, 24 h)</td><td class="r">22,5</td></tr>
+<tr><td>Trituradores secundarios de RDF (3 × 500 kW)</td><td class="r">21,0</td></tr>
+<tr><td>Compresores de aire (4 × 315 kW)</td><td class="r">20,2</td></tr>
+<tr><td>Ventiladores de olores (7 × 132 kW)</td><td class="r">18,9</td></tr>
+<tr><td>Abrebolsas / pretrituradores (4 × 320 kW)</td><td class="r">16,6</td></tr>
+<tr><td>Alimentación y agitación de digestores</td><td class="r">31,3</td></tr>
+<tr><td>Resto (transportadores, clasificación, servicios, edificios)</td><td class="r">107,4</td></tr>
+<tr class="tot"><td>Total</td><td class="r">237,9</td></tr>
+</tbody></table></div>
+<p><b>Balance energético:</b> la cogeneración produce ≈ 252 MWh/d y la planta consume ≈ 238 MWh/d. La planta es prácticamente <b>autosuficiente</b>, con un pequeño excedente. El consumo calculado es conservador (factor de simultaneidad 1,0); en operación optimizada puede bajar a 60–75 kWh/t <span class="tag">ESTIM</span>, lo que liberaría 40–80 MWh/d para exportar. La conexión a red debe cubrir la punta completa (13,5 MW) para operar con motores parados: subestación AT/MT con 2 transformadores de 25 MVA (N+1) y distribución en MT a centros de transformación por área.</p>
+<div class="note"><b>Alternativa a evaluar:</b> convertir el biogás en biometano (≈ 2.600 Nm³/h) para inyectar en red o alimentar la flota de camiones de recogida. Rinde más si hay red de gas cerca o flota a GNC, pero la planta pasaría a comprar toda su electricidad.</div>
+</section>
+
+<section id="automatizacion">
+<h2><span class="n">13</span>Automatización</h2>
+<p>La arquitectura (plano 05) separa campo, control por área, sala de control y red corporativa. Criterios clave:</p>
+<ul>
+<li><b>Grúas de foso en automático</b> con escaneo 3D del nivel: mezclan el residuo para homogeneizar la alimentación, que es lo que más estabiliza los trómeles y la digestión.</li>
+<li><b>Control de carga:</b> el consumo de cada abrebolsas regula la velocidad del alimentador de placas (PID con variador).</li>
+<li><b>Básculas de banda</b> en todos los productos y rechazos: balance de masa y recuperación por producto en tiempo real.</li>
+<li><b>Enclavamientos en cascada:</b> arranque de aguas abajo hacia aguas arriba; parada inversa con vaciado. Permisivos: filtros de polvo y ventilación de olores en marcha antes de arrancar trituradores o abrir puertas.</li>
+<li><b>Seguridad funcional</b> separada: paradas de emergencia, tirones de cable, resguardos, sistema instrumentado del biogás y gestor de quemador de antorchas.</li>
+<li><b>Inteligencia artificial solo donde se mide su valor:</b> robots de control de calidad (pureza y horas de mano de obra por tonelada), analítica de composición sobre banda, mantenimiento predictivo (horas de parada no planificada) y detección temprana de incendios.</li>
+</ul>
+<h3>Plantilla estimada (≈ 180 personas)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Puesto</th><th class="r">Por turno</th><th>Cobertura</th><th class="r">FTE</th></tr></thead>
+<tbody>
+<tr><td>Sala de control (proceso, grúas, biogás)</td><td class="r">3</td><td>24/7 × 4,2</td><td class="r">13</td></tr>
+<tr><td>Supervisor de turno</td><td class="r">1</td><td>24/7 × 4,2</td><td class="r">4</td></tr>
+<tr><td>Control de calidad en cabinas (con robots)</td><td class="r">6</td><td>24/7 × 4,2</td><td class="r">25</td></tr>
+<tr><td>Maquinistas de pala y carretilla</td><td class="r">7</td><td>24/7 × 4,2</td><td class="r">29</td></tr>
+<tr><td>Mantenimiento a turnos</td><td class="r">4</td><td>24/7 × 4,2</td><td class="r">17</td></tr>
+<tr><td>Básculas, accesos, laboratorio</td><td class="r">2</td><td>24/7 × 4,2</td><td class="r">9</td></tr>
+<tr><td>Mantenimiento de día (mecánico, eléctrico, instrumentación)</td><td class="r">—</td><td>jornada</td><td class="r">25</td></tr>
+<tr><td>Dirección, administración, comercial, HSE, logística, limpieza</td><td class="r">—</td><td>jornada</td><td class="r">36</td></tr>
+<tr><td>Absentismo y vacaciones (≈ 15 %)</td><td class="r"></td><td></td><td class="r">22</td></tr>
+<tr class="tot"><td>Total</td><td></td><td></td><td class="r">≈ 180</td></tr>
+</tbody></table></div>
+<p class="muted">Una planta de la misma capacidad con triaje manual suele necesitar bastante más personal en cabinas <span class="tag a">SUPUESTO</span>. Cobertura 4,2 personas por puesto continuo <span class="tag">LIT</span>.</p>
+</section>
+
+<section id="seguridad">
+<h2><span class="n">14</span>Seguridad e incendios: revisión preliminar de riesgos</h2>
+<div class="tbl"><table>
+<thead><tr><th>Área</th><th>Categoría</th><th>Peligro</th><th>Salvaguardas de diseño</th><th class="r">Riesgo residual</th></tr></thead>
+<tbody>
+<tr><td>Foso RSU y RDF</td><td>Incendio</td><td>Autocalentamiento, baterías de litio</td><td>Cámaras IR, cañones automáticos, muros cortafuegos, rotación del foso por grúa</td><td class="r">Medio</td></tr>
+<tr><td>Trituradores</td><td>Explosión</td><td>Bombonas y aerosoles</td><td>Inspección en foso, paneles de alivio, detección de chispas</td><td class="r">Medio</td></tr>
+<tr><td>Líneas de trituración y RDF</td><td>Polvo</td><td>Polvo combustible (papel, plástico)</td><td>Captación en origen, análisis de riesgo de polvo, zonificación ATEX/NFPA donde aplique</td><td class="r">Medio</td></tr>
+<tr><td>Biogás</td><td>Explosión / tóxico</td><td>CH₄ (5–15 % en aire), H₂S</td><td>Clasificación de áreas, detección de gas, antorchas al 100 %, válvulas de presión y vacío, apagallamas</td><td class="r">Medio</td></tr>
+<tr><td>Transportadores y prensas</td><td>Mecánico</td><td>Atrapamiento</td><td>Resguardos, tirones de cable, consignación LOTO, verificación de energía cero</td><td class="r">Bajo</td></tr>
+<tr><td>Digestores, fosos, tanques</td><td>Personal</td><td>Espacios confinados</td><td>Permisos de trabajo, detección portátil, ventilación forzada</td><td class="r">Medio</td></tr>
+<tr><td>Viales</td><td>Personal</td><td>Atropello</td><td>Circulación de sentido único, separación peatonal, accesos independientes</td><td class="r">Bajo</td></tr>
+<tr><td>Cabinas de control de calidad</td><td>Biológico</td><td>Bioaerosoles, objetos punzantes</td><td>Cabinas presurizadas con aire filtrado, EPI, robots en las posiciones más expuestas</td><td class="r">Bajo</td></tr>
+<tr><td>Subestación y CCM</td><td>Eléctrico</td><td>Arco eléctrico</td><td>Estudio de arco, celdas resistentes al arco, termografía</td><td class="r">Bajo</td></tr>
+<tr><td>Almacén de balas</td><td>Incendio</td><td>Alta carga de fuego</td><td>Rociadores, sectorización, límites de altura y pasillos</td><td class="r">Medio</td></tr>
+</tbody></table></div>
+<p>Pasos siguientes: HAZID con este layout, HAZOP cuando existan los P&amp;ID de biogás y agua, FMEA de trituradores, grúas y ventiladores, y análisis LOPA/SIL de las funciones de seguridad del biogás. Normas de referencia a verificar según país: NFPA 1, 13, 68, 69, 70 y 660; ATEX e IEC 60079; ISO 13849. <i>Applicability must be confirmed for project jurisdiction.</i></p>
+</section>
+
+<section id="ambiente">
+<h2><span class="n">15</span>Medio ambiente</h2>
+<div class="tbl"><table>
+<thead><tr><th>Aspecto</th><th>Fuente</th><th>Carga estimada</th><th>Control</th></tr></thead>
+<tbody>
+<tr><td>Olores</td><td>Foso, orgánicos, compostaje</td><td>≈ 700.000 m³/h de aire tratado</td><td>Naves en depresión, lavado ácido y biofiltro, olfatometría</td></tr>
+<tr><td>NH₃ y compuestos orgánicos volátiles</td><td>Túneles y maduración</td><td>Por medir <span class="tag t">ENSAYO</span></td><td>Lavador ácido previo al biofiltro</td></tr>
+<tr><td>Polvo</td><td>Trituración, cribado, RDF</td><td>Salida de filtro ≤ 5–10 mg/Nm³ de diseño <span class="tag">LIT</span></td><td>Filtros de mangas, cerramientos</td></tr>
+<tr><td>Gases de combustión</td><td>Motores y antorchas</td><td>Según datos del fabricante</td><td>Catalizador, chimeneas, permiso de emisiones</td></tr>
+<tr><td>Aguas residuales</td><td>Digestato, lixiviados, limpieza</td><td>350–550 m³/d</td><td>Depuradora MBR + ósmosis, reutilización interna</td></tr>
+<tr><td>Ruido</td><td>Trituradores, ventiladores, camiones</td><td>Por modelizar</td><td>Equipos dentro de naves, silenciadores en ventiladores</td></tr>
+<tr><td>Rechazos</td><td>Afino y separador neumático</td><td>258 t/d (≈ 10 %)</td><td>Vertedero autorizado</td></tr>
+<tr><td>Residuos peligrosos</td><td>Baterías, aceites, filtros, carbón activo</td><td>Por inventariar</td><td>Gestores autorizados</td></tr>
+</tbody></table></div>
+<p><b>Gases de efecto invernadero:</b> el mayor beneficio procede de evitar el metano que la fracción orgánica generaría en vertedero y de sustituir combustibles fósiles con el RDF en cementeras. Cuantificar con una metodología reconocida antes de hablar de créditos de carbono.</p>
+</section>
+
+<section id="economia">
+<h2><span class="n">16</span>CAPEX y OPEX</h2>
+<div class="note"><b>Clase 5 (orden de magnitud).</b> El coste de equipos es una estimación preliminar de confianza baja, sin ofertas de fabricantes. Precisión esperada −30 % / +50 % o peor. No es un precio contractual. Excluye terreno, acometidas fuera de parcela, impuestos y financiación.</div>
+<h3>Coste de equipos por paquete (base) <span class="tag">ESTIM</span></h3>
+<div class="tbl"><table>
+<thead><tr><th>Paquete</th><th class="r">M USD</th></tr></thead>
+<tbody>
+<tr><td>Recepción: básculas, grúas de foso, puertas, cañones</td><td class="r">10</td></tr>
+<tr><td>Pretratamiento, 4 líneas</td><td class="r">14</td></tr>
+<tr><td>Clasificación, 2 líneas: ópticos, robots, prensas, aire</td><td class="r">32</td></tr>
+<tr><td>RDF: trituración, secado, grúas</td><td class="r">19</td></tr>
+<tr><td>Digestión anaerobia y cogeneración</td><td class="r">62</td></tr>
+<tr><td>Túneles, maduración y afino</td><td class="r">20</td></tr>
+<tr><td>Tratamiento de olores</td><td class="r">12</td></tr>
+<tr><td>Depuradora</td><td class="r">8</td></tr>
+<tr><td>Subestación AT/MT</td><td class="r">5</td></tr>
+<tr><td>Sistema contra incendios</td><td class="r">3</td></tr>
+<tr><td>Maquinaria móvil</td><td class="r">6</td></tr>
+<tr><td>SCADA, MES, ciberseguridad</td><td class="r">3</td></tr>
+<tr class="tot"><td>Total equipos (PEC)</td><td class="r">194</td></tr>
+</tbody></table></div>
+<h3>CAPEX factorizado (<code>scripts/capex_model.py</code>)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Partida</th><th class="r">Bajo</th><th class="r">Base</th><th class="r">Alto</th></tr></thead>
+<tbody>
+<tr><td>Equipos (×0,85 / ×1 / ×1,25)</td><td class="r">164,9</td><td class="r">194,0</td><td class="r">242,5</td></tr>
+<tr><td>Montaje mecánico</td><td class="r">24,7</td><td class="r">38,8</td><td class="r">72,8</td></tr>
+<tr><td>Electricidad</td><td class="r">16,5</td><td class="r">23,3</td><td class="r">36,4</td></tr>
+<tr><td>Instrumentación y control</td><td class="r">8,2</td><td class="r">13,6</td><td class="r">24,3</td></tr>
+<tr><td>Tuberías</td><td class="r">4,9</td><td class="r">9,7</td><td class="r">19,4</td></tr>
+<tr><td>Climatización y conductos</td><td class="r">3,3</td><td class="r">5,8</td><td class="r">12,1</td></tr>
+<tr><td>Protección contra incendios (instalación)</td><td class="r">3,3</td><td class="r">5,8</td><td class="r">12,1</td></tr>
+<tr><td>Obra civil y cimentaciones (foso, digestores, túneles)</td><td class="r">24,7</td><td class="r">38,8</td><td class="r">72,8</td></tr>
+<tr><td>Edificios ≈ 78.000 m² × 600 / 800 / 1.000 USD/m²</td><td class="r">47,0</td><td class="r">62,0</td><td class="r">78,0</td></tr>
+<tr><td>Ingeniería y dirección de obra</td><td class="r">17,9</td><td class="r">31,3</td><td class="r">68,4</td></tr>
+<tr><td>Puesta en marcha</td><td class="r">3,3</td><td class="r">5,8</td><td class="r">9,7</td></tr>
+<tr><td>Contingencia (15 / 20 / 30 %)</td><td class="r">47,8</td><td class="r">85,8</td><td class="r">194,5</td></tr>
+<tr class="tot"><td>CAPEX total, M USD</td><td class="r">367</td><td class="r">515</td><td class="r">843</td></tr>
+<tr><td>USD por t/a de capacidad nominal</td><td class="r">386</td><td class="r">542</td><td class="r">888</td></tr>
+</tbody></table></div>
+<p class="muted">Los factores están en <code>calc/capex_factors.json</code> <span class="tag a">SUPUESTO</span>. Deben calibrarse con el índice de costes y el factor de localización del país: en muchos países de América Latina la obra civil y la mano de obra pueden reducir el total de forma significativa.</p>
+<h3>OPEX anual (<code>scripts/opex_model.py</code>)</h3>
+<div class="tbl"><table>
+<thead><tr><th>Partida</th><th>Base de cálculo</th><th class="r">M USD/a</th><th class="r">USD/t</th></tr></thead>
+<tbody>
+<tr><td>Electricidad (valorada a precio de red)</td><td>91,5 kWh/t × 0,10 USD/kWh</td><td class="r">8,68</td><td class="r">9,15</td></tr>
+<tr><td>Gasóleo</td><td>1,5 L/t × 1,10 USD/L</td><td class="r">1,57</td><td class="r">1,65</td></tr>
+<tr><td>Personal</td><td>180 FTE × 30.000 USD</td><td class="r">5,40</td><td class="r">5,69</td></tr>
+<tr><td>Agua</td><td>0,15 m³/t × 1,5 USD/m³</td><td class="r">0,21</td><td class="r">0,23</td></tr>
+<tr><td>Consumibles</td><td>alambre, químicos, material de biofiltro</td><td class="r">2,37</td><td class="r">2,50</td></tr>
+<tr><td>Piezas de desgaste</td><td>cuchillas, chapas de trómel, bandas</td><td class="r">3,80</td><td class="r">4,00</td></tr>
+<tr><td>Mantenimiento</td><td>3 % del coste de equipos</td><td class="r">5,82</td><td class="r">6,13</td></tr>
+<tr><td>Vertido de rechazos</td><td>94.100 t/a × 20 USD/t</td><td class="r">1,88</td><td class="r">1,98</td></tr>
+<tr><td>Vigilancia ambiental</td><td>partida alzada</td><td class="r">0,40</td><td class="r">0,42</td></tr>
+<tr><td>Seguros</td><td>0,6 % del CAPEX</td><td class="r">3,09</td><td class="r">3,25</td></tr>
+<tr><td>Administración y mantenimiento de motores</td><td>partida alzada</td><td class="r">2,50</td><td class="r">2,63</td></tr>
+<tr class="tot"><td>Total</td><td></td><td class="r">35,7</td><td class="r">37,6</td></tr>
+</tbody></table></div>
+<p>OPEX ≈ <b>37,6 USD por tonelada procesada</b> (≈ 188 USD por tonelada de reciclable vendido). Todos los precios unitarios son supuestos a sustituir por datos del país. Como la cogeneración cubre el consumo eléctrico, la partida de electricidad (≈ 9 USD/t) se compensa en gran parte con energía propia.</p>
+<p><b>Coste completo orientativo:</b> añadiendo la recuperación del capital base (515 M USD, 8 %, 20 años: ≈ 52 M USD/a, ≈ 55 USD/t), el coste bruto es ≈ 93 USD/t antes de ingresos. Los ingresos por materiales, energía y la tasa de entrada municipal determinan la viabilidad. Para calcular VAN, TIR y la tasa de entrada de equilibrio necesito los precios locales de los materiales, la tarifa eléctrica y la tasa de vertedero actual.</p>
+</section>
+
+<section id="riesgos">
+<h2><span class="n">17</span>Riesgos técnicos y ensayos requeridos</h2>
+<div class="tbl"><table>
+<thead><tr><th>Riesgo</th><th class="r">P × S</th><th>Mitigación</th></tr></thead>
+<tbody>
+<tr><td>No existe comprador de RDF, o su calidad no cumple</td><td class="r">4 × 5</td><td>Cartas de intención con cementeras antes del FEED; secado del RDF y retirada de PVC por NIR</td></tr>
+<tr><td>El material bioestabilizado no tiene uso autorizado</td><td class="r">4 × 3</td><td>Consulta normativa temprana; destino alternativo en restauración de vertederos</td></tr>
+<tr><td>Composición real distinta (más finos, más humedad)</td><td class="r">3 × 4</td><td>Campaña de caracterización en dos estaciones; diseño en el extremo alto de cada rango</td></tr>
+<tr><td>Rendimiento de biogás inferior al supuesto</td><td class="r">3 × 4</td><td>Ensayos BMP y piloto; garantías del tecnólogo</td></tr>
+<tr><td>Papel y film de baja calidad por suciedad orgánica</td><td class="r">4 × 3</td><td>Ensayos con compradores; opción de enviarlos al RDF</td></tr>
+<tr><td>Incendio en foso o almacenes</td><td class="r">3 × 5</td><td>Concepto contra incendios validado por la aseguradora</td></tr>
+<tr><td>Olores y rechazo social</td><td class="r">3 × 4</td><td>Naves cerradas en depresión, ubicación alejada, participación pública</td></tr>
+<tr><td>Desgaste mayor de lo previsto en trituradores</td><td class="r">3 × 3</td><td>Garantías de coste de desgaste por tonelada; stock de cuchillas</td></tr>
+</tbody></table></div>
+<h3>Ensayos necesarios</h3>
+<ol>
+<li>Caracterización de composición, humedad y granulometría: 7 días seguidos en temporada seca y húmeda.</li>
+<li>Potencial de biogás (BMP) de la fracción &lt; 60 mm, más ST, SV y relación C/N.</li>
+<li>PCI, cenizas, cloro y metales del RDF, preparado a partir de muestras reales.</li>
+<li>Pruebas de cribado y clasificación en centros de ensayo de fabricantes (trómel y NIR) con residuo local.</li>
+<li>Ensayos de explosividad del polvo (Kst, MIE) de las líneas de trituración y RDF.</li>
+<li>Geotecnia y nivel freático de la parcela (el foso tiene 12 m de profundidad).</li>
+<li>Modelización de dispersión de olores y estudio de ruido.</li>
+</ol>
+</section>
+
+<section id="hoja">
+<h2><span class="n">18</span>Hoja de ruta</h2>
+<div class="tbl"><table>
+<thead><tr><th>Fase</th><th>Duración</th><th>Resultado</th></tr></thead>
+<tbody>
+<tr><td>1. Caracterización, mercados de RDF y compost, búsqueda de parcela</td><td>3–6 meses</td><td>Bases de diseño confirmadas</td></tr>
+<tr><td>2. Ingeniería conceptual con ensayos y ofertas indicativas</td><td>4–6 meses</td><td>CAPEX Clase 4, modelo económico</td></tr>
+<tr><td>3. Evaluación de impacto ambiental y permisos</td><td>12–24 meses (en paralelo desde la fase 2)</td><td>Autorizaciones</td></tr>
+<tr><td>4. FEED y licitación EPC o por paquetes</td><td>6–9 meses</td><td>CAPEX Clase 3, contratos</td></tr>
+<tr><td>5. Ingeniería de detalle y construcción</td><td>24–30 meses</td><td>Planta construida</td></tr>
+<tr><td>6. Puesta en marcha escalonada (arranque biológico de 3–6 meses)</td><td>6–12 meses</td><td>Garantías de rendimiento</td></tr>
+</tbody></table></div>
+<p>Plazo total orientativo: <b>4 a 5 años</b> desde el inicio hasta la operación comercial. Una opción es construir primero 2 líneas de pretratamiento y la digestión y añadir capacidad por fases.</p>
+</section>
+
+<section id="supuestos">
+<h2><span class="n">19</span>Supuestos, revisión de diseño y fuentes</h2>
+<h3>Supuestos principales</h3>
+<ol>
+<li>Composición nominal de la sección 3; los repartos film/rígidos y las fracciones menores son supuestos.</li>
+<li>Coeficientes de transferencia de separación: valores típicos de literatura, ajustados a la baja por la suciedad del residuo mezclado.</li>
+<li>Orgánicos con 30 % ST y 85 % SV/ST; rendimiento de 380 Nm³ de biogás por t SV (orgánicos) y 250 (papel); 58 % CH₄.</li>
+<li>Cogeneración con 40 % de rendimiento eléctrico y 42 % térmico.</li>
+<li>20 h/d de proceso mecánico, 24 h/d biológico; disponibilidad mecánica de 0,90 y factor de punta de 1,10.</li>
+<li>Densidades: RSU en foso 400 kg/m³, RDF secado 250 kg/m³, compost 550 kg/m³.</li>
+<li>Precios unitarios de OPEX y costes de equipos: estimaciones sin ofertas.</li>
+<li>Parcela llana, sin restricciones geotécnicas y con red eléctrica de alta tensión cercana.</li>
+</ol>
+<h3>Revisión de diseño interna</h3>
+<div class="tbl"><table>
+<thead><tr><th>Revisión</th><th>Estado</th><th>Observación</th></tr></thead>
+<tbody>
+<tr><td>Balance de masa</td><td>Correcto</td><td>Cierre 100,000 % en planta y en cada equipo</td></tr>
+<tr><td>Energía</td><td>Correcto</td><td>Mismo consumo (91,5 kWh/t) en lista de cargas y OPEX; CHP ≈ consumo</td></tr>
+<tr><td>Capacidad</td><td>Correcto</td><td>Líneas diseñadas a 2.700 t/d en el extremo desfavorable de cada fracción</td></tr>
+<tr><td>Equipos</td><td>Correcto</td><td>Número de equipos coherente entre PFD, lista de cargas y listado maestro</td></tr>
+<tr><td>Logística</td><td>Correcto</td><td>Camiones calculados con las mismas t/d del balance</td></tr>
+<tr><td>Seguridad</td><td>Pendiente</td><td>HAZID y análisis de polvo por realizar</td></tr>
+<tr><td>Mantenimiento</td><td>Correcto</td><td>Redundancia en grúas, compresores, trituradores de RDF, ventiladores y soplantes</td></tr>
+<tr><td>Economía</td><td>Parcial</td><td>Sin ingresos: faltan precios locales</td></tr>
+<tr><td>Medio ambiente</td><td>Parcial</td><td>Emisiones de olor y ruido por modelizar</td></tr>
+</tbody></table></div>
+<h3>Fuentes</h3>
+<p>Este estudio se basa en los datos aportados por el usuario, en los módulos de referencia y cálculos del skill <code>advanced-waste-recycling-engineering</code> y en rangos típicos de literatura técnica marcados como tales. No se han consultado catálogos de fabricantes, ofertas ni normas en su texto original durante esta revisión; los nombres de fabricantes son candidatos a consultar.</p>
+<p class="muted" style="margin-top:32px">Documento conceptual para toma de decisiones preliminares. No apto para construcción, licitación ni compromiso contractual.</p>
+</section>
+</main>
+</div>

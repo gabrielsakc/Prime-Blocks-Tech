@@ -1,0 +1,2 @@
+stream,from_unit,to_unit,description,flow_kg_h,organics_pct,paper_pct,plastics_pct,metals_pct,glass_inerts_pct,wood_pct,other_pct,moisture_pct,temperature_C,category,provenance
+S01,Weighbridge,BK-101,Raw MSW,,,,,,,,,,,feed,[USER]
