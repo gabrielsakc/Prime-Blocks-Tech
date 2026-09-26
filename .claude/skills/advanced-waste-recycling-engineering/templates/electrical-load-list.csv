@@ -1,0 +1,4 @@
+tag,description,kw,qty,standby_qty,load_factor,diversity_factor,voltage,hours_per_day,starting
+SH-201A,Pre-shredder line A,320,1,0,0.75,1.0,400,20,VFD
+CV-201A,Shredder discharge conveyor,15,1,0,0.7,1.0,400,20,VFD
+FN-801,Odor extraction fan,200,2,1,0.85,1.0,690,24,VFD

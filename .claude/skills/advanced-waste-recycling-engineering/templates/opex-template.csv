@@ -1,0 +1,12 @@
+item,specific_use,unit,price,price_unit,annual_cost,per_t_processed,currency,provenance
+electricity,,kWh/t,,USD/kWh,,,USD,
+fuel,,L/t,,USD/L,,,USD,
+labor,,FTE,,USD/FTE/y,,,USD,
+water,,m3/t,,USD/m3,,,USD,
+consumables,,USD/t,,,,,USD,
+wear_parts,,USD/t,,,,,USD,
+maintenance,,% of mech CAPEX,,,,,USD,
+residue_disposal,,t/y,,USD/t,,,USD,
+environmental_monitoring,,lump sum,,,,,USD,
+insurance,,% of CAPEX,,,,,USD,
+facility_admin,,lump sum,,,,,USD,

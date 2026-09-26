@@ -1,0 +1,65 @@
+tag;descripcion;funcion;area;cant_servicio;cant_reserva;capacidad_diseno;kw_unidad;material_construccion;criticidad;fabricantes_candidatos;estado
+WB-101…106;Básculas puente 18 m, 60 t;Pesaje de entrada (3) y salida (3);100;6;0;≈ 25 pesadas/h cada una;2;Hormigón y acero;A;Mettler-Toledo, Avery Weigh-Tronix, Bizerba;Candidato: verificar con fabricante
+GT-101;Control de acceso con lectura de matrículas y RFID;Registro automático de camiones;100;2;0;—;1;—;B;Integrador local;Candidato: verificar con fabricante
+RD-101;Pórtico detector de radiación;Detección de fuentes radiactivas en camiones;100;1;0;—;0,5;—;B;Por definir;Recomendado, verificar requisito legal
+DR-101;Puertas rápidas de nave de descarga 5 × 7 m;Cierre de nave en depresión;100;12;0;—;4;Acero galvanizado;B;Por definir;Candidato: verificar con fabricante
+BK-101;Foso de recepción 110 × 20 m, 12 m de profundidad;Almacenamiento pulmón 2,5 días;100;1;0;6.750 t / 18.750 m³;—;Hormigón armado con blindaje en zona de impacto;A;Obra civil;Diseño propio
+CR-101 A/B/C;Grúa puente automática con pulpo hidráulico 12 m³;Mezcla, retirada de voluminosos y alimentación de tolvas;100;2;1;≈ 115 t/h por grúa;250;Estructura de acero, pulpo con cuchillas Hardox o equivalente;A;Konecranes, GH Cranes & Components, Demag;Candidato: verificar con fabricante
+FC-101;Cañones de agua automáticos con cámaras IR;Detección y extinción de incendios en foso;100;4;0;—;15;Acero inoxidable;A;Por definir (especialistas en protección de fosos);Candidato: verificar con fabricante
+SH-101;Triturador lento de voluminosos;Voluminosos y madera;100;1;0;≈ 15 t/h;250;Hardox 400/500 o equivalente;C;Vecoplan, Lindner, UNTHA, Komptech, Doppstadt;Candidato: verificar con fabricante
+H-201 A–D;Tolva de alimentación 60 m³;Recepción de la grúa;200;4;0;60 m³;—;Acero con revestimiento antidesgaste;A;Integrador de la línea;Candidato: verificar con fabricante
+CV-201 A–D;Alimentador de placas 2,0 m con VFD;Dosificación al abrebolsas;200;4;0;50 t/h;30;Acero;A;Integrador de la línea;Candidato: verificar con fabricante
+SH-201 A–D;Abrebolsas / pretriturador lento de dos ejes;Apertura de bolsas y tamaño < 300 mm;200;4;0;42 t/h;320;Hardox 400/500 o equivalente;A;Vecoplan, Lindner, Komptech, Doppstadt, UNTHA, SSI Shredding;Candidato: verificar con fabricante
+TR-201 A–D;Trómel Ø 3,6 × 10,6 m con mallas 60 y 250 mm;Separación de finos orgánicos y fracción seca;200;4;0;42 t/h;90;Acero, chapas perforadas intercambiables;A;Komptech, Stadler, CP Group, Sutco, Doppstadt, Machinex;Candidato: verificar con fabricante
+MS-202 A–D;Separador magnético overband (finos);Recuperación de férricos;200;4;0;≈ 25 t/h;11;—;B;Eriez, Steinert, Goudsmit, IMRO, Master Magnets;Candidato: verificar con fabricante
+MS-203 A–D;Separador magnético overband (rebose);Recuperación de férricos;200;4;0;≈ 25 t/h;11;—;B;Eriez, Steinert, Goudsmit, IMRO, Master Magnets;Candidato: verificar con fabricante
+CV-2XX;Transportadores de banda área 200 (≈ 24) de 1,2–2,0 m;Transporte entre equipos;200;24;0;según tramo;11;Banda EP con cubierta resistente al aceite;B;Integrador de la línea;Candidato: verificar con fabricante
+WT-2XX;Básculas de banda;Balance de masa en línea;200;8;0;—;0,2;—;B;Siemens Milltronics, Schenck Process, Thermo Fisher Ramsey;Candidato: verificar con fabricante
+DC-201 A–D;Colectores de polvo de mangas con detección de chispas;Captación en trituradores y trómeles;200;4;0;≈ 40.000 m³/h cada uno;90;Acero, mangas poliéster antiestáticas;A;Donaldson, Camfil, Nederman;Candidato: verificar con fabricante
+BS-301 A1/A2/B1/B2;Separador balístico;Separación 2D / 3D;300;4;0;≈ 24 t/h cada uno (verificar capacidad volumétrica);30;Acero, palas antidesgaste;B;Stadler, Sutco, CP Group, Bollegraaf, BHS/Nihot;Candidato: verificar con fabricante
+OS-302 A1/A2/B1/B2;Clasificador óptico NIR 2,8 m (papel-cartón);Recuperación de papel y cartón;300;4;0;según OEM (t/h por m de ancho);12;—;B;TOMRA, Pellenc ST, Steinert, Redwave, MSS;Candidato: verificar con fabricante
+OS-303 A1/A2/B1/B2;Clasificador óptico NIR 2,8 m (film);Recuperación de film de PE;300;4;0;según OEM;12;—;B;TOMRA, Pellenc ST, Steinert, Redwave, MSS;Candidato: verificar con fabricante
+EC-304 A/B;Separador de corrientes de Foucault, polo excéntrico 1,5 m;Recuperación de aluminio;300;2;0;≈ 20 t/h;15;—;B;Eriez, Steinert, Goudsmit, IMRO;Candidato: verificar con fabricante
+OS-305…309 A/B;Clasificadores ópticos NIR 2,0 m (PET, HDPE, PP, mezcla, repaso);Recuperación de plásticos rígidos;300;10;0;según OEM;12;—;B;TOMRA, Pellenc ST, Steinert, Redwave, MSS;Candidato: verificar con fabricante
+RB-301…308;Robots de clasificación con visión artificial;Control de calidad de PET y HDPE;300;8;0;según OEM (picks/min);5;—;B;AMP Robotics, ZenRobotics (Terex), Machinex SamurAI, Bollegraaf;Candidato: verificar con fabricante
+QC-301…304;Cabinas de control de calidad climatizadas;Inspección y triaje residual;300;4;0;—;30;Panel sándwich;C;Integrador de la línea;Candidato: verificar con fabricante
+CP-301 A–E;Compresores de tornillo con VSD 315 kW + secadores y depósitos;Aire para clasificadores ópticos;300;4;1;≈ 50 Nm³/min cada uno (verificar consumo real de los NIR);315;—;A;Atlas Copco, Kaeser, Ingersoll Rand;Candidato: verificar con fabricante
+CV-3XX;Transportadores área 300 (≈ 60) incluidas bandas de aceleración;Transporte y alimentación en monocapa;300;60;0;según tramo;7,5;Banda EP;B;Integrador de la línea;Candidato: verificar con fabricante
+SI-601…612;Búnkeres de producto con descarga automática;Acumulación antes de prensado;600;12;0;≈ 80 m³ cada uno;7,5;Acero;B;Integrador de la línea;Candidato: verificar con fabricante
+BL-601 A/B/C;Prensas automáticas de canal con atado automático;Balas de papel, film, plásticos y aluminio;600;2;1;≈ 15–30 t/h según material;110;Acero;A;Harris, Bollegraaf, Macpresse, Riverside;Candidato: verificar con fabricante
+WT-3XX;Básculas de banda de producto;Balance y control de calidad;300;12;0;—;0,2;—;B;Siemens Milltronics, Schenck Process, Thermo Fisher Ramsey;Candidato: verificar con fabricante
+BK-401;Búnker pulmón de alimentación a digestión (1 día) con suelo móvil;Regular alimentación 24 h;400;1;0;≈ 1.400 t;60;Hormigón armado;A;Obra civil + integrador AD;Diseño propio
+MX-401 A–L;Sistemas de alimentación y mezcla con inóculo;Alimentación de digestores;400;12;0;≈ 115 t/d cada uno;90;Acero;A;Proveedor tecnológico de AD;Candidato: verificar con fabricante
+DG-401 A–L;Digestor seco de flujo pistón termófilo 3.600 m³ útiles con agitador;Digestión anaerobia;400;12;0;≈ 115 t/d cada uno, OLR ≈ 8 kg SV/(m³·d);75;Hormigón armado o acero con protección anticorrosión;A;Hitachi Zosen Inova (Kompogas), Strabag Umwelttechnik, Thöni;Candidato: verificar con fabricante
+P-401 A–L;Bombas de extracción de digestato;Descarga de digestores;400;12;0;—;37,5;—;A;Proveedor tecnológico de AD;Candidato: verificar con fabricante
+DW-401 A–F;Prensas de tornillo de deshidratación;Separación sólido-líquido del digestato;400;6;0;≈ 10 t/h cada una;30;Acero inoxidable;A;Proveedor tecnológico de AD;Candidato: verificar con fabricante
+TK-401;Tanque de líquido de digestato 2.000 m³;Recirculación y regulación a depuradora;400;1;0;2.000 m³;15;Hormigón o acero vitrificado;B;Obra civil;Diseño propio
+GH-401 A/B;Gasómetro de doble membrana 5.000 m³;Almacenamiento de biogás (≈ 2 h);400;2;0;5.000 m³;5,5;Membrana;A;Proveedor tecnológico de AD;Candidato: verificar con fabricante
+DS-401 A/B;Desulfuración biológica + filtro de carbón activo;Eliminación de H2S;400;2;0;≈ 5.500 Nm³/h;30;Plástico reforzado / inoxidable;A;Proveedor tecnológico de AD;Candidato: verificar con fabricante
+GB-401 A/B/C;Soplantes de biogás;Presión de alimentación a motores;400;2;1;≈ 3.000 Nm³/h cada una;60;Inoxidable, ATEX;A;Proveedor tecnológico de AD;Candidato: verificar con fabricante
+GE-401 A–E;Motores de cogeneración a biogás, clase 2,0–2,7 MWe;Electricidad y calor;400;5;0;10,5 MWe total nominal;60 (auxiliares);—;A;INNIO Jenbacher, MWM (Caterpillar), MAN Energy Solutions;Candidato: verificar con fabricante
+FL-401 A/B;Antorchas cerradas;Quema segura del biogás (100 %);400;2;0;≈ 3.000 Nm³/h cada una;3;Acero;A;Proveedor tecnológico de AD;Candidato: verificar con fabricante
+HX-401;Recuperación de calor de motores y circuito de agua caliente;Calefacción de digestores y secado de RDF;400;1;0;≈ 11 MWt;45;Acero;A;Proveedor de CHP;Candidato: verificar con fabricante
+CT-401 01…32;Túneles de compostaje 30 × 6 m con aireación por suelo;Compostaje intensivo del digestato (10 d);400;32;0;≈ 300 t por túnel;45 (FN-402);Hormigón resistente a corrosión;A;Eggersmann, Thöni, Strabag Umwelttechnik, Komptech;Candidato: verificar con fabricante
+FN-403;Ventiladores de aireación de la nave de maduración;Maduración aireada 21–28 d;400;20;0;—;22;—;B;Integrador;Candidato: verificar con fabricante
+TR-402 A/B;Trómel de afino 12 mm + despedregador + separador neumático;Afino de compost;400;2;0;≈ 30 t/h;300 (conjunto);Acero;B;Komptech, Doppstadt, Backhus;Candidato: verificar con fabricante
+WS-501 A/B;Separador neumático;Retirada de inertes pesados del RDF;500;2;0;≈ 30 t/h;90;Acero;B;Stadler, BHS/Nihot, Komptech;Candidato: verificar con fabricante
+MS-501 A/B;Separador magnético overband RDF;Protección de trituradores;500;2;0;—;11;—;B;Eriez, Steinert, Goudsmit;Candidato: verificar con fabricante
+SH-501 A–D;Triturador secundario de un eje a < 50 mm;Producción de RDF;500;3;1;≈ 18 t/h cada uno;500;Hardox o equivalente, cuchillas reversibles;A;Vecoplan, Lindner, UNTHA, Komptech, Metso M&J;Candidato: verificar con fabricante
+DR-501 A/B;Secadero de banda con agua caliente de la CHP;Secado del RDF a ≤ 20 % de humedad;500;2;0;≈ 1,9 t/h de agua evaporada cada uno;250 (ventiladores);Acero inoxidable;A;Stela Laxhuber, Andritz, Sülzle Klein;Candidato: verificar con fabricante
+BK-501;Foso de RDF (4 días);Almacenamiento y carga automática;500;1;0;2.680 t / 10.700 m³;—;Hormigón armado;A;Obra civil;Diseño propio
+CR-501 A/B;Grúa puente de RDF con pulpo;Carga de camiones de piso móvil;500;2;0;—;150;Acero;A;Konecranes, GH Cranes & Components, Demag;Candidato: verificar con fabricante
+DC-501 A/B;Colectores de polvo con detección y extinción de chispas;Trituración y secado de RDF;500;2;0;≈ 50.000 m³/h;90;Acero;A;Donaldson, Camfil, Nederman;Candidato: verificar con fabricante
+TR-701;Subestación AT/MT 2 × 25 MVA + transformadores MT/BT 2.500 kVA (≈ 12);Suministro eléctrico y evacuación de la CHP;700;2 + 12;0;≈ 20 MVA requeridos;—;—;A;Siemens Energy, ABB (Hitachi Energy), Schneider Electric;Candidato: verificar con fabricante
+MCC-XXX;Centros de control de motores inteligentes;Protección y control de motores;700;≈ 14;0;—;—;—;A;Siemens, Rockwell, Schneider, ABB;Candidato: verificar con fabricante
+EG-701;Grupo electrógeno de emergencia ≈ 1.500 kVA + UPS 60 min;Cargas esenciales y parada segura;700;1;0;1.500 kVA;—;—;A;Caterpillar, Cummins, MTU (Rolls-Royce);Candidato: verificar con fabricante
+FP-701 A/B;Bombas contra incendios (eléctrica + diésel);Red de hidrantes y rociadores;700;1;1;según código;250;—;A;Proveedores certificados según código local;Candidato: verificar con fabricante
+TK-701;Depósito de agua contra incendios 2.000–3.000 m³;Reserva de extinción;700;1;0;2.000–3.000 m³;—;Acero o hormigón;A;Obra civil;Diseño propio
+FN-801 A–H;Ventiladores de extracción 100.000 m³/h a 3.000 Pa;Depresión de naves y tratamiento de olores;800;7;1;100.000 m³/h cada uno;132;Plástico reforzado / acero con recubrimiento;A;Por definir;Candidato: verificar con fabricante
+SCR-801 A–D;Lavadores ácidos (H2SO4);Eliminación de NH3 antes del biofiltro;800;4;0;≈ 175.000 m³/h cada uno;30;Plástico reforzado;A;Por definir;Candidato: verificar con fabricante
+BF-801;Biofiltros ≈ 7.000 m², lecho 1,5–2 m;Reducción de olores;800;1;0;≈ 700.000 m³/h;—;Hormigón + material orgánico;A;Por definir;Diseño propio
+WWT-901;Depuradora de lixiviados MBR + ósmosis inversa;Tratamiento de líquido de digestato y lixiviados;900;1;0;≈ 600 m³/d;500 (conjunto);—;A;Veolia, Suez (Veolia), WEHRLE;Candidato: verificar con fabricante
+MOV-01;Palas cargadoras 5 m³;Llenado de túneles, maduración, compost;—;6;2;—;diésel;—;A;Caterpillar, Volvo CE, Liebherr, Komatsu;Candidato: verificar con fabricante
+MOV-02;Carretillas elevadoras con pinza de balas;Movimiento y carga de balas;—;5;1;—;diésel/eléctrica;—;B;Linde, Toyota, Hyster;Candidato: verificar con fabricante
+MOV-03;Manipulador telescópico, barredoras, cisterna;Limpieza y apoyo;—;4;0;—;diésel;—;C;Varios;Candidato: verificar con fabricante
+LAB-701;Laboratorio (humedad, PCI, cenizas, ST/SV, CH4);Control de calidad de productos;700;1;0;—;20;—;B;Varios;Candidato: verificar con fabricante

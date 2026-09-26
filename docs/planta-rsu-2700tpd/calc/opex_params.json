@@ -1,0 +1,12 @@
+{
+  "tpd": 2600, "days_per_year": 365, "product_tpy": 190384,
+  "electricity": {"kwh_per_t": 91.5, "price_per_kwh": 0.10},
+  "fuel": {"l_per_t": 1.5, "price_per_l": 1.10},
+  "labor": {"fte": 180, "cost_per_fte": 30000},
+  "water": {"m3_per_t": 0.15, "price_per_m3": 1.5},
+  "consumables_per_t": 2.5, "wear_parts_per_t": 4.0,
+  "maintenance_pct_of_capex": 0.03, "capex_mech": 194000000,
+  "disposal": {"residue_tpy": 94134, "price_per_t": 20},
+  "monitoring_per_y": 400000, "insurance_pct_of_capex": 0.006, "capex_total": 514756800,
+  "facility_admin_per_y": 2500000
+}

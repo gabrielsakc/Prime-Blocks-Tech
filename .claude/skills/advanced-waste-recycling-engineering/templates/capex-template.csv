@@ -1,0 +1,14 @@
+item,basis,low,base,high,currency,provenance,notes
+purchased_equipment,Equipment list,,,,USD,[ESTIMATE],delivered to site
+installation,factor on PEC,,,,USD,[ASSUMPTION],
+electrical,factor on PEC,,,,USD,[ASSUMPTION],
+instrumentation,factor on PEC,,,,USD,[ASSUMPTION],
+piping,factor on PEC,,,,USD,[ASSUMPTION],
+hvac_odor,factor on PEC,,,,USD,[ASSUMPTION],
+fire_protection,factor on PEC,,,,USD,[ASSUMPTION],
+civil,factor on PEC,,,,USD,[ASSUMPTION],
+buildings,m2 x unit cost,,,,USD,[ASSUMPTION],
+engineering,factor on direct,,,,USD,[ASSUMPTION],
+commissioning,factor on PEC,,,,USD,[ASSUMPTION],
+contingency,factor on subtotal,,,,USD,[ASSUMPTION],
+TOTAL,,,,,USD,[CALC],Estimate class to be stated

@@ -1,0 +1,14 @@
+Throughput: 949,000 t/y
+  electricity                      8,683,350 /y       9.15 /t
+  fuel                             1,565,850 /y       1.65 /t
+  labor                            5,400,000 /y       5.69 /t
+  water                              213,525 /y       0.23 /t
+  consumables                      2,372,500 /y       2.50 /t
+  wear_parts                       3,796,000 /y       4.00 /t
+  maintenance                      5,820,000 /y       6.13 /t
+  residue_disposal                 1,882,680 /y       1.98 /t
+  environmental_monitoring           400,000 /y       0.42 /t
+  insurance                        3,088,541 /y       3.25 /t
+  facility_admin                   2,500,000 /y       2.63 /t
+  TOTAL                           35,722,446 /y      37.64 /t processed
+                                                    187.63 /t product

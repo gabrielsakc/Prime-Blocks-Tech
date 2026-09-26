@@ -1,0 +1,36 @@
+{
+  "basis": "t/d",
+  "feeds": {"S01": {"flow": 2600, "composition": {
+    "org": 0.45, "pap": 0.22, "film": 0.12, "rig": 0.10, "wood": 0.04,
+    "fe": 0.015, "nf": 0.005, "gi": 0.03, "tex": 0.02}}},
+  "units": [
+    {"tag": "CR-101", "inputs": ["S01"], "outputs": {
+      "S02": {"wood": 0.15, "fe": 0.05, "tex": 0.05}, "S03": "rest"}},
+    {"tag": "TR-201", "inputs": ["S03"], "outputs": {
+      "S04": {"org": 0.85, "pap": 0.15, "film": 0.03, "rig": 0.10, "wood": 0.20,
+              "fe": 0.30, "nf": 0.30, "gi": 0.85, "tex": 0.10}, "S05": "rest"}},
+    {"tag": "MS-202", "inputs": ["S04"], "outputs": {"S06": {"fe": 0.80}, "S07": "rest"}},
+    {"tag": "AD-401", "inputs": ["S07"], "outputs": {"S08": {"org": 0.1163, "pap": 0.1785}, "S09": "rest"}},
+    {"tag": "DW-401", "inputs": ["S09"], "outputs": {"S10": {"org": 0.30}, "S11": "rest"}},
+    {"tag": "CT-401", "inputs": ["S11"], "outputs": {"S12": {"org": 0.45, "pap": 0.40, "wood": 0.10}, "S13": "rest"}},
+    {"tag": "TR-402", "inputs": ["S13"], "outputs": {
+      "S14": {"org": 0.90, "pap": 0.70, "gi": 0.10, "film": 0.02, "rig": 0.02, "wood": 0.60, "tex": 0.10, "fe": 0.0, "nf": 0.0},
+      "S15": "rest"}},
+    {"tag": "MS-203", "inputs": ["S05"], "outputs": {"S16": {"fe": 0.90}, "S17": "rest"}},
+    {"tag": "BS-301", "inputs": ["S17"], "outputs": {
+      "S18": {"org": 0.40, "pap": 0.85, "film": 0.90, "rig": 0.15, "wood": 0.20,
+              "fe": 0.30, "nf": 0.20, "gi": 0.15, "tex": 0.80}, "S19": "rest"}},
+    {"tag": "OS-302", "inputs": ["S18"], "outputs": {"S20": {"pap": 0.45, "film": 0.02, "org": 0.02, "tex": 0.02}, "S21": "rest"}},
+    {"tag": "OS-303", "inputs": ["S21"], "outputs": {"S22": {"film": 0.50, "pap": 0.05, "org": 0.01, "tex": 0.02}, "S23": "rest"}},
+    {"tag": "EC-304", "inputs": ["S19"], "outputs": {"S24": {"nf": 0.85, "fe": 0.05}, "S25": "rest"}},
+    {"tag": "OS-305", "inputs": ["S25"], "outputs": {"S26": {"rig": 0.70, "pap": 0.03, "org": 0.01, "film": 0.03}, "S27": "rest"}},
+    {"tag": "WS-501", "inputs": ["S23", "S27"], "outputs": {
+      "S28": {"gi": 0.85, "org": 0.35, "wood": 0.25, "fe": 0.50, "nf": 0.50, "rig": 0.10}, "S29": "rest"}},
+    {"tag": "DR-501", "inputs": ["S29"], "outputs": {"S30": {"org": 0.35, "pap": 0.10, "tex": 0.10, "wood": 0.10}, "S31": "rest"}}
+  ],
+  "classify": {
+    "S02": "byproduct", "S06": "product", "S08": "byproduct", "S10": "loss", "S12": "loss",
+    "S14": "byproduct", "S15": "reject", "S16": "product", "S20": "product", "S22": "product",
+    "S24": "product", "S26": "product", "S28": "reject", "S30": "loss", "S31": "byproduct"
+  }
+}

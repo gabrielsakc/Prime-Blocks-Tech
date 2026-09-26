@@ -1,0 +1,2 @@
+tag,description,function,area,qty_duty,qty_standby,capacity_nominal,capacity_design,unit,motor_kW,voltage_V,material,dimensions_LxWxH_m,manufacturer,model,oem_status,est_cost,currency,lead_time_weeks,criticality,critical_spares,provenance
+SH-201A,Low-speed pre-shredder / bag opener,Open bags and pre-size MSW <300 mm,200,1,0,60,70,t/h,2x160,400,Hardox 400 wear parts,TBD,TBD,TBD,Candidate equipment — manufacturer verification required,,USD,,A,Knife set; hydraulic pump,[ASSUMPTION]
