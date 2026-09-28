@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PTE Quote Studio</title>
+<link rel="icon" href="assets/img/pte-power-logo.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css?v=20260928a">
+<link rel="stylesheet" href="assets/css/app.css?v=20260928a">
+<link rel="stylesheet" href="assets/css/doc.css?v=20260928a">
+<style id="page-size"></style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-brand">
+    <img src="assets/img/pte-power-logo.png" alt="PTE POWER">
+    <div><b>PTE Quote Studio</b><span>Technical &amp; commercial proposals · PTE POWER systems</span></div>
+  </div>
+  <div class="save-mode" id="saveMode"></div>
+  <div class="bar-total" id="barTotal"></div>
+  <div class="bar-actions">
+    <button class="btn ghost" id="bNew" title="Start a new proposal">New</button>
+    <button class="btn ghost" id="bLib" title="Open a saved proposal">Open</button>
+    <button class="btn ghost" id="bSave" title="Save to this browser's library">Save</button>
+    <button class="btn ghost" id="bExport" title="Export the proposal data as JSON">Export</button>
+    <label class="btn ghost" title="Import proposal JSON">Import<input type="file" id="fImport" accept="application/json" hidden></label>
+    <button class="btn details" id="bDeal" title="Internal deal details: parties, prices, commission">Details</button>
+    <button class="btn primary" id="bPdf">Download PDF</button>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="form" id="form"></aside>
+  <section class="preview" id="previewWrap">
+    <div class="preview-tools">
+      <span id="pageCount"></span>
+      <div class="seg" id="zoomSeg">
+        <button data-z="0.55">S</button><button data-z="0.75" class="on">M</button><button data-z="1">L</button>
+      </div>
+    </div>
+    <div class="doc" id="doc"></div>
+  </section>
+</main>
+
+<div class="deal-wrap" id="dealWrap" hidden>
+  <div class="deal-bar"><div><b>Deal details</b><span>Internal · confidential — never send to the client</span></div>
+    <div class="deal-actions"><button class="btn primary" id="bDealPdf">Download PDF</button><button class="btn" id="bDealClose">Close</button></div></div>
+  <div class="deal-doc" id="dealDoc"></div>
+</div>
+
+<dialog id="libDlg">
+  <h3>Saved proposals</h3>
+  <div id="libList"></div>
+  <form method="dialog"><button class="btn">Close</button></form>
+</dialog>
+
+<dialog id="askDlg">
+  <div id="askStart" hidden>
+    <h3>PTE Quote Studio</h3>
+    <div class="start-btns">
+      <button class="start-card" id="startNew" type="button"><b>New proposal</b><span>Start a blank quotation</span></button>
+      <button class="start-card" id="startOpen" type="button"><b>Open a saved proposal</b><span id="startOpenSub">Continue or revise a quotation</span></button>
+    </div>
+    <div class="start-recent" id="startRecent"></div>
+    <p class="start-warn" id="startWarn" hidden></p>
+  </div>
+  <div id="askNewStep">
+  <h3>New proposal</h3>
+  <p class="ask-q">Does this deal come through an associate?</p>
+  <div class="ask-btns"><button class="btn primary" id="askYes" type="button">Yes, through an associate</button><button class="btn" id="askNo" type="button">No, direct client</button></div>
+  <div class="ask-more" id="askMore" hidden>
+    <label class="f"><span>Associate company</span><input id="askCo" placeholder="Associate legal name"></label>
+    <div class="g2">
+      <label class="f"><span>Associate commission</span><div class="in-suf"><input id="askPct" type="number" step="0.5" min="0" max="100" placeholder="e.g. 16.5"><i>%</i></div></label>
+      <label class="f"><span>How it is priced</span><select id="askMode"><option value="included">Included in price per MW</option><option value="ontop">Added on top of price per MW</option></select></label>
+    </div>
+    <p class="ask-note">The commission is internal: it appears only in this form, never in the client's PDF.</p>
+    <div class="ask-btns"><button class="btn primary" id="askGo" type="button">Start proposal</button></div>
+  </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/data.js?v=20260928a"></script>
+<script src="assets/js/doc.js?v=20260928a"></script>
+<script src="assets/js/deal.js?v=20260928a"></script>
+<script src="assets/js/app.js?v=20260928a"></script>
+</body>
+</html>
